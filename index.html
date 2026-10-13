@@ -366,6 +366,152 @@ body:before{opacity:.035}
  .panel,.heroMain,.heroSide,.teamPanel,.joinPanel{border-radius:14px}
 }
 
+
+/* M/R community downloads library — fullscreen, Modrinth-inspired */
+.mrNavMonogram{display:inline-flex;align-items:center;justify-content:center;padding:3px 5px;border:1px solid #3b6544;border-radius:5px;color:#d2f0cf;font-size:9px;font-weight:950;letter-spacing:-.5px}
+.mrDropdown summary{gap:6px}
+.mrDropdown[open] .mrNavMonogram{background:#1b3422}
+body.mrFullscreenActive{overflow:hidden}
+.mrDropdown[open] .mrFullscreen{position:fixed!important;inset:0!important;z-index:99998!important;width:100vw!important;max-width:none!important;height:100vh;height:100dvh;max-height:none!important;margin:0!important;padding:0!important;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;border:0!important;border-radius:0!important;background:#0b100d!important;color:#e5e9e5;box-shadow:none!important;backdrop-filter:none!important;animation:mrEnter .14s ease-out}
+.mrDropdown[open] .mrFullscreen:before{display:none}
+.mrFullscreenTop{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px;padding:12px clamp(15px,3vw,42px);background:rgba(15,22,17,.97);border-bottom:1px solid #28372c;backdrop-filter:blur(12px)}
+.mrBrand{display:flex!important;align-items:center;gap:11px;min-width:0;color:#f2f5f1!important;padding:0!important;border-radius:0!important}
+.mrBrandMark{display:grid;place-items:center;flex:0 0 42px;height:42px;border:1px solid #376244;border-radius:10px;background:#173021;color:#c1e5c1;font-size:12px;font-weight:950;letter-spacing:-.8px}
+.mrBrand>span:last-child{display:flex;flex-direction:column;gap:3px}
+.mrBrand strong{font-size:15px;font-weight:850;line-height:1.2}
+.mrBrand small{font-size:8px;letter-spacing:1.6px;color:#89998c}
+.mrTopActions{display:flex;align-items:center;gap:8px}
+.mrBtn{min-height:39px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 13px;border:1px solid #35473a;border-radius:8px;background:#171f19;color:#edf3ed;font-size:12px;font-weight:750;cursor:pointer;transition:background .15s,border-color .15s}
+.mrBtn:hover{background:#222e24;border-color:#56735b}
+.mrBtnPrimary{background:#c4e8c2;border-color:#c4e8c2;color:#102013}
+.mrBtnPrimary:hover{background:#d8efd5;border-color:#d8efd5}
+.mrBtnQuiet{background:transparent}
+.mrCloseButton{min-height:39px;display:inline-flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid #35473a;border-radius:8px;background:transparent;color:#e2e9e2;font-size:11px;font-weight:750;cursor:pointer}
+.mrCloseButton:hover{background:#202b22}
+.mrCloseButton span{font-size:20px;line-height:1}
+.mrPage{width:min(1230px,calc(100% - 44px));margin:0 auto;padding:29px 0 25px}
+.mrHero{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:32px 34px;border:1px solid #2a3b2e;border-radius:14px;background:#111a13}
+.mrKicker{font-size:9px;letter-spacing:1.7px;font-weight:900;color:#8aaa8c;margin-bottom:9px}
+.mrHero h2{margin:0 0 12px;font-size:clamp(28px,4vw,45px);line-height:1.07;letter-spacing:-1.6px;font-weight:850;color:#edf2ed}
+.mrHero h2 span{color:#b8dcb5}
+.mrHero p{max-width:590px;margin:0;color:#a8b5aa;font-size:13px;line-height:1.8}
+.mrHeroSide{display:flex;align-items:center;gap:22px;padding:0 7px;flex-shrink:0}
+.mrHeroStat{display:flex;flex-direction:column;gap:4px}
+.mrHeroStat strong{font-size:27px;line-height:1;font-weight:850;color:#eef5ed;font-variant-numeric:tabular-nums}
+.mrHeroStat span{font-size:10px;color:#8c9b8e}
+.mrHeroDivider{width:1px;height:36px;background:#344336}
+.mrSetupNotice{margin-top:17px;padding:15px 17px;border:1px solid #5e5130;border-radius:10px;background:#211d12;color:#d5c9a4}
+.mrSetupNotice strong{display:block;font-size:12px;color:#f0d99a;margin-bottom:4px}
+.mrSetupNotice p{font-size:11px;line-height:1.7;margin:0 0 6px;color:#bfb594}
+.mrSetupNotice a{font-size:11px;font-weight:800;color:#e7d69c;text-decoration:underline;text-underline-offset:3px}
+.mrFlash{margin-top:13px;padding:11px 13px;border-radius:8px;border:1px solid #354c39;background:#132219;color:#c7e6c5;font-size:12px}
+.mrFlash.error{border-color:#674343;background:#241616;color:#f3c1bb}
+.mrAuthPanel,.mrPublishPanel,.mrAccountPanel{margin-top:20px;padding:22px;border:1px solid #2b3c2e;border-radius:13px;background:#111a13}
+.mrPanelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:19px}
+.mrPanelHead h3,.mrAccountPanel h3{font-size:21px;letter-spacing:-.45px;margin:0 0 5px;color:#eef4ee}
+.mrPanelHead p,.mrAccountPanel p{font-size:11px;line-height:1.7;color:#98a99a;margin:0}
+.mrSmallClose{width:34px;height:34px;border:1px solid #35473a;border-radius:8px;background:transparent;color:#dbe7dc;font-size:22px;cursor:pointer}
+.mrAuthGrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.7fr);gap:24px}
+.mrForm{display:flex;flex-direction:column;gap:13px;min-width:0}
+.mrForm label{display:flex;flex-direction:column;gap:7px;color:#d5e0d6;font-size:11px;font-weight:750;min-width:0}
+.mrForm input:not([type=file]),.mrForm select,.mrForm textarea,.mrSearch input,.mrSortWrap select{width:100%;min-width:0;min-height:41px;padding:10px 11px;border:1px solid #354638;border-radius:7px;background:#0b120d;color:#eef4ee;font:inherit;font-weight:450;outline:none}
+.mrForm textarea{min-height:105px;resize:vertical}
+.mrForm input:focus,.mrForm select:focus,.mrForm textarea:focus,.mrSearch input:focus{border-color:#80ad80;box-shadow:0 0 0 2px #54835630}
+.mrForm input[type=file]{display:block;max-width:100%;font-size:11px;color:#aebcae;font-weight:450}
+.mrForm input[type=file]::file-selector-button{margin-right:10px;border:1px solid #3e5842;border-radius:6px;background:#1b2a1d;color:#e5eee5;padding:8px;cursor:pointer}
+.mrForm label small{color:#7e9181;font-size:10px;font-weight:450}
+.mrAuthModes{display:flex;gap:5px;padding:4px;border:1px solid #29392c;border-radius:8px;background:#0c140e}
+.mrAuthModes button{flex:1;min-height:35px;border:0;border-radius:5px;background:transparent;color:#9dac9d;font-size:11px;font-weight:750;cursor:pointer}
+.mrAuthModes button.active{background:#243629;color:#e7f0e5}
+.mrFormSubmit{width:100%;margin-top:2px}
+.mrTextButton{align-self:flex-start;padding:3px 0;border:0;background:transparent;color:#aecfae;font-size:11px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mrAuthInfo{padding:17px;border:1px solid #2c3c2f;border-radius:10px;background:#0d1510}
+.mrAuthInfo strong{font-size:13px;color:#e5eee4}
+.mrAuthInfo p{font-size:11px;line-height:1.8;color:#9ba99c;margin:8px 0 0}
+.mrAuthInfo .mrSafetyNote{padding-top:12px;margin-top:13px;border-top:1px solid #28372b;color:#c9b98e}
+.mrAccountPanel{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.mrAccountIdentity{display:flex;align-items:center;gap:13px;min-width:0}
+.mrAvatar{display:grid;place-items:center;flex:0 0 45px;height:45px;border:1px solid #436449;border-radius:9px;background:#1b3020;color:#d1ead0;font-size:18px;font-weight:850}
+.mrAccountIdentity .mrKicker{margin-bottom:4px}
+.mrUploadForm{gap:18px}
+.mrFormGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.mrFormGrid .mrWide{grid-column:1/-1}
+.mrRequired{color:#ccdfaa}
+.mrFormBottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;border-top:1px solid #293a2c}
+.mrFormBottom p{max-width:650px;margin:0;color:#8fa090;font-size:10px;line-height:1.7}
+.mrBrowse{margin-top:32px}
+.mrBrowseTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin-bottom:17px}
+.mrBrowseTitle .mrKicker{margin-bottom:5px}
+.mrBrowseTitle h3{font-size:23px;letter-spacing:-.65px;margin:0;color:#edf4ed}
+.mrSortWrap{display:flex;align-items:center;gap:9px;color:#8b9b8d;font-size:10px}
+.mrSortWrap select{width:auto;min-height:34px;padding:6px 29px 6px 9px;font-size:10px}
+.mrToolbar{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.mrTabs{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.mrTabs button{min-height:36px;padding:8px 12px;border:1px solid transparent;border-radius:7px;background:transparent;color:#98a79a;font-size:11px;font-weight:750;cursor:pointer}
+.mrTabs button:hover{background:#18231a;color:#e5eee6}
+.mrTabs button.active{background:#24352a;border-color:#3b5640;color:#e8f1e7}
+.mrSearch{display:flex;align-items:center;gap:8px;width:min(360px,100%);padding-left:11px;border:1px solid #354638;border-radius:8px;background:#0e1610;color:#9aad9c}
+.mrSearch>span{font-size:22px;line-height:1}
+.mrSearch input{border:0!important;background:transparent!important;box-shadow:none!important;min-height:38px}
+.mrResultsMeta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 12px;color:#829183;font-size:10px}
+.mrResultsMeta .mrTextButton{font-size:10px;text-decoration:none}
+.mrProjectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.mrProjectCard{min-width:0;display:flex;flex-direction:column;padding:15px;border:1px solid #29392c;border-radius:11px;background:#111a13;transition:border-color .15s,background .15s}
+.mrProjectCard:hover{border-color:#4c6d50;background:#141f16}
+.mrProjectHead{display:flex;align-items:center;gap:12px;min-width:0}
+.mrProjectIcon{display:block;flex:0 0 54px;width:54px;height:54px;object-fit:cover;border:1px solid #334b37;border-radius:9px;background:#1a281d}
+.mrProjectIconFallback{display:grid;place-items:center;color:#c1dfbe;font-size:13px;font-weight:900;letter-spacing:-.4px}
+.mrProjectName{min-width:0}
+.mrProjectName h4{margin:0 0 5px;overflow-wrap:anywhere;color:#edf3ed;font-size:14px;line-height:1.3;font-weight:850}
+.mrProjectMeta{display:flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:9px;color:#849587}
+.mrProjectTag{padding:3px 6px;border:1px solid #3c5c41;border-radius:5px;background:#1a2b1d;color:#bcdcb9;font-size:9px;font-weight:800}
+.mrProjectTag.pack{border-color:#60553a;background:#282316;color:#e1d1a4}
+.mrProjectSummary{flex:1;margin:14px 0 15px;color:#a6b3a7;font-size:11px;line-height:1.8;overflow-wrap:anywhere;white-space:pre-wrap}
+.mrProjectDetails{margin:0 0 14px;padding:10px 0;border-top:1px solid #28382b;border-bottom:1px solid #28382b;color:#8fa090;font-size:10px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.mrProjectFooter{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.mrProjectAuthor{display:flex;align-items:center;gap:7px;min-width:0;font-size:10px;color:#93a394}
+.mrAuthorAvatar{display:grid;place-items:center;flex:0 0 25px;width:25px;height:25px;border:1px solid #364d39;border-radius:50%;background:#1b2b1e;color:#d1e6d0;font-size:10px;font-weight:850}
+.mrDownload{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border:1px solid #456c4b;border-radius:7px;background:#c4e8c2;color:#142416;font-size:10px;font-weight:850;text-decoration:none;white-space:nowrap}
+.mrDownload:hover{background:#d6eed3}
+.mrEmpty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:205px;padding:24px;border:1px dashed #344638;border-radius:11px;background:#0e1610;text-align:center}
+.mrEmptyMark{display:grid;place-items:center;width:47px;height:47px;margin-bottom:14px;border:1px solid #3d5b41;border-radius:9px;background:#18281b;color:#c6e8c3;font-weight:950;font-size:13px}
+.mrEmpty h4{margin:0 0 6px;color:#d9e5d9;font-size:14px}
+.mrEmpty p{max-width:450px;margin:0;color:#849487;font-size:11px;line-height:1.8}
+.mrFooter{display:flex;justify-content:space-between;gap:13px;flex-wrap:wrap;margin-top:31px;padding-top:15px;border-top:1px solid #27362a;color:#6f8072;font-size:9px}
+@keyframes mrEnter{from{opacity:.92}to{opacity:1}}
+@media(max-width:900px){.mrProjectGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.mrHero{padding:25px}.mrPage{width:min(100% - 32px,900px)}}
+@media(max-width:620px){
+ .mrFullscreenTop{align-items:flex-start;gap:10px;padding:10px 12px}
+ .mrBrand{gap:8px;min-width:auto}
+ .mrBrandMark{flex-basis:34px;height:34px;font-size:10px}
+ .mrBrand strong{font-size:12px}
+ .mrBrand small{font-size:7px;letter-spacing:1px}
+ .mrTopActions{justify-content:flex-end;gap:5px;flex-wrap:wrap}
+ .mrTopActions .mrBtn{min-height:34px;padding:7px 8px;font-size:10px}
+ .mrCloseButton{min-height:34px;padding:6px 7px;font-size:10px}
+ .mrCloseButton span{font-size:17px}
+ .mrPage{width:calc(100% - 24px);padding:15px 0 20px}
+ .mrHero{align-items:flex-start;flex-direction:column;gap:20px;padding:19px;border-radius:11px}
+ .mrHero h2{font-size:31px}
+ .mrHero p{font-size:12px}
+ .mrHeroSide{gap:24px}
+ .mrHeroStat strong{font-size:22px}
+ .mrProjectGrid{grid-template-columns:1fr}
+ .mrToolbar{align-items:stretch;flex-direction:column}
+ .mrSearch{width:100%}
+ .mrBrowseTitle h3{font-size:20px}
+ .mrSortWrap{gap:5px}
+ .mrSortWrap select{max-width:150px}
+ .mrFormGrid{grid-template-columns:1fr}
+ .mrFormGrid .mrWide{grid-column:auto}
+ .mrFormBottom{align-items:stretch;flex-direction:column}
+ .mrAuthGrid{grid-template-columns:1fr}
+ .mrAuthPanel,.mrPublishPanel,.mrAccountPanel{padding:15px}
+ .mrAccountPanel{align-items:flex-start;flex-direction:column}
+ .mrFooter{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){.mrDropdown[open] .mrFullscreen{animation:none}.mrProjectCard,.mrBtn{transition:none}}
+
 </style>
 </head>
 <body>
@@ -385,6 +531,75 @@ body:before{opacity:.035}
         <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
         <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
         <a href="#twitch"><span class="navIcon" aria-hidden="true">◉</span>Twitch</a>
+        <details class="navDropdown mrDropdown">
+          <summary><span class="mrNavMonogram" aria-hidden="true">M/R</span>M/R <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <div class="navMenu mrFullscreen" role="dialog" aria-modal="true" aria-label="M/R Mod- und Resource-Pack-Bibliothek">
+            <div class="mrFullscreenTop">
+              <a class="mrBrand" href="#start" aria-label="Zur Tanne-Clan-Startseite"><span class="mrBrandMark">M/R</span><span><strong>M/R Library</strong><small>COMMUNITY DOWNLOADS</small></span></a>
+              <div class="mrTopActions"><button class="mrBtn mrBtnQuiet" id="mrAuthAction" type="button">Anmelden</button><button class="mrBtn mrBtnPrimary" id="mrOpenUpload" type="button">+ Projekt hochladen</button><button class="mrCloseButton" id="mrCloseButton" type="button" aria-label="M/R schließen">Schließen <span aria-hidden="true">×</span></button></div>
+            </div>
+            <div class="mrPage">
+              <section class="mrHero">
+                <div><div class="mrKicker">TANNE CLAN · COMMUNITY LIBRARY</div><h2>Dein Minecraft.<br><span>Deine Mods.</span></h2><p>Finde Mods und Resource Packs aus der Community oder teile deine eigenen Projekte mit anderen Spielern.</p></div>
+                <div class="mrHeroSide"><div class="mrHeroStat"><strong id="mrProjectCount">0</strong><span>Projekte</span></div><div class="mrHeroDivider"></div><div class="mrHeroStat"><strong id="mrCreatorCount">0</strong><span>Creator</span></div></div>
+              </section>
+              <div class="mrSetupNotice" id="mrSetupNotice">
+                <strong>M/R muss noch verbunden werden</strong>
+                <p>Login und gemeinsame Uploads brauchen eine Datenbank. Die Website-Oberfläche ist bereit; verbinde jetzt Supabase mit der SQL-Datei und trage danach URL und öffentlichen Anon-Key in die Konfiguration ein.</p>
+                <a href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup-SQL öffnen ↗</a>
+              </div>
+              <div class="mrFlash" id="mrFlash" role="status" aria-live="polite" hidden></div>
+
+              <section class="mrAuthPanel" id="mrAuthPanel" hidden>
+                <div class="mrPanelHead"><div><div class="mrKicker">DEIN ACCOUNT</div><h3 id="mrAuthTitle">Bei M/R anmelden</h3><p>Zum Hochladen brauchst du ein kostenloses Konto.</p></div><button class="mrSmallClose" type="button" data-mr-hide="auth" aria-label="Anmeldebereich schließen">×</button></div>
+                <div class="mrAuthGrid">
+                  <form id="mrAuthForm" class="mrForm">
+                    <div class="mrAuthModes"><button type="button" class="active" data-auth-mode="login">Anmelden</button><button type="button" data-auth-mode="signup">Konto erstellen</button></div>
+                    <label id="mrDisplayNameWrap" hidden>Profilname<input id="mrDisplayName" type="text" maxlength="32" autocomplete="nickname" placeholder="z. B. TannePlayer"></label>
+                    <label>E-Mail-Adresse<input id="mrEmail" type="email" autocomplete="email" required placeholder="name@example.com"></label>
+                    <label>Passwort<input id="mrPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mindestens 6 Zeichen"></label>
+                    <button class="mrBtn mrBtnPrimary mrFormSubmit" id="mrAuthSubmit" type="submit">Anmelden</button>
+                    <button class="mrTextButton" id="mrForgotPassword" type="button">Passwort vergessen?</button>
+                  </form>
+                  <aside class="mrAuthInfo"><strong>Ein Konto für deine Projekte</strong><p>Mit deinem Account kannst du Resource Packs und Mods hochladen, Beschreibungen bearbeiten und deine eigenen Projekte verwalten.</p><p class="mrSafetyNote">Lade nur Dateien hoch, die du teilen darfst. Mods können ausführbaren Code enthalten – lade nur Dateien von Creatorn herunter, denen du vertraust.</p></aside>
+                </div>
+              </section>
+
+              <section class="mrAccountPanel" id="mrAccountPanel" hidden>
+                <div class="mrAccountIdentity"><div class="mrAvatar" id="mrAvatar">M</div><div><div class="mrKicker">EINGELOGGT</div><h3 id="mrAccountName">Dein Konto</h3><p id="mrAccountEmail"></p></div></div>
+                <button class="mrBtn mrBtnQuiet" id="mrSignOut" type="button">Abmelden</button>
+              </section>
+
+              <section class="mrPublishPanel" id="mrPublishPanel" hidden>
+                <div class="mrPanelHead"><div><div class="mrKicker">NEUES COMMUNITY-PROJEKT</div><h3>Projekt hochladen</h3><p>Gib deinem Upload einen Namen, ein Titelbild und eine kurze Beschreibung.</p></div><button class="mrSmallClose" type="button" data-mr-hide="publish" aria-label="Upload schließen">×</button></div>
+                <form id="mrPublishForm" class="mrForm mrUploadForm">
+                  <div class="mrFormGrid">
+                    <label>Projektname <span class="mrRequired">*</span><input id="mrTitle" type="text" minlength="2" maxlength="80" required placeholder="z. B. Tannes Clear GUI"></label>
+                    <label>Projektart <span class="mrRequired">*</span><select id="mrType" required><option value="resourcepack">Resource Pack</option><option value="mod">Mod</option></select></label>
+                    <label class="mrWide">Kurzbeschreibung <span class="mrRequired">*</span><input id="mrSummary" type="text" maxlength="180" required placeholder="Was macht dein Projekt besonders?"></label>
+                    <label class="mrWide">Beschreibung <span class="mrRequired">*</span><textarea id="mrDescription" rows="4" maxlength="5000" required placeholder="Funktionen, Installation, Anforderungen und bekannte Probleme …"></textarea></label>
+                    <label>Minecraft-Versionen<input id="mrVersions" type="text" maxlength="100" placeholder="z. B. 1.21.1, 1.21.4"></label>
+                    <label>Mod-Loader / Format<select id="mrLoader"><option value="Vanilla">Vanilla / Resource Pack</option><option value="Fabric">Fabric</option><option value="Forge">Forge</option><option value="NeoForge">NeoForge</option><option value="Quilt">Quilt</option><option value="Other">Sonstiges</option></select></label>
+                    <label>Projektbild / Icon <span class="mrRequired">*</span><input id="mrIconFile" type="file" accept="image/png,image/jpeg,image/webp" required><small>PNG, JPG oder WEBP · max. 5 MB</small></label>
+                    <label>Download-Datei <span class="mrRequired">*</span><input id="mrProjectFile" type="file" accept=".jar,.zip,.mrpack,application/java-archive,application/zip" required><small>JAR, ZIP oder MRPACK · max. 100 MB</small></label>
+                  </div>
+                  <div class="mrFormBottom"><p>Mit dem Upload bestätigst du, dass du die Rechte an den Dateien hast und keine schädlichen oder fremden Inhalte hochlädst.</p><button class="mrBtn mrBtnPrimary" id="mrPublishSubmit" type="submit">Projekt veröffentlichen</button></div>
+                </form>
+              </section>
+
+              <section class="mrBrowse">
+                <div class="mrBrowseTitle"><div><div class="mrKicker">STÖBERN</div><h3>Community-Projekte</h3></div><span class="mrSortWrap"><label for="mrSort">Sortierung</label><select id="mrSort"><option value="newest">Neueste zuerst</option><option value="name">Name A–Z</option></select></span></div>
+                <div class="mrToolbar">
+                  <div class="mrTabs" role="group" aria-label="Projekttyp filtern"><button class="active" type="button" data-project-filter="all">Alle</button><button type="button" data-project-filter="mod">Mods</button><button type="button" data-project-filter="resourcepack">Resource Packs</button></div>
+                  <label class="mrSearch"><span aria-hidden="true">⌕</span><input id="mrSearch" type="search" placeholder="Projekte suchen …" aria-label="Projekte suchen"></label>
+                </div>
+                <div class="mrResultsMeta"><span id="mrResultsCount">Noch keine Projekte geladen</span><button class="mrTextButton" id="mrRefresh" type="button">Neu laden ↻</button></div>
+                <div class="mrProjectGrid" id="mrProjectGrid"><div class="mrEmpty"><div class="mrEmptyMark">M/R</div><h4>Projekte werden geladen</h4><p>Die neuesten Mods und Resource Packs erscheinen hier.</p></div></div>
+              </section>
+              <footer class="mrFooter"><span>M/R Library · Ein Community-Projekt von Tanne Clan</span><span>Prüfe immer Version und Quelle, bevor du etwas installierst.</span></footer>
+            </div>
+          </div>
+        </details>
         <details class="navDropdown rulesDropdown">
           <summary><span class="navIcon" aria-hidden="true">☷</span>Regeln <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu rulesMenu" role="dialog" aria-modal="true" aria-label="Tanne Clan Regelwerk">
@@ -580,7 +795,11 @@ loadStatus();
 (()=>{'use strict';
 const dropdowns=[...document.querySelectorAll('.navDropdown')];
 const rulesDropdown=document.querySelector('.rulesDropdown');
-const syncFullscreen=()=>document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
+const mrDropdown=document.querySelector('.mrDropdown');
+const syncFullscreen=()=>{
+  document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
+  document.body.classList.toggle('mrFullscreenActive',Boolean(mrDropdown&&mrDropdown.open));
+};
 dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
   if(details.open)dropdowns.forEach(other=>{if(other!==details)other.open=false});
   syncFullscreen();
@@ -590,18 +809,216 @@ document.querySelectorAll('.rulesCloseButton').forEach(button=>button.addEventLi
   rulesDropdown.open=false;
   rulesDropdown.querySelector('summary')?.focus();
 }));
+document.querySelectorAll('#mrCloseButton').forEach(button=>button.addEventListener('click',()=>{
+  if(!mrDropdown)return;
+  mrDropdown.open=false;
+  mrDropdown.querySelector('summary')?.focus();
+}));
 document.addEventListener('click',event=>{
   dropdowns.forEach(details=>{if(details.open&&!details.contains(event.target))details.open=false});
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='Escape'){
-    const openedRules=rulesDropdown&&rulesDropdown.open;
+    const opened=dropdowns.find(details=>details.open);
     dropdowns.forEach(details=>details.open=false);
-    if(openedRules){event.preventDefault();rulesDropdown.querySelector('summary')?.focus();}
+    if(opened){event.preventDefault();opened.querySelector('summary')?.focus();}
     syncFullscreen();
   }
 });
 })();
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(()=>{'use strict';
+const CONFIG={
+  /* Nach dem Anlegen deines Supabase-Projekts hier die Project URL und den öffentlichen anon/publishable Key eintragen. Niemals den service_role-Key verwenden. */
+  supabaseUrl:'SUPABASE_URL_HIER_EINFUEGEN',
+  supabaseAnonKey:'SUPABASE_ANON_KEY_HIER_EINFUEGEN'
+};
+const $=id=>document.getElementById(id);
+const drop=document.querySelector('.mrDropdown');
+const setup=$('mrSetupNotice'), flash=$('mrFlash'), grid=$('mrProjectGrid');
+let client=null,session=null,projects=[],filter='all',authMode='login';
+const configReady=CONFIG.supabaseUrl.startsWith('https://')&&!CONFIG.supabaseUrl.includes('HIER_EINFUEGEN')&&CONFIG.supabaseAnonKey.length>20&&!CONFIG.supabaseAnonKey.includes('HIER_EINFUEGEN')&&window.supabase;
+function message(text,error){
+  flash.textContent=text;flash.hidden=false;flash.classList.toggle('error',!!error);
+}
+function clearMessage(){flash.hidden=true;flash.textContent='';flash.classList.remove('error')}
+function showPanel(which){
+  $('mrAuthPanel').hidden=which!=='auth';
+  $('mrPublishPanel').hidden=which!=='publish';
+  clearMessage();
+  if(which==='auth'&&!session){setAuthMode(authMode)}
+  if(which==='publish'&&session)$('mrTitle').focus();
+  if(which==='auth')$('mrEmail').focus();
+}
+function setAuthMode(mode){
+  authMode=mode;
+  $('mrDisplayNameWrap').hidden=mode!=='signup';
+  $('mrAuthTitle').textContent=mode==='signup'?'Konto erstellen':'Bei M/R anmelden';
+  $('mrAuthSubmit').textContent=mode==='signup'?'Kostenloses Konto erstellen':'Anmelden';
+  $('mrPassword').autocomplete=mode==='signup'?'new-password':'current-password';
+  document.querySelectorAll('[data-auth-mode]').forEach(b=>b.classList.toggle('active',b.dataset.authMode===mode));
+  $('mrForgotPassword').hidden=mode==='signup';
+}
+function updateAccount(){
+  const user=session&&session.user;
+  $('mrAuthAction').textContent=user?(user.user_metadata&&user.user_metadata.display_name?user.user_metadata.display_name:(user.email||'Konto').split('@')[0]):'Anmelden';
+  $('mrAuthAction').classList.toggle('mrBtnPrimary',!!user);
+  $('mrAuthAction').classList.toggle('mrBtnQuiet',!user);
+  $('mrOpenUpload').textContent=user?'+ Projekt hochladen':'+ Projekt hochladen';
+  $('mrOpenUpload').title=user?'Neues Projekt veröffentlichen':'Zum Hochladen zuerst anmelden';
+  $('mrAccountPanel').hidden=!user;
+  if(user){
+    const name=(user.user_metadata&&user.user_metadata.display_name)||user.email.split('@')[0]||'Creator';
+    $('mrAccountName').textContent=name;
+    $('mrAccountEmail').textContent=user.email||'';
+    $('mrAvatar').textContent=name.slice(0,1).toUpperCase();
+  }
+}
+function filePublicUrl(path){
+  if(!path||!client)return '';
+  return client.storage.from('mr-files').getPublicUrl(path).data.publicUrl;
+}
+function el(tag,className,text){
+  const node=document.createElement(tag);
+  if(className)node.className=className;
+  if(text!==undefined&&text!==null)node.textContent=text;
+  return node;
+}
+function renderProjects(){
+  const query=$('mrSearch').value.trim().toLocaleLowerCase('de');
+  const sorting=$('mrSort').value;
+  let list=projects.filter(p=>(filter==='all'||p.project_type===filter)&&(!query||[p.title,p.summary,p.description,p.author_name,p.game_versions,p.loader].join(' ').toLocaleLowerCase('de').includes(query)));
+  if(sorting==='name')list.sort((a,b)=>(a.title||'').localeCompare(b.title||'','de'));
+  else list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+  $('mrResultsCount').textContent=list.length+' '+(list.length===1?'Projekt':'Projekte');
+  $('mrProjectCount').textContent=String(projects.length);
+  $('mrCreatorCount').textContent=String(new Set(projects.map(p=>p.author_id)).size);
+  grid.replaceChildren();
+  if(!list.length){
+    const empty=el('div','mrEmpty');
+    empty.append(el('div','mrEmptyMark','M/R'),el('h4', '',projects.length?'Keine passenden Projekte':'Noch keine Projekte'),el('p','',projects.length?'Ändere die Suche oder wähle einen anderen Filter.':'Sei einer der Ersten und veröffentliche ein Mod oder Resource Pack für die Community.'));
+    grid.append(empty);return;
+  }
+  list.forEach(p=>{
+    const card=el('article','mrProjectCard');
+    const head=el('div','mrProjectHead');
+    const img=document.createElement('img');img.className='mrProjectIcon';img.alt='Projektbild für '+p.title;img.loading='lazy';img.src=filePublicUrl(p.icon_path);
+    img.addEventListener('error',()=>{const fallback=el('div','mrProjectIcon mrProjectIconFallback',(p.title||'M/R').slice(0,2).toUpperCase());img.replaceWith(fallback)},{once:true});
+    const name=el('div','mrProjectName');name.append(el('h4','',p.title||'Unbenanntes Projekt'));
+    const meta=el('div','mrProjectMeta');
+    meta.append(el('span','mrProjectTag '+(p.project_type==='resourcepack'?'pack':''),p.project_type==='mod'?'MOD':'RESOURCE PACK'));
+    if(p.game_versions)meta.append(el('span','',p.game_versions));
+    if(p.loader)meta.append(el('span','',p.loader));
+    name.append(meta);head.append(img,name);card.append(head);
+    card.append(el('p','mrProjectSummary',p.summary||'Keine Kurzbeschreibung vorhanden.'));
+    if(p.description){const details=el('p','mrProjectDetails',p.description);card.append(details)}
+    const foot=el('div','mrProjectFooter'),author=el('div','mrProjectAuthor');
+    const avatar=el('span','mrAuthorAvatar',((p.author_name||'C').trim().slice(0,1)||'C').toUpperCase());
+    author.append(avatar,el('span','',p.author_name||'Community-Creator'));
+    const download=document.createElement('a');download.className='mrDownload';download.href=filePublicUrl(p.file_path);download.target='_blank';download.rel='noopener noreferrer';download.textContent='Download ↓';download.setAttribute('aria-label','Download für '+(p.title||'Projekt'));download.addEventListener('click',()=>{try{client.rpc('mr_record_download',{project_id:p.id})}catch(e){}});
+    foot.append(author,download);card.append(foot);grid.append(card);
+  });
+}
+async function loadProjects(){
+  if(!configReady||!client){grid.replaceChildren();const e=el('div','mrEmpty');e.append(el('div','mrEmptyMark','M/R'),el('h4','','Bibliothek noch nicht verbunden'),el('p','','Sobald Supabase eingerichtet ist, erscheinen hier die hochgeladenen Mods und Resource Packs für alle Besucher.'));grid.append(e);$('mrResultsCount').textContent='Verbindung erforderlich';return}
+  grid.replaceChildren();grid.append(el('div','mrEmpty','Projekte werden geladen …'));
+  const result=await client.from('mr_projects').select('id,author_id,author_name,title,project_type,summary,description,game_versions,loader,icon_path,file_path,created_at').order('created_at',{ascending:false}).limit(200);
+  if(result.error){const e=el('div','mrEmpty');e.append(el('div','mrEmptyMark','!'),el('h4','','Projekte konnten nicht geladen werden'),el('p','',result.error.message+' — prüfe bitte die Datenbankregeln in Supabase.'));grid.replaceChildren(e);$('mrResultsCount').textContent='Ladefehler';return}
+  projects=result.data||[];renderProjects();
+}
+if(configReady){
+  try{
+    client=window.supabase.createClient(CONFIG.supabaseUrl,CONFIG.supabaseAnonKey);
+    setup.hidden=true;
+  }catch(e){client=null}
+}
+if(!client){setup.hidden=false}
+document.querySelectorAll('[data-auth-mode]').forEach(b=>b.addEventListener('click',()=>setAuthMode(b.dataset.authMode)));
+$('mrAuthAction').addEventListener('click',()=>{
+  if(session){$('mrAuthPanel').hidden=true;$('mrPublishPanel').hidden=true;$('mrAccountPanel').hidden=!$('mrAccountPanel').hidden;clearMessage()}
+  else {showPanel('auth')}
+});
+$('mrOpenUpload').addEventListener('click',()=>{
+  if(!configReady||!client){showPanel('auth');message('Anmeldung ist noch nicht aktiviert. Verbinde zuerst Supabase wie in der Setup-Anleitung beschrieben.',true);return}
+  if(!session){showPanel('auth');message('Melde dich an oder erstelle ein Konto, bevor du etwas hochlädst.');return}
+  $('mrAccountPanel').hidden=true;showPanel('publish');
+});
+document.querySelectorAll('[data-mr-hide]').forEach(b=>b.addEventListener('click',()=>showPanel('none')));
+$('mrAuthForm').addEventListener('submit',async event=>{
+  event.preventDefault();clearMessage();
+  if(!client){message('Noch nicht verbunden: Füge die Supabase-URL und den öffentlichen Anon-Key in der M/R-Konfiguration ein.',true);return}
+  const email=$('mrEmail').value.trim(),password=$('mrPassword').value;
+  const button=$('mrAuthSubmit');button.disabled=true;button.textContent='Einen Moment …';
+  try{
+    if(authMode==='signup'){
+      const displayName=$('mrDisplayName').value.trim();
+      if(!displayName){message('Bitte wähle einen Profilnamen.',true);return}
+      const out=await client.auth.signUp({email,password,options:{data:{display_name:displayName}}});
+      if(out.error)throw out.error;
+      if(out.data.session){session=out.data.session;updateAccount();showPanel('none');message('Dein Konto ist erstellt. Du kannst jetzt ein Projekt hochladen.');}
+      else{message('Fast fertig! Öffne die Bestätigungs-E-Mail von Supabase und bestätige dein Konto. Danach kannst du dich anmelden.');setAuthMode('login');}
+    }else{
+      const out=await client.auth.signInWithPassword({email,password});
+      if(out.error)throw out.error;
+      session=out.data.session;updateAccount();showPanel('none');message('Du bist angemeldet. Jetzt kannst du ein Projekt hochladen.');
+    }
+  }catch(e){message(e.message||'Anmeldung fehlgeschlagen. Prüfe deine Angaben.',true)}
+  finally{button.disabled=false;button.textContent=authMode==='signup'?'Kostenloses Konto erstellen':'Anmelden'}
+});
+$('mrForgotPassword').addEventListener('click',async()=>{
+  if(!client){message('Die Anmeldung ist noch nicht eingerichtet.',true);return}
+  const email=$('mrEmail').value.trim();if(!email){message('Trage zuerst deine E-Mail-Adresse ein.',true);return}
+  const out=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
+  if(out.error)message(out.error.message,true);else message('Falls ein Konto mit dieser Adresse existiert, wurde eine E-Mail zum Zurücksetzen versandt.');
+});
+$('mrSignOut').addEventListener('click',async()=>{
+  if(client)await client.auth.signOut();session=null;updateAccount();showPanel('none');message('Du wurdest abgemeldet.');await loadProjects();
+});
+$('mrPublishForm').addEventListener('submit',async event=>{
+  event.preventDefault();clearMessage();
+  if(!client||!session){message('Du musst angemeldet sein, um ein Projekt zu veröffentlichen.',true);return}
+  const title=$('mrTitle').value.trim(),type=$('mrType').value,summary=$('mrSummary').value.trim(),description=$('mrDescription').value.trim();
+  const icon=$('mrIconFile').files[0],file=$('mrProjectFile').files[0];
+  if(!icon||!file){message('Bitte wähle sowohl ein Projektbild als auch eine Download-Datei aus.',true);return}
+  if(icon.size>5*1024*1024){message('Das Projektbild ist zu groß. Maximal 5 MB.',true);return}
+  if(file.size>100*1024*1024){message('Die Datei ist zu groß. Maximal 100 MB.',true);return}
+  const allowedExt=/\.(jar|zip|mrpack)$/i;
+  if(!allowedExt.test(file.name)){message('Erlaubt sind JAR-, ZIP- und MRPACK-Dateien.',true);return}
+  if(!/\.(png|jpe?g|webp)$/i.test(icon.name)){message('Beim Projektbild sind PNG, JPG oder WEBP erlaubt.',true);return}
+  const button=$('mrPublishSubmit');button.disabled=true;button.textContent='Upload läuft …';
+  const user=session.user,uid=user.id,cleanName=name=>name.replace(/[^a-zA-Z0-9._-]+/g,'-').slice(-100);
+  const base=window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now());
+  let iconPath=null,filePath=null;
+  try{
+    iconPath=uid+'/'+base+'-icon-'+cleanName(icon.name);
+    filePath=uid+'/'+base+'-file-'+cleanName(file.name);
+    let up=await client.storage.from('mr-files').upload(iconPath,icon,{upsert:false,contentType:icon.type||'application/octet-stream'});
+    if(up.error)throw up.error;
+    up=await client.storage.from('mr-files').upload(filePath,file,{upsert:false,contentType:file.type||'application/octet-stream'});
+    if(up.error)throw up.error;
+    const authorName=(user.user_metadata&&user.user_metadata.display_name)||user.email.split('@')[0]||'Community-Creator';
+    const out=await client.from('mr_projects').insert({author_id:uid,author_name:authorName,title:title,project_type:type,summary:summary,description:description,game_versions:$('mrVersions').value.trim(),loader:$('mrLoader').value,icon_path:iconPath,file_path:filePath,file_name:file.name}).select('id').single();
+    if(out.error)throw out.error;
+    $('mrPublishForm').reset();showPanel('none');message('Projekt wurde veröffentlicht und ist jetzt für alle Besucher sichtbar.');await loadProjects();
+  }catch(e){
+    message('Upload fehlgeschlagen: '+(e.message||'Unbekannter Fehler')+'. Prüfe Dateityp, Speicherregeln und Datenbank-Setup.',true);
+    if(iconPath)try{await client.storage.from('mr-files').remove([iconPath])}catch(ignore){}
+    if(filePath)try{await client.storage.from('mr-files').remove([filePath])}catch(ignore){}
+  }finally{button.disabled=false;button.textContent='Projekt veröffentlichen'}
+});
+document.querySelectorAll('[data-project-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.projectFilter;document.querySelectorAll('[data-project-filter]').forEach(other=>other.classList.toggle('active',other===b));renderProjects()}));
+$('mrSearch').addEventListener('input',renderProjects);
+$('mrSort').addEventListener('change',renderProjects);
+$('mrRefresh').addEventListener('click',()=>{loadProjects().catch(e=>message(e.message,true))});
+if(client){
+  client.auth.getSession().then(({data})=>{session=data.session;updateAccount();loadProjects()}).catch(()=>loadProjects());
+  client.auth.onAuthStateChange((event,newSession)=>{session=newSession;setTimeout(()=>{updateAccount();if(event==='SIGNED_IN'||event==='SIGNED_OUT'||event==='USER_UPDATED')loadProjects()},0)});
+}else{updateAccount();loadProjects()}
+})();
+</script>
+
 </body>
 </html>
