@@ -320,6 +320,52 @@ body.rulesFullscreenActive{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.rulesDropdown[open] .rulesMenu{animation:none}}
 
+
+/* More natural, less glossy presentation */
+:root{--shadow:0 10px 28px rgba(0,0,0,.2)}
+body{background:#08110b}
+body:before{opacity:.035}
+.brandMark{background:#14291a;border:1px solid #31543a;box-shadow:none;border-radius:12px;color:#c9e6c5;font-size:19px;font-weight:950}
+.panel{background:#0c1710;border-radius:18px;box-shadow:none}
+.heroMain:before,.heroMain:after,.statusFeature:after,.joinPanel:after,.rulesMenuHero:after,.streamerCardGlow{display:none!important}
+.heroMain{background:#0c1710!important;border-radius:18px}
+.heroSide,.teamPanel{background:#0c1710!important;border-radius:18px;box-shadow:none}
+.statusFeature{background:#102016!important;border-color:#2b4630;border-radius:14px}
+.statusCard{background:#0d1911!important;border-radius:13px;box-shadow:none}
+.infoItem{background:#0d1911!important;border-radius:13px;box-shadow:none}
+.joinPanel{background:#0d1911!important;border-color:#2b4630;border-radius:18px;box-shadow:none}
+.streamerCard{background:#0d1911!important;border:1px solid #2b4630;border-radius:16px;box-shadow:none}
+.meta,.statusMessage{background:#0a150d!important}
+.btn,.nav a,.navDropdown summary{transition:background .15s ease,border-color .15s ease,color .15s ease}
+.btn:hover,.statusCard:hover,.infoItem:hover{transform:none}
+.btn.primary{box-shadow:none}
+.btn.primary:hover{background:#d1f0cd;border-color:#d1f0cd}
+.nav .navCta{background:#c6e7c0;color:#102114}
+.nav .navCta:hover{background:#d5ebd0;color:#102114}
+.navIcon,.menuItemIcon,.rulesBlockIcon{display:none!important}
+.navDropdown summary{gap:5px}
+.navMenu{background:#0d1911!important;border:1px solid #2b4630;box-shadow:0 14px 35px rgba(0,0,0,.38);backdrop-filter:none;animation:none}
+.navMenu:before{display:none}
+.nav .navMenu a{gap:9px;padding:12px 10px;border-bottom:1px solid rgba(62,91,66,.26);border-radius:7px}
+.nav .navMenu a:last-child{border-bottom:0}
+.nav .navMenu a:hover{background:#15271a;transform:none}
+.rulesMenuHero{background:#101e13!important;border-color:#2b4630}
+.rulesIntro{background:#0e1b11!important;border-color:#2b4630}
+.rulesBlock{background:#0b160e!important;border-color:#263c2b}
+.rulesBlockTitle{gap:8px}
+.appealButton{box-shadow:none!important}
+.rulesFullscreenTop{background:rgba(7,16,10,.97)}
+.rulesCloseButton{background:#102016;border-color:#34563b}
+.rulesCloseButton:hover{background:#183020}
+.hero h1 span{text-shadow:none}
+.infoIcon{background:#14291a!important;border:1px solid #2f4b34;border-radius:10px;color:#b7dbb4;font-weight:850}
+.infoIconText{font-size:11px;letter-spacing:1px}
+.eyebrow{letter-spacing:1.5px}
+.sectionKicker,.joinLabel{letter-spacing:1.3px}
+@media(max-width:620px){
+ .panel,.heroMain,.heroSide,.teamPanel,.joinPanel{border-radius:14px}
+}
+
 </style>
 </head>
 <body>
@@ -327,7 +373,7 @@ body.rulesFullscreenActive{overflow:hidden}
   <div class="shell">
     <div class="headerRow">
       <a class="brand" href="#start" aria-label="Tanne Clan Startseite">
-        <div class="brandMark" aria-hidden="true">🌲</div>
+        <div class="brandMark" aria-hidden="true">T</div>
         <div><div class="brandTitle">TANNE CLAN</div><div class="brandSub">HUGOSMP · GEMEINSAM STÄRKER</div></div>
       </a>
       <div class="livePill"><span class="pulse" id="headerPulse"></span><span id="headerStatus">SERVERSTATUS WIRD GEPRÜFT</span></div>
@@ -342,7 +388,7 @@ body.rulesFullscreenActive{overflow:hidden}
         <details class="navDropdown rulesDropdown">
           <summary><span class="navIcon" aria-hidden="true">☷</span>Regeln <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu rulesMenu" role="dialog" aria-modal="true" aria-label="Tanne Clan Regelwerk">
-            <div class="rulesFullscreenTop"><span class="rulesFullscreenBrand"><span aria-hidden="true">🌲</span> TANNE CLAN <i>/</i> REGELWERK</span><button class="rulesCloseButton" type="button" aria-label="Regeln schließen">Schließen <span aria-hidden="true">×</span></button></div>
+            <div class="rulesFullscreenTop"><span class="rulesFullscreenBrand"><span aria-hidden="true">T</span> TANNE CLAN <i>/</i> REGELWERK</span><button class="rulesCloseButton" type="button" aria-label="Regeln schließen">Schließen <span aria-hidden="true">×</span></button></div>
             <div class="rulesMenuHero">
               <div class="rulesMenuEyebrow">TANNE CLAN · COMMUNITY-REGELN</div>
               <h3>Respekt. Fairplay. Teamgeist.</h3>
@@ -367,7 +413,7 @@ body.rulesFullscreenActive{overflow:hidden}
                 </ol>
               </section>
               <section class="rulesBlock clanRulesBlock">
-                <div class="rulesBlockTitle"><span class="rulesBlockIcon">🌲</span><h4>Clan-Regeln</h4><span class="rulesCount">05</span></div>
+                <div class="rulesBlockTitle"><span class="rulesBlockIcon">T</span><h4>Clan-Regeln</h4><span class="rulesCount">05</span></div>
                 <ol class="rulesList">
                   <li>Bleibe aktiv im Clan. Längere Inaktivität kann zum Kick führen.</li>
                   <li>Unterstütze deine Clanmates und spiele fair im Team.</li>
@@ -405,21 +451,21 @@ body.rulesFullscreenActive{overflow:hidden}
 <main class="shell" id="start">
   <section class="hero">
     <div class="panel heroMain">
-      <div class="eyebrow">Eine Community. Ein Ziel. Ein Team.</div>
-      <h1>Dein Team.<br>Dein Abenteuer.<span>TANNE CLAN.</span></h1>
-      <p class="heroText">Willkommen bei Tanne Clan — einer Community rund um HugoSMP. Entdecke aktuelle Serverdaten, bleib mit der Community verbunden und mach dein nächstes Minecraft-Abenteuer zu einem Teamprojekt.</p>
+      <div class="eyebrow">HUGOSMP · MINECRAFT CLAN</div>
+      <h1>Zusammen auf<br>HugoSMP.<span>TANNE CLAN</span></h1>
+      <p class="heroText">Wir spielen zusammen auf HugoSMP, helfen bei Projekten und treffen uns auf Discord. Hier findest du den Serverstatus, unsere Clan-Infos und die wichtigsten Links.</p>
       <div class="heroActions">
-        <button class="btn primary" id="copyIp" type="button">⛏&nbsp; Server-IP kopieren</button>
+        <button class="btn primary" id="copyIp" type="button">Server-IP kopieren</button>
         <a class="btn dark" href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">HugoSMP Discord <span aria-hidden="true">↗</span></a>
         <a class="btn clan" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer">Tanne Clan Discord <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="heroMini"><span><i>✦</i> Community</span><span>·</span><span><i>✦</i> Teamplay</span><span>·</span><span><i>✦</i> HugoSMP live</span></div>
+      <div class="heroMini"><span>Minecraft</span><span>·</span><span>Discord</span><span>·</span><span>HugoSMP</span></div>
     </div>
     <aside class="panel heroSide" aria-label="Live-Serverstatus">
       <div class="sideTitle"><span>HugoSMP Network</span><small id="checkedAt">Wird geladen …</small></div>
       <div class="statusFeature">
         <div class="statusFeatureTop">
-          <div class="statusName"><div class="serverIcon" aria-hidden="true">⛏</div><span>Serverstatus</span></div>
+          <div class="statusName"><div class="serverIcon" aria-hidden="true">▦</div><span>Serverstatus</span></div>
           <div class="livePill"><span class="pulse" id="serverPulse"></span><span id="serverState">PRÜFE STATUS</span></div>
         </div>
         <div class="playerBig"><span id="playersOnline">—</span> <small>/ <span id="playersMax">—</span></small></div>
@@ -444,12 +490,12 @@ body.rulesFullscreenActive{overflow:hidden}
     <div class="statusMessage" id="statusMessage">Verbinde mit dem öffentlichen Serverstatus …</div>
   </section>
   <section class="section panel teamPanel" id="team">
-    <div class="sectionHead"><div><div class="sectionKicker">Das ist Tanne</div><h2>Mehr als nur ein Clan-Tag.</h2><p>Gemeinsam spielen, Ideen umsetzen und auf HugoSMP etwas aufbauen — das macht die Community aus.</p></div></div>
+    <div class="sectionHead"><div><div class="sectionKicker">TANNE CLAN</div><h2>Was wir zusammen machen.</h2><p>Von PvP und Handel bis zu gemeinsamen Bauprojekten – wir spielen auf HugoSMP nicht allein.</p></div></div>
     <div class="infoGrid">
-      <article class="infoItem"><div class="infoIcon" aria-hidden="true">🛡️</div><div><h3>Zusammenhalt</h3><p>Bei Projekten, Ausrüstung und gemeinsamen Zielen unterstützt man sich im Team.</p></div></article>
-      <article class="infoItem"><div class="infoIcon" aria-hidden="true">⚔️</div><div><h3>PvP & Events</h3><p>Mit guter Vorbereitung und cleverer Taktik werden gemeinsame Aktionen zum Erlebnis.</p></div></article>
-      <article class="infoItem"><div class="infoIcon" aria-hidden="true">💎</div><div><h3>Handel & Wirtschaft</h3><p>Preise vergleichen, Marktkenntnisse teilen und die HugoSMP-Wirtschaft entdecken.</p></div></article>
-      <article class="infoItem"><div class="infoIcon" aria-hidden="true">🌳</div><div><h3>Builds & Projekte</h3><p>Von besonderen Basen bis zu großen Bauideen: Zusammen wird mehr daraus.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">✓</div><div><h3>Zusammenhalt</h3><p>Bei Projekten, Ausrüstung und gemeinsamen Zielen unterstützt man sich im Team.</p></div></article>
+      <article class="infoItem"><div class="infoIcon infoIconText" aria-hidden="true">VS</div><div><h3>PvP & Events</h3><p>Mit guter Vorbereitung und cleverer Taktik werden gemeinsame Aktionen zum Erlebnis.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">€</div><div><h3>Handel & Wirtschaft</h3><p>Preise vergleichen, Marktkenntnisse teilen und die HugoSMP-Wirtschaft entdecken.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">⌂</div><div><h3>Builds & Projekte</h3><p>Von besonderen Basen bis zu großen Bauideen: Zusammen wird mehr daraus.</p></div></article>
     </div>
   </section>
   <section class="section twitchSection" id="twitch">
@@ -457,7 +503,7 @@ body.rulesFullscreenActive{overflow:hidden}
       <div>
         <div class="sectionKicker twitchKicker">TANNE AUF TWITCH</div>
         <h2>Unsere Streamer.</h2>
-        <p>Schau vorbei, unterstütze die Creator aus der Community und verpasse keine Gaming-Momente.</p>
+        <p>Hier findest du Streams aus dem Clan und der Community.</p>
       </div>
       <div class="twitchPlatform"><span class="twitchDot"></span> TWITCH CHANNELS</div>
     </div>
@@ -476,7 +522,7 @@ body.rulesFullscreenActive{overflow:hidden}
     </article>
   </section>
   <section class="section joinPanel" id="discord">
-    <div class="joinContent"><div class="joinLabel">Tanne Clan Community</div><h2>Werde Teil von Tanne.</h2><p>Triff dein Team, tausche Ideen aus und plane gemeinsame Abenteuer. Der Tanne-Clan-Discord ist der Treffpunkt für unsere Community.</p></div>
+    <div class="joinContent"><div class="joinLabel">TANNE CLAN · DISCORD</div><h2>Komm auf unseren Discord.</h2><p>Du spielst auf HugoSMP oder willst den Clan kennenlernen? Schau vorbei und sag Hallo.</p></div>
     <div class="joinAction"><a class="btn primary" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer">Zum Tanne Clan Discord ↗</a><div style="margin-top:10px;text-align:center"><a href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#a9bcad">HugoSMP Discord ebenfalls öffnen ↗</a></div></div>
   </section>
   <footer class="footer"><span>© TANNE CLAN · Community-Projekt</span><span>Serverstatus: mcstatus.io · Keine offizielle Verbindung zu HugoSMP, Mojang oder Microsoft.</span></footer>
