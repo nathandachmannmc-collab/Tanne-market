@@ -31,55 +31,30 @@ a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}.wra
   </section>
   <section class="panel" id="live-ansichten">
     <div class="panelHead">
-      <div><h3>Live-Marktplätze</h3><p class="sub">Die beiden Live-Ansichten werden direkt in diesem Dashboard geladen. Du musst keine anderen Seiten öffnen.</p></div>
+      <div><h3>Live-Auktionen & Orders</h3><p class="sub">Eine gemeinsame Übersicht für HugoSMP Market und FriendsWithMoney.</p></div>
+      <span class="tag">DATENSTATUS</span>
     </div>
     <div class="embedGrid">
       <article class="embedCard">
-        <h4>HugoSMP Market · Auktionen & Orders</h4>
-        <p class="sub">Live-Ansicht innerhalb von Tanne Market.</p>
-        <div class="embedActions">
-          <button class="btn primary" id="loadHugoFrame" type="button">Ansicht neu laden</button>
-        </div>
-        <p class="embedStatus" id="hugoFrameStatus">Live-Ansicht wird geladen …</p>
-        <div class="frameWrap"><iframe id="hugoFrame" title="HugoSMP Market Live Feed" loading="eager" referrerpolicy="no-referrer"></iframe></div>
+        <h4>HugoSMP Market</h4>
+        <p class="sub">Auktionen und Kaufaufträge</p>
+        <p class="embedStatus"><strong>Wartet auf einen direkten Datenfeed.</strong><br>Die Seite lässt sich nicht zuverlässig als eingebettetes Fenster laden. Es werden keine Angebote erfunden.</p>
       </article>
       <article class="embedCard">
-        <h4>FriendsWithMoney · Auktionen & Orders</h4>
-        <p class="sub">Live-Ansicht innerhalb von Tanne Market.</p>
-        <div class="embedActions">
-          <button class="btn primary" id="loadFwmFrame" type="button">Ansicht neu laden</button>
-        </div>
-        <p class="embedStatus" id="fwmFrameStatus">Live-Ansicht wird geladen …</p>
-        <div class="frameWrap"><iframe id="fwmFrame" title="FriendsWithMoney Marketplace" loading="eager" referrerpolicy="no-referrer"></iframe></div>
+        <h4>FriendsWithMoney</h4>
+        <p class="sub">Live-Auktionshaus und Orders</p>
+        <p class="embedStatus"><strong>Wartet auf einen direkten Datenfeed.</strong><br>Die Live-Einträge sind über eine öffentliche Datenschnittstelle bisher nicht bestätigt.</p>
       </article>
     </div>
-    <p class="note">Wenn ein Fenster leer bleibt oder eine Sperrmeldung zeigt, verhindert die jeweilige Originalseite möglicherweise die Einbettung. Tanne Market zeigt dann keine erfundenen Daten an.</p>
+    <div class="tableWrap" style="margin-top:14px">
+      <table aria-label="Gemeinsamer Live-Auktionsfeed">
+        <thead><tr><th>Item</th><th>Typ</th><th>Preis</th><th>Spieler</th><th>Quelle</th></tr></thead>
+        <tbody><tr><td colspan="5" class="empty"><strong>Noch keine echten Live-Einträge verfügbar</strong>Sobald ein Anbieter einen erlaubten direkten Datenzugriff bereitstellt, können die aktuellen Auktionen hier automatisch erscheinen. Keine Demo-Preise, keine erfundenen Listings.</td></tr></tbody>
+      </table>
+    </div>
+    <p class="note">Die ursprünglichen externen Links und leeren Ladefenster wurden entfernt. Für echte automatische Angebote wird ein freigegebener Datenfeed oder eine offizielle API der jeweiligen Quelle benötigt.</p>
   </section>
   <footer class="footer"><span>© Tanne Market · Fanprojekt</span><span>Nicht offiziell mit HugoSMP, Mojang oder Microsoft verbunden.</span></footer>
 </div><div class="toast" id="toast" role="status"></div>
-<script>
-(()=>{'use strict';
-const sources=[
-  {frame:'hugoFrame',status:'hugoFrameStatus',url:'https://hugosmp-market.net/live',name:'HugoSMP Market'},
-  {frame:'fwmFrame',status:'fwmFrameStatus',url:'https://www.friendswithmoney.net/marketplace',name:'FriendsWithMoney'}
-];
-function load(source){
-  const frame=document.getElementById(source.frame);
-  const status=document.getElementById(source.status);
-  status.textContent=source.name+' wird in Tanne Market geladen …';
-  const sep=source.url.includes('?')?'&':'?';
-  frame.src=source.url+sep+'embed_refresh='+Date.now();
-}
-for(const source of sources){
-  const frame=document.getElementById(source.frame);
-  frame.addEventListener('load',()=>{
-    document.getElementById(source.status).textContent=
-      source.name+' wurde angefragt. Falls das Fenster leer bleibt, erlaubt die Quelle möglicherweise keine Einbettung.';
-  });
-  document.getElementById(source.frame==='hugoFrame'?'loadHugoFrame':'loadFwmFrame')
-    .addEventListener('click',()=>load(source));
-  load(source);
-}
-})();
-</script>
+
 </body></html>
