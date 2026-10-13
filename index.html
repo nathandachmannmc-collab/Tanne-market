@@ -727,10 +727,10 @@ body.settingsFullscreenActive .settingsDropdown[open] .settingsFullscreen{
 }
 
 
-/* Robust fullscreen portals: move overlays out of the sticky header at runtime. */
+/* Shared fullscreen portal layout for standalone navigation pages */
 .fullscreenPortal{position:fixed!important;inset:0!important;left:0!important;top:0!important;right:0!important;bottom:0!important;width:100vw!important;max-width:none!important;height:100vh!important;height:100dvh!important;max-height:none!important;margin:0!important;z-index:2147483000!important;display:block!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
 .rulesMenu.fullscreenPortal{padding:18px clamp(16px,3.4vw,48px) 38px!important;background:radial-gradient(ellipse at 50% -15%,rgba(40,91,49,.65),transparent 53%),radial-gradient(ellipse at 100% 55%,rgba(17,49,27,.45),transparent 42%),#07100a!important;backdrop-filter:none!important;scrollbar-width:thin;scrollbar-color:#3b6242 #0b170e}
-.rulesMenu.fullscreenPortal:before,.mrFullscreen.fullscreenPortal:before,.settingsFullscreen.fullscreenPortal:before{display:none!important}
+.rulesMenu.fullscreenPortal:before,.mrFullscreen.fullscreenPortal:before,.settingsFullscreen.fullscreenPortal:before,.linksFullscreen.fullscreenPortal:before,.twitchFullscreen.fullscreenPortal:before{display:none!important}
 .rulesMenu.fullscreenPortal>*{max-width:1100px;margin-left:auto;margin-right:auto}
 .rulesMenu.fullscreenPortal .rulesMenuHero{margin-bottom:13px}
 .rulesMenu.fullscreenPortal .rulesIntro{margin-bottom:14px}
@@ -740,21 +740,15 @@ body.settingsFullscreenActive .settingsDropdown[open] .settingsFullscreen{
 .rulesMenu.fullscreenPortal .consequencesBlock{margin-top:14px}
 .rulesMenu.fullscreenPortal .consequencesBlock p{font-size:12px}
 .rulesMenu.fullscreenPortal .appealButton{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin-top:14px;padding:15px 18px!important}
-.mrFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important;animation:mrEnter .14s ease-out}
-.settingsFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important;animation:settingsEnter .14s ease-out}
-body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive{overflow:hidden!important}
-@media(max-width:620px){
- .rulesMenu.fullscreenPortal{padding:12px 12px 24px!important}
- .rulesMenu.fullscreenPortal .rulesBlock{padding:13px}
- .rulesMenu.fullscreenPortal .rulesList li{font-size:11px;padding-top:8px;padding-bottom:8px}
-}
+.mrFullscreen.fullscreenPortal,.settingsFullscreen.fullscreenPortal,.linksFullscreen.fullscreenPortal,.twitchFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important}
+body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive,body.linksFullscreenActive,body.twitchFullscreenActive{overflow:hidden!important}
+body.linksFullscreenActive .header,body.twitchFullscreenActive .header,body.mrFullscreenActive .header,body.rulesFullscreenActive .header,body.settingsFullscreenActive .header{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#07100a!important}
+@media(max-width:620px){.rulesMenu.fullscreenPortal{padding:12px 12px 24px!important}.rulesMenu.fullscreenPortal .rulesBlock{padding:13px}.rulesMenu.fullscreenPortal .rulesList li{font-size:11px;padding-top:8px;padding-bottom:8px}}
 
 
 /* Dedicated fullscreen Links and Twitch pages */
 .linksNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#b8d9b4;font-size:15px;line-height:1}
 .twitchNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#c4a4ff;font-size:15px;line-height:1}
-.linksFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important}
-.twitchFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important}
 .linksFullscreenTop,.twitchFullscreenTop{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px;padding:12px clamp(15px,3vw,42px);background:rgba(15,22,17,.97);border-bottom:1px solid #28372c}
 .linksFullscreenBrand,.twitchFullscreenBrand{display:flex;align-items:center;gap:11px;min-width:0}
 .linksBrandMark,.twitchBrandMark{display:grid;place-items:center;flex:0 0 40px;height:40px;border:1px solid #376244;border-radius:10px;background:#173021;color:#c1e5c1;font-size:16px;font-weight:950}
@@ -789,17 +783,7 @@ body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive
 .twitchFullscreenContent .sectionHead{margin-bottom:18px}
 .twitchFullscreenContent .streamerCard{background:#111812;border-color:#3d3150}
 .twitchFullscreenContent .streamerButton{box-shadow:none}
-body.linksFullscreenActive,body.twitchFullscreenActive{overflow:hidden!important}
-@media(max-width:720px){
- .linksFullscreenPage,.twitchFullscreenPage{width:calc(100% - 26px);padding:23px 0 30px}
- .linksGrid{grid-template-columns:1fr}
- .linksCard{padding:13px}
- .linksFullscreenTop,.twitchFullscreenTop{padding:10px 13px}
- .linksBrandMark,.twitchBrandMark{flex-basis:34px;height:34px;font-size:13px}
- .linksFullscreenBrand strong,.twitchFullscreenBrand strong{font-size:12px}
- .linksFullscreenBrand small,.twitchFullscreenBrand small{font-size:7px;letter-spacing:1px}
- .linksCloseButton,.twitchCloseButton{min-height:34px;padding:6px 8px;font-size:10px}
-}
+@media(max-width:720px){.linksFullscreenPage,.twitchFullscreenPage{width:calc(100% - 26px);padding:23px 0 30px}.linksGrid{grid-template-columns:1fr}.linksCard{padding:13px}.linksFullscreenTop,.twitchFullscreenTop{padding:10px 13px}.linksBrandMark,.twitchBrandMark{flex-basis:34px;height:34px;font-size:13px}.linksFullscreenBrand strong,.twitchFullscreenBrand strong{font-size:12px}.linksFullscreenBrand small,.twitchFullscreenBrand small{font-size:7px;letter-spacing:1px}.linksCloseButton,.twitchCloseButton{min-height:34px;padding:6px 8px;font-size:10px}}
 
 </style>
 </head>
@@ -1004,7 +988,23 @@ body.linksFullscreenActive,body.twitchFullscreenActive{overflow:hidden!important
         <a class="btn clan" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer">Tanne Clan Discord <span aria-hidden="true">↗</span></a>
       </div>
       <div class="heroMini"><span>Minecraft</span><span>·</span><span>Discord</span><span>·</span><span>HugoSMP</span></div>
-    </ddiv>
+    </div>
+    <aside class="panel heroSide" aria-label="Live-Serverstatus">
+      <div class="sideTitle"><span>HugoSMP Network</span><small id="checkedAt">Wird geladen …</small></div>
+      <div class="statusFeature">
+        <div class="statusFeatureTop">
+          <div class="statusName"><div class="serverIcon" aria-hidden="true">▦</div><span>Serverstatus</span></div>
+          <div class="livePill"><span class="pulse" id="serverPulse"></span><span id="serverState">PRÜFE STATUS</span></div>
+        </div>
+        <div class="playerBig"><span id="playersOnline">—</span> <small>/ <span id="playersMax">—</span></small></div>
+        <div class="playerLabel">Spieler online · aktuelle Statusabfrage</div>
+        <div class="progress" aria-label="Spielerauslastung"><div class="progressFill" id="playerProgress"></div></div>
+        <div class="featureFoot"><span>Serverauslastung</span><strong id="playerPercent">—</strong></div>
+      </div>
+      <div class="metaGrid">
+        <div class="meta"><div class="metaLabel">Minecraft-Version</div><div class="metaValue" id="serverVersion">—</div></div>
+        <div class="meta"><div class="metaLabel">Server-Adresse</div><div class="metaValue">hugosmp.net</div></div>
+      </div>
       <button class="btn" id="refreshStatus" type="button">Status aktualisieren ↻</button>
     </aside>
   </section>
@@ -1026,29 +1026,7 @@ body.linksFullscreenActive,body.twitchFullscreenActive{overflow:hidden!important
       <article class="infoItem"><div class="infoIcon" aria-hidden="true">⌂</div><div><h3>Builds & Projekte</h3><p>Von besonderen Basen bis zu großen Bauideen: Zusammen wird mehr daraus.</p></div></article>
     </div>
   </section>
-  <section class="section twitchSection" id="twitch">
-    <div class="sectionHead">
-      <div>
-        <div class="sectionKicker twitchKicker">TANNE AUF TWITCH</div>
-        <h2>Unsere Streamer.</h2>
-        <p>Hier findest du Streams aus dem Clan und der Community.</p>
-      </div>
-      <div class="twitchPlatform"><span class="twitchDot"></span> TWITCH CHANNELS</div>
-    </div>
-    <article class="streamerCard">
-      <div class="streamerIdentity">
-        <div class="streamerAvatar" aria-hidden="true"><span>H</span><i>◉</i></div>
-        <div class="streamerDetails">
-          <div class="streamerEyebrow">TANNE STREAMER</div>
-          <h3>HexMeOnce</h3>
-          <p>Gaming, Streams und Community — schau auf dem Twitch-Kanal vorbei.</p>
-          <div class="streamerTags"><span>TWITCH</span><span>GAMING</span><span>TANNE COMMUNITY</span></div>
-        </div>
-      </div>
-      <a class="streamerButton" href="https://twitch.tv/hexmeonce" target="_blank" rel="noopener noreferrer"><span class="streamerButtonIcon" aria-hidden="true">◉</span> Twitch-Kanal öffnen <span class="streamerArrow" aria-hidden="true">↗</span></a>
-      <div class="streamerCardGlow" aria-hidden="true"></div>
-    </article>
-  </section>
+  
   <section class="section joinPanel" id="discord">
     <div class="joinContent"><div class="joinLabel">TANNE CLAN · DISCORD</div><h2>Komm auf unseren Discord.</h2><p>Du spielst auf HugoSMP oder willst den Clan kennenlernen? Schau vorbei und sag Hallo.</p></div>
     <div class="joinAction"><a class="btn primary" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer">Zum Tanne Clan Discord ↗</a><div style="margin-top:10px;text-align:center"><a href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#a9bcad">HugoSMP Discord ebenfalls öffnen ↗</a></div></div>
@@ -1107,98 +1085,90 @@ loadStatus();
 <script>
 (()=>{'use strict';
 const dropdowns=[...document.querySelectorAll('.navDropdown')];
-const rulesDropdown=document.querySelector('.rulesDropdown');
-const mrDropdown=document.querySelector('.mrDropdown');
-const settingsDropdown=document.querySelector('.settingsDropdown');
-const linksDropdown=document.querySelector('.linksDropdown');
-const twitchDropdown=document.querySelector('.twitchDropdown');
+const lookups={
+ rules:document.querySelector('.rulesDropdown'),
+ mr:document.querySelector('.mrDropdown'),
+ settings:document.querySelector('.settingsDropdown'),
+ links:document.querySelector('.linksDropdown'),
+ twitch:document.querySelector('.twitchDropdown')
+};
+const selector='.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen';
 const portals=new Map();
 const getMenu=details=>{
-  const saved=portals.get(details);
-  return saved?saved.menu:details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen');
+ const saved=portals.get(details);
+ return saved?saved.menu:details.querySelector(selector);
 };
 const syncFullscreen=()=>{
-  document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
-  document.body.classList.toggle('mrFullscreenActive',Boolean(mrDropdown&&mrDropdown.open));
-  document.body.classList.toggle('settingsFullscreenActive',Boolean(settingsDropdown&&settingsDropdown.open));
-  document.body.classList.toggle('linksFullscreenActive',Boolean(linksDropdown&&linksDropdown.open));
-  document.body.classList.toggle('twitchFullscreenActive',Boolean(twitchDropdown&&twitchDropdown.open));
+ document.body.classList.toggle('rulesFullscreenActive',Boolean(lookups.rules&&lookups.rules.open));
+ document.body.classList.toggle('mrFullscreenActive',Boolean(lookups.mr&&lookups.mr.open));
+ document.body.classList.toggle('settingsFullscreenActive',Boolean(lookups.settings&&lookups.settings.open));
+ document.body.classList.toggle('linksFullscreenActive',Boolean(lookups.links&&lookups.links.open));
+ document.body.classList.toggle('twitchFullscreenActive',Boolean(lookups.twitch&&lookups.twitch.open));
 };
 const portalMenu=details=>{
-  if(portals.has(details))return;
-  const menu=details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen');
-  if(!menu)return;
-  const placeholder=document.createComment('fullscreen-menu-placeholder');
-  menu.parentNode.insertBefore(placeholder,menu);
-  portals.set(details,{menu,placeholder});
-  menu.classList.add('fullscreenPortal');
-  document.body.appendChild(menu);
+ if(portals.has(details))return;
+ const menu=details.querySelector(selector);
+ if(!menu)return;
+ const placeholder=document.createComment('fullscreen-menu-placeholder');
+ menu.parentNode.insertBefore(placeholder,menu);
+ portals.set(details,{menu,placeholder});
+ menu.classList.add('fullscreenPortal');
+ document.body.appendChild(menu);
 };
 const restoreMenu=details=>{
-  const portal=portals.get(details);
-  if(!portal)return;
-  portal.menu.classList.remove('fullscreenPortal');
-  if(portal.placeholder.parentNode)portal.placeholder.parentNode.insertBefore(portal.menu,portal.placeholder);
-  portal.placeholder.remove();
-  portals.delete(details);
+ const portal=portals.get(details);
+ if(!portal)return;
+ portal.menu.classList.remove('fullscreenPortal');
+ if(portal.placeholder.parentNode)portal.placeholder.parentNode.insertBefore(portal.menu,portal.placeholder);
+ portal.placeholder.remove();
+ portals.delete(details);
 };
 const closeMenu=details=>{
-  if(!details)return;
-  details.open=false;
-  restoreMenu(details);
-  syncFullscreen();
+ if(!details)return;
+ details.open=false;
+ restoreMenu(details);
+ syncFullscreen();
 };
 dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
-  if(details.open){
-    dropdowns.forEach(other=>{
-      if(other!==details){
-        if(other.open)other.open=false;
-        restoreMenu(other);
-      }
-    });
-    portalMenu(details);
-  }else{
-    restoreMenu(details);
-  }
-  syncFullscreen();
-}));
-document.querySelectorAll('.rulesCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  closeMenu(rulesDropdown);
-  rulesDropdown?.querySelector('summary')?.focus();
-}));
-document.querySelectorAll('#mrCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  closeMenu(mrDropdown);
-  mrDropdown?.querySelector('summary')?.focus();
-}));
-document.querySelectorAll('#settingsCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  closeMenu(settingsDropdown);
-  settingsDropdown?.querySelector('summary')?.focus();
-}));
-document.querySelectorAll('#linksCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  closeMenu(linksDropdown);
-  linksDropdown?.querySelector('summary')?.focus();
-}));
-document.querySelectorAll('#twitchCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  closeMenu(twitchDropdown);
-  twitchDropdown?.querySelector('summary')?.focus();
-}));
-document.addEventListener('click',event=>{
-  dropdowns.forEach(details=>{
-    if(details.open){
-      const menu=getMenu(details);
-      if(!details.contains(event.target)&&!(menu&&menu.contains(event.target)))closeMenu(details);
-    }
+ if(details.open){
+  dropdowns.forEach(other=>{
+   if(other!==details){
+    if(other.open)other.open=false;
+    restoreMenu(other);
+   }
   });
+  portalMenu(details);
+ }else restoreMenu(details);
+ syncFullscreen();
+}));
+[
+ ['.rulesCloseButton','rules'],
+ ['#mrCloseButton','mr'],
+ ['#settingsCloseButton','settings'],
+ ['#linksCloseButton','links'],
+ ['#twitchCloseButton','twitch']
+].forEach(([selector,key])=>document.querySelectorAll(selector).forEach(button=>button.addEventListener('click',()=>{
+ const details=lookups[key];
+ closeMenu(details);
+ details?.querySelector('summary')?.focus();
+})));
+document.addEventListener('click',event=>{
+ dropdowns.forEach(details=>{
+  if(details.open){
+   const menu=getMenu(details);
+   if(!details.contains(event.target)&&!(menu&&menu.contains(event.target)))closeMenu(details);
+  }
+ });
 });
 document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'){
-    const opened=dropdowns.find(details=>details.open);
-    if(opened){
-      event.preventDefault();
-      closeMenu(opened);
-      opened.querySelector('summary')?.focus();
-    }
+ if(event.key==='Escape'){
+  const opened=dropdowns.find(details=>details.open);
+  if(opened){
+   event.preventDefault();
+   closeMenu(opened);
+   opened.querySelector('summary')?.focus();
   }
+ }
 });
 })();
 </script>
