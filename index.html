@@ -3,259 +3,223 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0a130d">
-<meta name="description" content="Tanne Clan – Community, Teamplay und Live-Serverdaten für HugoSMP.">
-<title>Tanne Clan — HugoSMP Community</title>
+<meta name="theme-color" content="#07110b">
+<meta name="description" content="Tanne Clan – HugoSMP-Community und aktuelle Minecraft-Serverdaten.">
+<title>TANNE CLAN — HugoSMP Community</title>
 <style>
-:root{
- --bg:#080f0a;--surface:#0f1a12;--surface2:#142319;--surface3:#1a2b1e;
- --line:#263d2b;--line2:#35543a;--text:#f0f6ef;--muted:#a4b5a5;
- --green:#a7efad;--green2:#55c879;--gold:#e8ca86;--red:#ff9292;
- --shadow:0 22px 64px #0005;
-}
+:root{--bg:#07100a;--panel:#0c1910;--panel2:#102116;--line:#243d2b;--line2:#365641;--text:#f3f7f1;--muted:#a0b3a2;--green:#b5f3b8;--green2:#61d17d;--deep:#142d1b;--gold:#e8d096;--red:#ff9b9b;--shadow:0 24px 70px #0005}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(900px 560px at 75% -180px,#22502d 0,transparent 70%),radial-gradient(600px 400px at -240px 460px,#142b1a 0,transparent 65%),var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button{font:inherit;cursor:pointer}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--green);outline-offset:3px}
-.shell{width:min(1160px,calc(100% - 32px));margin-inline:auto}
-.header{padding:21px 0 15px;border-bottom:1px solid #26372a}
-.headerRow{display:flex;align-items:center;justify-content:space-between;gap:16px}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -22%,#245330 0,transparent 47%),radial-gradient(ellipse at 0% 45%,#10271a 0,transparent 34%),linear-gradient(180deg,#07100a,#08120b 60%,#070e09);color:var(--text);font:15px/1.6 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.13;background-image:linear-gradient(#76997b18 1px,transparent 1px),linear-gradient(90deg,#76997b18 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 75%)}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button,a{-webkit-tap-highlight-color:transparent}:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.shell{width:min(1140px,calc(100% - 36px));margin-inline:auto}
+.header{position:sticky;top:0;z-index:10;background:#07100ad9;backdrop-filter:blur(18px);border-bottom:1px solid #29412eaa}
+.headerRow{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:78px}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
-.brandMark{width:48px;height:48px;display:grid;place-items:center;flex-shrink:0;border:1px solid #53835a;border-radius:16px;background:linear-gradient(145deg,#347243,#102b18);box-shadow:0 8px 25px #1c4d2a55;font-size:27px}
-.brandTitle{font-size:20px;font-weight:900;letter-spacing:-.7px;line-height:1.1}
-.brandSub{font-size:11px;color:var(--muted);margin-top:4px}
-.livePill{display:inline-flex;align-items:center;gap:8px;border:1px solid #3a583e;background:#132419;color:#c8f3ce;border-radius:999px;padding:8px 11px;font-size:10px;font-weight:850;letter-spacing:.7px;white-space:nowrap}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #e8ca861a;flex-shrink:0}
-.pulse.online{background:var(--green2);box-shadow:0 0 0 4px #55c87920}
-.pulse.offline{background:var(--red);box-shadow:0 0 0 4px #ff92921a}
-.nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:17px}
-.nav a{color:#b7c8b9;font-size:12px;padding:8px 11px;border-radius:10px}
-.nav a:hover{background:#19291d;color:var(--text)}
-.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(310px,.8fr);gap:17px;margin:25px 0 17px}
-.card{border:1px solid var(--line);background:linear-gradient(155deg,#142319,#0c150e);border-radius:22px;box-shadow:var(--shadow)}
-.heroMain{position:relative;overflow:hidden;padding:clamp(24px,4.5vw,43px)}
-.heroMain:after{content:"";position:absolute;right:-86px;bottom:-142px;width:300px;height:300px;border-radius:50%;border:1px solid #9debab28;box-shadow:0 0 0 26px #9debab08,0 0 0 54px #9debab05,0 0 0 82px #9debab03;pointer-events:none}
-.eyebrow{display:flex;align-items:center;gap:9px;color:var(--green);font-size:10px;font-weight:900;letter-spacing:1.9px;text-transform:uppercase}
-.eyebrow:before{content:"";width:22px;height:1px;background:var(--green)}
-h1,h2,h3,h4,p{margin-top:0}
-.hero h1{max-width:650px;margin:16px 0 14px;font-size:clamp(34px,5vw,55px);line-height:1.03;letter-spacing:-2px}
-.hero h1 span{color:var(--green)}
-.heroText{max-width:570px;margin:0;color:var(--muted);font-size:14px;line-height:1.8}
-.heroButtons{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
-.btn{min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line2);background:#1a2c1e;color:var(--text);font-size:12px;font-weight:850;transition:transform .15s ease,background .15s ease}
-.btn:hover{transform:translateY(-1px);background:#213927}
-.btn.primary{background:var(--green);border-color:var(--green);color:#0b1a0d}
-.btn.primary:hover{background:#c5f8c9}
-.btn.ghost{background:#0d170f}
-.heroSide{padding:19px;display:flex;flex-direction:column;gap:13px}
-.sideTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:850;margin-bottom:2px}
-.sideTitle small{color:var(--muted);font-size:10px;font-weight:650}
-.statusFeature{padding:17px;border-radius:16px;border:1px solid #34523a;background:linear-gradient(135deg,#172a1b,#0c150e)}
-.statusFeatureTop{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.statusName{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:850}
-.serverIcon{width:35px;height:35px;display:grid;place-items:center;background:#203b27;border:1px solid #3f6747;border-radius:11px;font-size:17px}
-.statusText{font-size:11px;color:var(--muted);margin:11px 0 0}
-.playerBig{font-size:36px;line-height:1;font-weight:900;letter-spacing:-1px;margin:14px 0 4px}
-.playerBig small{font-size:14px;color:var(--muted);font-weight:700;letter-spacing:0}
-.playerLabel{font-size:11px;color:var(--muted)}
-.progress{height:7px;border-radius:999px;background:#09110b;overflow:hidden;border:1px solid #293d2d;margin-top:13px}
-.progressFill{height:100%;width:0;background:linear-gradient(90deg,#4fbd70,#b3f1a9);border-radius:999px;transition:width .35s ease}
-.featureFoot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:10px;margin-top:9px}
-.metaGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.meta{padding:12px 13px;border:1px solid var(--line);background:#0b140d;border-radius:13px;min-width:0}
-.metaLabel{font-size:10px;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.7px}
-.metaValue{font-size:15px;font-weight:850;margin-top:5px;overflow-wrap:anywhere}
-.section{margin:19px 0}
-.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px}
-.sectionHead h2{font-size:21px;letter-spacing:-.6px;margin:0 0 4px}
-.sectionHead p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
-.sectionKicker{font-size:10px;font-weight:900;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
-.statusGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
-.statusCard{padding:17px 18px;border:1px solid var(--line);background:linear-gradient(140deg,#111e14,#0b140d);border-radius:16px}
-.statusIcon{width:34px;height:34px;display:grid;place-items:center;background:#1a2e1e;border:1px solid #34543a;border-radius:11px;color:var(--green);font-size:16px;margin-bottom:14px}
-.statusCard h3{font-size:13px;margin:0 0 6px}
-.statusCard p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
-.sectionPanel{padding:clamp(17px,3vw,25px)}
-.infoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.infoItem{padding:16px;border:1px solid var(--line);border-radius:14px;background:#0c150e;display:flex;align-items:flex-start;gap:12px}
-.infoIcon{width:36px;height:36px;display:grid;place-items:center;flex-shrink:0;border-radius:12px;background:#1b3020;border:1px solid #33543a;font-size:17px}
-.infoItem h3{font-size:13px;margin:1px 0 5px}
-.infoItem p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
-.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
-.rule{padding:16px;border:1px solid var(--line);border-radius:14px;background:#0c150e}
-.ruleNo{font-size:10px;color:var(--green);font-weight:900;letter-spacing:1px}
-.rule h3{font-size:13px;margin:8px 0 5px}
-.rule p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
-.statusMessage{border-radius:12px;border:1px solid var(--line);padding:12px 14px;background:#0b140d;color:var(--muted);font-size:11px;line-height:1.7;margin-top:12px}
-.statusMessage strong{color:var(--text)}
-.tiny{font-size:10px;color:var(--muted)}
-.btn[disabled]{opacity:.55;cursor:wait;transform:none}
-.footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #223528;padding:19px 0 27px;margin-top:26px;color:#879a8a;font-size:10px}
-.toast{position:fixed;left:50%;bottom:17px;transform:translateX(-50%);background:#e7f8e8;color:#0a1a0e;padding:11px 15px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;font-weight:850;display:none;z-index:20;max-width:90vw;text-align:center}
+.brandMark{position:relative;width:45px;height:45px;display:grid;place-items:center;border-radius:15px;border:1px solid #5b8963;background:linear-gradient(145deg,#285f35,#102319);box-shadow:0 8px 25px #1c492b55;font-size:25px}
+.brandTitle{font-size:18px;font-weight:950;letter-spacing:1.6px;line-height:1.15}
+.brandSub{font-size:10px;color:#9db3a0;letter-spacing:.65px;margin-top:4px}
+.nav{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.nav a{color:#b3c4b5;font-size:12px;font-weight:700;padding:9px 12px;border-radius:10px;transition:background .18s,color .18s}
+.nav a:hover{background:#183020;color:#fff}
+.nav .navCta{background:#c1f2bf;color:#0b1a0e;padding-inline:15px}
+.nav .navCta:hover{background:#e1ffda;color:#0b1a0e}
+.livePill{display:inline-flex;align-items:center;gap:8px;border:1px solid #36523c;background:#122319;color:#d1f5d2;border-radius:999px;padding:7px 10px;font-size:9px;font-weight:900;letter-spacing:1px;white-space:nowrap}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #e8d09617;flex-shrink:0}
+.pulse.online{background:var(--green2);box-shadow:0 0 0 4px #61d17d20}
+.pulse.offline{background:var(--red);box-shadow:0 0 0 4px #ff9b9b20}
+main{padding-bottom:12px}
+.hero{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(330px,.87fr);gap:18px;margin:27px 0 23px}
+.panel{border:1px solid var(--line);background:linear-gradient(145deg,#112318f5,#0a150df5);border-radius:25px;box-shadow:var(--shadow)}
+.heroMain{position:relative;isolation:isolate;min-height:458px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(26px,5vw,54px)}
+.heroMain:before{content:"";position:absolute;z-index:-1;width:410px;height:410px;right:-110px;bottom:-200px;border:1px solid #84d99120;border-radius:50%;box-shadow:0 0 0 25px #84d99109,0 0 0 58px #84d99107,0 0 0 94px #84d99104}
+.heroMain:after{content:"";position:absolute;z-index:-1;right:9%;bottom:0;width:165px;height:245px;opacity:.18;background:linear-gradient(135deg,transparent 45%,#76ba7a 45% 48%,transparent 48%),linear-gradient(45deg,transparent 45%,#76ba7a 45% 48%,transparent 48%);clip-path:polygon(50% 0,76% 34%,65% 34%,91% 66%,72% 66%,100% 100%,0 100%,28% 66%,9% 66%,35% 34%,24% 34%)}
+.eyebrow{display:flex;align-items:center;gap:9px;color:var(--green);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.eyebrow:before{content:"";width:25px;height:1px;background:var(--green)}
+h1,h2,h3,p{margin-top:0}
+.hero h1{margin:18px 0 16px;font-size:clamp(39px,5vw,63px);line-height:.99;letter-spacing:-2.7px;font-weight:950;max-width:650px}
+.hero h1 span{display:block;color:var(--green);text-shadow:0 4px 35px #80d88a1c}
+.heroText{max-width:535px;margin:0;color:#b0c0b2;font-size:14px;line-height:1.9}
+.heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
+.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 15px;border-radius:12px;border:1px solid #3b5942;background:#15271a;color:var(--text);font-size:12px;font-weight:850;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.btn:hover{transform:translateY(-2px);border-color:#699372;background:#1b3522}
+.btn.primary{background:var(--green);border-color:var(--green);color:#0b1a0e;box-shadow:0 5px 20px #8ae49a17}
+.btn.primary:hover{background:#d2ffd0;border-color:#d2ffd0}
+.btn.dark{background:#0a150e}
+.heroMini{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:25px;color:#8fa691;font-size:10px;font-weight:700;letter-spacing:.4px}
+.heroMini span{display:inline-flex;align-items:center;gap:6px}
+.heroMini i{font-style:normal;color:var(--green)}
+.heroSide{padding:20px;display:flex;flex-direction:column;gap:13px}
+.sideTitle{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 2px 3px;font-size:13px;font-weight:900}
+.sideTitle small{font-size:10px;color:#8ea490;font-weight:650}
+.statusFeature{position:relative;overflow:hidden;padding:19px;border-radius:18px;border:1px solid #385841;background:radial-gradient(ellipse at 100% 0,#23472a70,transparent 50%),linear-gradient(145deg,#172f1d,#0b170e)}
+.statusFeature:after{content:"";position:absolute;right:-22px;top:-32px;width:105px;height:105px;border:1px solid #9be9a420;border-radius:50%;box-shadow:0 0 0 16px #9be9a408,0 0 0 32px #9be9a405;pointer-events:none}
+.statusFeatureTop{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.statusName{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:850}
+.serverIcon{width:37px;height:37px;display:grid;place-items:center;flex-shrink:0;background:#203b27;border:1px solid #426e4a;border-radius:12px;font-size:19px}
+.statusFeature .livePill{padding:6px 8px;font-size:8px}
+.playerBig{font-size:43px;line-height:1;font-weight:950;letter-spacing:-1.8px;margin:21px 0 6px;font-variant-numeric:tabular-nums}
+.playerBig small{font-size:15px;color:#94a997;font-weight:750;letter-spacing:0}
+.playerLabel{font-size:11px;color:#9bad9f}
+.progress{height:7px;border-radius:999px;background:#07110a;overflow:hidden;border:1px solid #2b4430;margin-top:17px}
+.progressFill{height:100%;width:0;background:linear-gradient(90deg,#4ebd70,#c2f4b6);border-radius:999px;transition:width .4s ease}
+.featureFoot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#9aad9d;font-size:10px;margin-top:9px}
+.featureFoot strong{color:#c7f2c8;font-size:10px}
+.metaGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.meta{padding:13px 14px;border:1px solid #263e2c;background:#0a150d;border-radius:14px;min-width:0}
+.metaLabel{font-size:9px;color:#8fa691;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.metaValue{font-size:14px;font-weight:900;margin-top:5px;overflow-wrap:anywhere}
+#refreshStatus{width:100%;background:#13251a}
+.section{margin:29px 0}
+.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:16px}
+.sectionHead h2{font-size:clamp(22px,3vw,29px);letter-spacing:-.9px;line-height:1.12;margin:0 0 7px;font-weight:900}
+.sectionHead p{font-size:12px;color:#9daf9f;margin:0;line-height:1.8;max-width:670px}
+.sectionKicker{font-size:9px;font-weight:950;color:var(--green);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:9px}
+.sectionAside{font-size:10px;color:#91a793;white-space:nowrap;padding-bottom:3px}
+.statusGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.statusCard{position:relative;overflow:hidden;padding:19px;border:1px solid #243b2a;background:linear-gradient(145deg,#102017,#0a140d);border-radius:17px;min-height:145px;transition:transform .2s ease,border-color .2s ease}
+.statusCard:hover,.infoItem:hover{transform:translateY(-3px);border-color:#426b4b}
+.statusIcon{width:37px;height:37px;display:grid;place-items:center;background:#1a3020;border:1px solid #34563b;border-radius:12px;color:var(--green);font-size:17px;margin-bottom:15px}
+.statusCard h3{font-size:13px;margin:0 0 7px}
+.statusCard p{font-size:11px;line-height:1.75;color:#9fb1a1;margin:0;overflow-wrap:anywhere}
+.statusMessage{border-radius:13px;border:1px solid #243b2a;padding:12px 14px;background:#09140d;color:#9caf9e;font-size:10px;line-height:1.75;margin-top:12px}
+.statusMessage strong{color:#e8f4e8}
+.teamPanel{padding:clamp(20px,4vw,33px);background:radial-gradient(ellipse at 100% 0,#1b3a2370,transparent 42%),linear-gradient(140deg,#102117,#0a140d)}
+.infoGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.infoItem{min-width:0;padding:17px 16px;border:1px solid #294330;border-radius:16px;background:#0b170eaa;transition:transform .2s ease,border-color .2s ease}
+.infoIcon{width:39px;height:39px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#1b3823,#102016);border:1px solid #34583d;font-size:18px;margin-bottom:16px}
+.infoItem h3{font-size:13px;margin:0 0 8px}
+.infoItem p{font-size:11px;line-height:1.8;color:#9fb1a1;margin:0}
+.joinPanel{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(22px,4vw,36px);border-radius:23px;border:1px solid #42694a;background:radial-gradient(ellipse at 90% 0,#2b63375c,transparent 47%),linear-gradient(125deg,#142b1a,#0c1710);box-shadow:var(--shadow)}
+.joinPanel:after{content:"🌲";position:absolute;z-index:-1;right:20%;bottom:-40px;font-size:145px;opacity:.045;filter:grayscale(1)}
+.joinContent{max-width:620px}
+.joinLabel{color:var(--green);font-size:9px;font-weight:950;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:9px}
+.joinPanel h2{font-size:clamp(23px,3vw,30px);line-height:1.15;letter-spacing:-.8px;margin:0 0 9px}
+.joinPanel p{font-size:12px;color:#a9bcad;line-height:1.8;margin:0}
+.joinAction{flex-shrink:0}
+.footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #24382a;padding:20px 0 28px;margin-top:32px;color:#809683;font-size:10px}
+.toast{position:fixed;left:50%;bottom:17px;transform:translateX(-50%);background:#d8f9d5;color:#0a1a0e;padding:11px 15px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;font-weight:850;display:none;z-index:20;max-width:90vw;text-align:center}
 .toast.show{display:block}
-@media(max-width:820px){.shell{width:calc(100% - 24px)}.hero{grid-template-columns:1fr}.heroSide{padding:16px}.statusGrid{grid-template-columns:1fr 1fr}.statusCard:last-child{grid-column:1/-1}}
-@media(max-width:560px){.headerRow{align-items:flex-start}.brandTitle{font-size:18px}.brandMark{width:43px;height:43px}.livePill{font-size:9px;padding:7px 8px;gap:6px}.nav{margin-top:13px}.hero{margin-top:17px}.hero h1{font-size:37px}.heroMain{padding:23px}.sectionHead{align-items:flex-start;flex-direction:column}.infoGrid,.rules{grid-template-columns:1fr}.statusGrid{gap:8px}.statusCard{padding:13px}.playerBig{font-size:33px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr)}.infoGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.heroMain{min-height:0}.hero h1{font-size:clamp(38px,5vw,53px)}}
+@media(max-width:720px){.shell{width:calc(100% - 26px)}.headerRow{min-height:70px}.nav{gap:2px}.nav a{padding:8px 9px;font-size:11px}.hero{grid-template-columns:1fr;margin-top:18px}.heroMain{padding:30px 25px;min-height:360px}.heroSide{padding:16px}.statusGrid{gap:9px}.statusCard{padding:15px}.joinPanel{align-items:flex-start;flex-direction:column}.joinAction{width:100%}.joinAction .btn{width:100%}.section{margin:24px 0}}
+@media(max-width:520px){.shell{width:calc(100% - 22px)}.headerRow{align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0 10px}.brandMark{width:40px;height:40px;border-radius:13px;font-size:22px}.brandTitle{font-size:16px}.brandSub{font-size:9px}.headerRow>.livePill{font-size:8px;padding:6px 8px}.nav{margin:0 0 8px;justify-content:space-between}.nav a{font-size:10px;padding:7px 8px}.nav .navCta{padding-inline:10px}.heroMain{padding:26px 21px;border-radius:20px;min-height:0}.hero h1{font-size:clamp(38px,10vw,51px);letter-spacing:-1.9px}.heroText{font-size:13px}.heroActions{gap:8px;margin-top:22px}.heroActions .btn{width:100%}.heroMini{margin-top:20px;line-height:1.8}.playerBig{font-size:40px}.sectionHead{align-items:flex-start;flex-direction:column;gap:8px}.sectionAside{white-space:normal}.statusGrid{grid-template-columns:1fr}.statusCard{min-height:0;padding:16px}.statusIcon{margin-bottom:11px}.teamPanel{padding:20px 15px;border-radius:20px}.infoGrid{grid-template-columns:1fr}.infoItem{display:flex;gap:13px;padding:15px}.infoIcon{flex-shrink:0;margin:0}.joinPanel{padding:24px 20px}.footer{flex-direction:column;gap:7px;margin-top:25px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
 <header class="header">
   <div class="shell">
     <div class="headerRow">
-      <div class="brand">
+      <a class="brand" href="#start" aria-label="Tanne Clan Startseite">
         <div class="brandMark" aria-hidden="true">🌲</div>
-        <div><div class="brandTitle">TANNE CLAN</div><div class="brandSub">HugoSMP · Gemeinsam stärker</div></div>
-      </div>
+        <div><div class="brandTitle">TANNE CLAN</div><div class="brandSub">HUGOSMP · GEMEINSAM STÄRKER</div></div>
+      </a>
       <div class="livePill"><span class="pulse" id="headerPulse"></span><span id="headerStatus">SERVERSTATUS WIRD GEPRÜFT</span></div>
     </div>
     <nav class="nav" aria-label="Navigation">
-      <a href="#start">Start</a><a href="#hugo-daten">HugoSMP-Daten</a><a href="#team">Clan & Teamplay</a><a href="#regeln">Regeln</a>
+      <a href="#start">Start</a><a href="#hugo-daten">Serverdaten</a><a href="#team">Der Clan</a><a class="navCta" href="#discord">Discord ↗</a>
     </nav>
   </div>
 </header>
-
 <main class="shell" id="start">
   <section class="hero">
-    <div class="card heroMain">
+    <div class="panel heroMain">
       <div class="eyebrow">Eine Community. Ein Ziel. Ein Team.</div>
-      <h1>Willkommen bei<br><span>Tanne Clan.</span></h1>
-      <p class="heroText">Dein Platz für Teamplay auf HugoSMP. Hier findest du den aktuellen Serverstatus, echte Spielerzahlen und die Werte, für die Tanne steht — übersichtlich, schnell und auch auf dem iPad angenehm zu nutzen.</p>
-      <div class="heroButtons">
-        <button class="btn primary" id="copyIp" type="button">HugoSMP-IP kopieren <span aria-hidden="true">↗</span></button>
-        <a class="btn ghost" href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">HugoSMP Discord ↗</a>
-        <a class="btn ghost" href="#hugo-daten">Serverdaten ansehen ↓</a>
+      <h1>Dein Team.<br>Dein Abenteuer.<span>TANNE CLAN.</span></h1>
+      <p class="heroText">Willkommen bei Tanne Clan — einer Community rund um HugoSMP. Entdecke aktuelle Serverdaten, bleib mit der Community verbunden und mach dein nächstes Minecraft-Abenteuer zu einem Teamprojekt.</p>
+      <div class="heroActions">
+        <button class="btn primary" id="copyIp" type="button">⛏&nbsp; Server-IP kopieren</button>
+        <a class="btn dark" href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">HugoSMP Discord <span aria-hidden="true">↗</span></a>
       </div>
+      <div class="heroMini"><span><i>✦</i> Community</span><span>·</span><span><i>✦</i> Teamplay</span><span>·</span><span><i>✦</i> HugoSMP live</span></div>
     </div>
-    <aside class="card heroSide">
-      <div class="sideTitle"><span>HugoSMP live</span><small id="checkedAt">Wird geladen …</small></div>
+    <aside class="panel heroSide" aria-label="Live-Serverstatus">
+      <div class="sideTitle"><span>HugoSMP Network</span><small id="checkedAt">Wird geladen …</small></div>
       <div class="statusFeature">
         <div class="statusFeatureTop">
-          <div class="statusName"><div class="serverIcon">⛏</div><span>HugoSMP Network</span></div>
+          <div class="statusName"><div class="serverIcon" aria-hidden="true">⛏</div><span>Serverstatus</span></div>
           <div class="livePill"><span class="pulse" id="serverPulse"></span><span id="serverState">PRÜFE STATUS</span></div>
         </div>
         <div class="playerBig"><span id="playersOnline">—</span> <small>/ <span id="playersMax">—</span></small></div>
-        <div class="playerLabel">Spieler online · laut Serverstatus-Abfrage</div>
+        <div class="playerLabel">Spieler online · aktuelle Statusabfrage</div>
         <div class="progress" aria-label="Spielerauslastung"><div class="progressFill" id="playerProgress"></div></div>
         <div class="featureFoot"><span>Serverauslastung</span><strong id="playerPercent">—</strong></div>
       </div>
       <div class="metaGrid">
         <div class="meta"><div class="metaLabel">Minecraft-Version</div><div class="metaValue" id="serverVersion">—</div></div>
-        <div class="meta"><div class="metaLabel">Adresse</div><div class="metaValue">hugosmp.net</div></div>
+        <div class="meta"><div class="metaLabel">Server-Adresse</div><div class="metaValue">hugosmp.net</div></div>
       </div>
       <button class="btn" id="refreshStatus" type="button">Status aktualisieren ↻</button>
     </aside>
   </section>
-
   <section class="section" id="hugo-daten">
-    <div class="sectionHead"><div><div class="sectionKicker">Server-Übersicht</div><h2>HugoSMP in Zahlen</h2><p>Direkt aus einem öffentlichen Minecraft-Statusdienst geladen. Die Werte werden regelmäßig aktualisiert, nicht fest in der Website gespeichert.</p></div><span class="tiny">Java Edition · hugosmp.net</span></div>
+    <div class="sectionHead"><div><div class="sectionKicker">Direkt vom Statusdienst</div><h2>HugoSMP auf einen Blick</h2><p>Hier siehst du die aktuelle Erreichbarkeit, Spielerzahl und Servernachricht. Die Daten werden automatisch regelmäßig neu abgefragt.</p></div><div class="sectionAside">JAVA EDITION&nbsp; · &nbsp;HUGOSMP.NET</div></div>
     <div class="statusGrid">
-      <article class="statusCard"><div class="statusIcon">◉</div><h3>Serverstatus</h3><p id="statusExplanation">Aktuelle Serverantwort wird angefragt …</p></article>
-      <article class="statusCard"><div class="statusIcon">♟</div><h3>Spieler online</h3><p id="playersExplanation">Die Spielerzahl wird live abgefragt.</p></article>
-      <article class="statusCard"><div class="statusIcon">▤</div><h3>Server-MOTD</h3><p id="serverMotd">Wird aus der aktuellen Serverantwort gelesen …</p></article>
+      <article class="statusCard"><div class="statusIcon" aria-hidden="true">◉</div><h3>Erreichbarkeit</h3><p id="statusExplanation">Aktuelle Serverantwort wird angefragt …</p></article>
+      <article class="statusCard"><div class="statusIcon" aria-hidden="true">♟</div><h3>Spieler online</h3><p id="playersExplanation">Die Spielerzahl wird live abgefragt.</p></article>
+      <article class="statusCard"><div class="statusIcon" aria-hidden="true">▤</div><h3>Servernachricht</h3><p id="serverMotd">Wird aus der aktuellen Serverantwort gelesen …</p></article>
     </div>
-    <div class="statusMessage" id="statusMessage"><strong>Verbinde …</strong> Die Website ruft die öffentlichen Statusdaten ab. Falls der Dienst vorübergehend nicht antwortet, bleibt der letzte erfolgreiche Wert nicht als aktuell markiert.</div>
+    <div class="statusMessage" id="statusMessage">Verbinde mit dem öffentlichen Serverstatus …</div>
   </section>
-
-  <section class="section card sectionPanel" id="team">
-    <div class="sectionHead"><div><div class="sectionKicker">Tanne Clan</div><h2>Was uns ausmacht</h2><p>Ein Clan ist mehr als ein Name. Er lebt davon, wie man zusammen spielt.</p></div></div>
+  <section class="section panel teamPanel" id="team">
+    <div class="sectionHead"><div><div class="sectionKicker">Das ist Tanne</div><h2>Mehr als nur ein Clan-Tag.</h2><p>Gemeinsam spielen, Ideen umsetzen und auf HugoSMP etwas aufbauen — das macht die Community aus.</p></div></div>
     <div class="infoGrid">
-      <article class="infoItem"><div class="infoIcon">🛡️</div><div><h3>Zusammenhalt</h3><p>Wir unterstützen uns bei Projekten, Ausrüstung und gemeinsamen Zielen statt nur auf eigene Vorteile zu schauen.</p></div></article>
-      <article class="infoItem"><div class="infoIcon">⚔️</div><div><h3>PvP & Events</h3><p>Vorbereitung, Kommunikation und Teamtaktik stehen vor unnötigem Risiko. Jeder kann etwas zum Team beitragen.</p></div></article>
-      <article class="infoItem"><div class="infoIcon">💚</div><div><h3>Handel & Wirtschaft</h3><p>Wir behalten die HugoSMP-Wirtschaft im Blick, vergleichen Preise fair und teilen nützliche Marktkenntnisse.</p></div></article>
-      <article class="infoItem"><div class="infoIcon">🌳</div><div><h3>Builds & Projekte</h3><p>Von Basen bis zu großen Gemeinschaftsprojekten: Planung und zuverlässige Mithilfe machen den Unterschied.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">🛡️</div><div><h3>Zusammenhalt</h3><p>Bei Projekten, Ausrüstung und gemeinsamen Zielen unterstützt man sich im Team.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">⚔️</div><div><h3>PvP & Events</h3><p>Mit guter Vorbereitung und cleverer Taktik werden gemeinsame Aktionen zum Erlebnis.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">💎</div><div><h3>Handel & Wirtschaft</h3><p>Preise vergleichen, Marktkenntnisse teilen und die HugoSMP-Wirtschaft entdecken.</p></div></article>
+      <article class="infoItem"><div class="infoIcon" aria-hidden="true">🌳</div><div><h3>Builds & Projekte</h3><p>Von besonderen Basen bis zu großen Bauideen: Zusammen wird mehr daraus.</p></div></article>
     </div>
   </section>
-
-  <section class="section" id="regeln">
-    <div class="sectionHead"><div><div class="sectionKicker">Unser Fundament</div><h2>Die Tanne-Regeln</h2><p>Einfach, klar und für alle im Team.</p></div></div>
-    <div class="rules">
-      <article class="rule"><div class="ruleNo">01 / RESPEKT</div><h3>Fair miteinander</h3><p>Keine Beleidigungen oder unnötiges Drama. Probleme lösen wir direkt und respektvoll.</p></article>
-      <article class="rule"><div class="ruleNo">02 / FAIRPLAY</div><h3>Sauber spielen</h3><p>Keine Cheats oder Exploits. Wir spielen fair und schützen den Ruf des Clans.</p></article>
-      <article class="rule"><div class="ruleNo">03 / TEAMGEIST</div><h3>Absprachen halten</h3><p>Bei Clan-Projekten kommunizieren wir klar, helfen einander und halten Vereinbarungen ein.</p></article>
-    </div>
+  <section class="section joinPanel" id="discord">
+    <div class="joinContent"><div class="joinLabel">Finde deine Community</div><h2>Dein nächstes Abenteuer wartet.</h2><p>Besuche den HugoSMP-Discord, tausche dich mit anderen Spielern aus und bleib rund um den Server auf dem Laufenden.</p></div>
+    <div class="joinAction"><a class="btn primary" href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">Zum HugoSMP Discord ↗</a></div>
   </section>
-
-  <footer class="footer"><span>© Tanne Clan · Community-Projekt</span><span>Serverstatus: mcstatus.io · Keine offizielle Verbindung zu HugoSMP, Mojang oder Microsoft.</span></footer>
+  <footer class="footer"><span>© TANNE CLAN · Community-Projekt</span><span>Serverstatus: mcstatus.io · Keine offizielle Verbindung zu HugoSMP, Mojang oder Microsoft.</span></footer>
 </main>
 <div class="toast" id="toast" role="status"></div>
-
 <script>
 (()=>{'use strict';
 const API='https://api.mcstatus.io/v2/status/java/hugosmp.net';
 const $=id=>document.getElementById(id);
 let refreshTimer=null;
 function toast(message){const node=$('toast');node.textContent=message;node.classList.add('show');window.setTimeout(()=>node.classList.remove('show'),2300)}
-function formatTime(value){
-  const date=value?new Date(value):new Date();
-  if(Number.isNaN(date.getTime())) return 'gerade eben';
-  return date.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-}
-function setState(state,label){
-  $('serverState').textContent=label;
-  $('headerStatus').textContent=label;
-  $('serverPulse').className='pulse '+state;
-  $('headerPulse').className='pulse '+state;
-}
+function formatTime(value){const date=value?new Date(value):new Date();if(Number.isNaN(date.getTime()))return 'gerade eben';return date.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
+function setState(state,label){$('serverState').textContent=label;$('headerStatus').textContent=label;$('serverPulse').className='pulse '+state;$('headerPulse').className='pulse '+state}
 async function loadStatus(){
-  const button=$('refreshStatus');
-  button.disabled=true;
-  $('checkedAt').textContent='Prüfe …';
-  try{
-    const response=await fetch(API,{method:'GET',headers:{'Accept':'application/json'},cache:'no-store'});
-    if(!response.ok) throw new Error('Statusdienst antwortet mit HTTP '+response.status);
-    const data=await response.json();
-    if(typeof data.online!=='boolean') throw new Error('Die Antwort enthält keinen bestätigten Serverstatus.');
-    const observedAt=typeof data.retrieved_at==='number'?data.retrieved_at:Date.now();
-    $('checkedAt').textContent='Geprüft '+formatTime(observedAt);
-    $('playersOnline').textContent=Number.isFinite(data.players?.online)?Number(data.players.online).toLocaleString('de-DE'):'—';
-    $('playersMax').textContent=Number.isFinite(data.players?.max)?Number(data.players.max).toLocaleString('de-DE'):'—';
-    $('serverVersion').textContent=data.version?.name_clean||data.version?.name_raw||'Nicht gemeldet';
-    $('serverMotd').textContent=data.motd?.clean?String(data.motd.clean).replace(/\s+/g,' ').trim():'Keine MOTD gemeldet.';
-    if(data.online){
-      setState('online','ONLINE');
-      $('statusExplanation').textContent='HugoSMP antwortet auf die aktuelle Statusabfrage.';
-    }else{
-      setState('offline','OFFLINE');
-      $('statusExplanation').textContent='Der Statusdienst meldet den Server derzeit als offline.';
-    }
-    const online=Number.isFinite(data.players?.online)?data.players.online:null;
-    const max=Number.isFinite(data.players?.max)&&data.players.max>0?data.players.max:null;
-    if(online!==null&&max){
-      const percent=Math.max(0,Math.min(100,(online/max)*100));
-      $('playerProgress').style.width=percent+'%';
-      $('playerPercent').textContent=percent.toLocaleString('de-DE',{maximumFractionDigits:1})+'%';
-      $('playersExplanation').textContent=online.toLocaleString('de-DE')+' von '+max.toLocaleString('de-DE')+' Slots belegt.';
-    }else{
-      $('playerProgress').style.width='0%';$('playerPercent').textContent='—';
-      $('playersExplanation').textContent='Der Server hat aktuell keine auswertbare Spielerzahl gemeldet.';
-    }
-    $('statusMessage').textContent='Letzte erfolgreiche Abfrage: '+formatTime(observedAt)+'. Daten werden ungefähr jede Minute neu geprüft. Statuswerte können durch den Cache des Dienstes leicht verzögert sein.';
-  }catch(error){
-    setState('','STATUS UNKLAR');
-    $('checkedAt').textContent='Nicht erreichbar';
-    $('statusExplanation').textContent='Der öffentliche Statusdienst ist momentan nicht erreichbar. Daraus lässt sich nicht schließen, dass HugoSMP offline ist.';
-    $('playersExplanation').textContent='Spielerzahl momentan nicht verfügbar.';
-    $('serverMotd').textContent='Keine aktuelle Antwort verfügbar.';
-    $('playerProgress').style.width='0%';$('playerPercent').textContent='—';
-    $('statusMessage').textContent='Statusdaten konnten nicht geladen werden. Bitte später erneut versuchen. Es wird kein alter Wert als aktuell ausgegeben.';
-  }finally{
-    button.disabled=false;
-    if(refreshTimer) window.clearTimeout(refreshTimer);
-    refreshTimer=window.setTimeout(loadStatus,65000);
-  }
+ const button=$('refreshStatus');button.disabled=true;$('checkedAt').textContent='Prüfe …';
+ try{
+  const response=await fetch(API,{method:'GET',headers:{'Accept':'application/json'},cache:'no-store'});
+  if(!response.ok)throw new Error('Statusdienst antwortet mit HTTP '+response.status);
+  const data=await response.json();if(typeof data.online!=='boolean')throw new Error('Kein bestätigter Serverstatus.');
+  const observedAt=typeof data.retrieved_at==='number'?data.retrieved_at:Date.now();
+  $('checkedAt').textContent='Geprüft '+formatTime(observedAt);
+  $('playersOnline').textContent=Number.isFinite(data.players?.online)?Number(data.players.online).toLocaleString('de-DE'):'—';
+  $('playersMax').textContent=Number.isFinite(data.players?.max)?Number(data.players.max).toLocaleString('de-DE'):'—';
+  $('serverVersion').textContent=data.version?.name_clean||data.version?.name_raw||'Nicht gemeldet';
+  $('serverMotd').textContent=data.motd?.clean?String(data.motd.clean).replace(/\s+/g,' ').trim():'Keine Servernachricht gemeldet.';
+  if(data.online){setState('online','ONLINE');$('statusExplanation').textContent='HugoSMP antwortet auf die aktuelle Statusabfrage.'}
+  else{setState('offline','OFFLINE');$('statusExplanation').textContent='Der Statusdienst meldet den Server derzeit als offline.'}
+  const online=Number.isFinite(data.players?.online)?data.players.online:null;
+  const max=Number.isFinite(data.players?.max)&&data.players.max>0?data.players.max:null;
+  if(online!==null&&max){const percent=Math.max(0,Math.min(100,(online/max)*100));$('playerProgress').style.width=percent+'%';$('playerPercent').textContent=percent.toLocaleString('de-DE',{maximumFractionDigits:1})+'%';$('playersExplanation').textContent=online.toLocaleString('de-DE')+' von '+max.toLocaleString('de-DE')+' Slots belegt.'}
+  else{$('playerProgress').style.width='0%';$('playerPercent').textContent='—';$('playersExplanation').textContent='Der Server hat aktuell keine auswertbare Spielerzahl gemeldet.'}
+  $('statusMessage').textContent='Letzte Abfrage: '+formatTime(observedAt)+'. Automatische Aktualisierung etwa jede Minute; Werte können durch den Statusdienst leicht verzögert sein.';
+ }catch(error){
+  setState('','STATUS UNKLAR');$('checkedAt').textContent='Nicht erreichbar';
+  $('statusExplanation').textContent='Der öffentliche Statusdienst ist gerade nicht erreichbar. Das bedeutet nicht automatisch, dass HugoSMP offline ist.';
+  $('playersExplanation').textContent='Spielerzahl momentan nicht verfügbar.';$('serverMotd').textContent='Keine aktuelle Antwort verfügbar.';
+  $('playerProgress').style.width='0%';$('playerPercent').textContent='—';
+  $('statusMessage').textContent='Die Statusdaten konnten gerade nicht geladen werden. Bitte später erneut versuchen; es wird kein alter Wert als aktuell ausgegeben.';
+ }finally{button.disabled=false;if(refreshTimer)window.clearTimeout(refreshTimer);refreshTimer=window.setTimeout(loadStatus,65000)}
 }
 async function copyText(value){
-  try{
-    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);}
-    else{
-      const ta=document.createElement('textarea');ta.value=value;ta.setAttribute('readonly','');
-      ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
-      const ok=document.execCommand('copy');ta.remove();if(!ok) throw new Error('copy failed');
-    }
-    toast(value+' kopiert!');
-  }catch{toast('Kopieren wurde vom Browser blockiert. IP: '+value)}
+ try{
+  if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(value);
+  else{const ta=document.createElement('textarea');ta.value=value;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();if(!ok)throw new Error('copy failed')}
+  toast(value+' kopiert!');
+ }catch{toast('Kopieren wurde blockiert. Server-IP: '+value)}
 }
 $('copyIp').addEventListener('click',()=>copyText('hugosmp.net'));
 $('refreshStatus').addEventListener('click',()=>{if(refreshTimer)window.clearTimeout(refreshTimer);loadStatus()});
