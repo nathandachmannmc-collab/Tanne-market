@@ -749,6 +749,58 @@ body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive
  .rulesMenu.fullscreenPortal .rulesList li{font-size:11px;padding-top:8px;padding-bottom:8px}
 }
 
+
+/* Dedicated fullscreen Links and Twitch pages */
+.linksNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#b8d9b4;font-size:15px;line-height:1}
+.twitchNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#c4a4ff;font-size:15px;line-height:1}
+.linksFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important}
+.twitchFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important}
+.linksFullscreenTop,.twitchFullscreenTop{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px;padding:12px clamp(15px,3vw,42px);background:rgba(15,22,17,.97);border-bottom:1px solid #28372c}
+.linksFullscreenBrand,.twitchFullscreenBrand{display:flex;align-items:center;gap:11px;min-width:0}
+.linksBrandMark,.twitchBrandMark{display:grid;place-items:center;flex:0 0 40px;height:40px;border:1px solid #376244;border-radius:10px;background:#173021;color:#c1e5c1;font-size:16px;font-weight:950}
+.twitchBrandMark{border-color:#63458b;background:#2b1d3f;color:#dac0ff}
+.linksFullscreenBrand>span:last-child,.twitchFullscreenBrand>span:last-child{display:flex;flex-direction:column;gap:3px}
+.linksFullscreenBrand strong,.twitchFullscreenBrand strong{font-size:15px;font-weight:850;line-height:1.2}
+.linksFullscreenBrand small,.twitchFullscreenBrand small{font-size:8px;letter-spacing:1.5px;color:#89998c}
+.twitchFullscreenBrand small{color:#bba2d6}
+.linksCloseButton,.twitchCloseButton{min-height:39px;display:inline-flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid #35473a;border-radius:8px;background:transparent;color:#e2e9e2;font-size:11px;font-weight:750;cursor:pointer}
+.linksCloseButton:hover,.twitchCloseButton:hover{background:#202b22}
+.linksCloseButton span,.twitchCloseButton span{font-size:20px;line-height:1}
+.linksFullscreenPage,.twitchFullscreenPage{width:min(1040px,calc(100% - 40px));margin:0 auto;padding:35px 0 45px}
+.linksFullscreenIntro,.twitchFullscreenIntro{margin-bottom:26px}
+.linksFullscreenEyebrow,.twitchFullscreenEyebrow{font-size:9px;font-weight:900;letter-spacing:1.7px;color:#8aaa8c;margin-bottom:9px}
+.twitchFullscreenEyebrow{color:#c4a4ff}
+.linksFullscreenIntro h2,.twitchFullscreenIntro h2{margin:0 0 9px;font-size:clamp(28px,4vw,39px);line-height:1.1;letter-spacing:-1.1px;color:#eef4ed}
+.linksFullscreenIntro p,.twitchFullscreenIntro p{max-width:600px;margin:0;color:#9eada0;font-size:12px;line-height:1.8}
+.linksGroup{margin-top:22px}
+.linksGroupHead{margin-bottom:12px}
+.linksGroupHead h3{font-size:16px;color:#e8f0e7;margin:0 0 3px}
+.linksGroupHead p{font-size:10px;color:#89998c;margin:0}
+.linksGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.linksCard{display:flex!important;align-items:center;gap:13px;min-width:0;padding:16px;border:1px solid #2b3b2e;border-radius:11px;background:#101811;color:#e5eee5!important;text-decoration:none;border-bottom:1px solid #2b3b2e!important}
+.linksCard:hover{background:#152018!important;border-color:#456648!important;transform:none!important}
+.linksCardIcon{display:grid;place-items:center;flex:0 0 42px;height:42px;border:1px solid #364e39;border-radius:9px;background:#17261a;color:#c0e0bc;font-size:18px}
+.linksCardText{display:flex;flex:1;flex-direction:column;gap:4px;min-width:0}
+.linksCardText strong{font-size:12px;font-weight:850}
+.linksCardText small{font-size:10px;color:#91a193;line-height:1.5}
+.linksCardArrow{font-size:16px;color:#a3cba0}
+.linksFooterNote{margin:24px 0 0;padding-top:14px;border-top:1px solid #26372a;color:#718273;font-size:10px}
+.twitchFullscreenContent{margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.twitchFullscreenContent .sectionHead{margin-bottom:18px}
+.twitchFullscreenContent .streamerCard{background:#111812;border-color:#3d3150}
+.twitchFullscreenContent .streamerButton{box-shadow:none}
+body.linksFullscreenActive,body.twitchFullscreenActive{overflow:hidden!important}
+@media(max-width:720px){
+ .linksFullscreenPage,.twitchFullscreenPage{width:calc(100% - 26px);padding:23px 0 30px}
+ .linksGrid{grid-template-columns:1fr}
+ .linksCard{padding:13px}
+ .linksFullscreenTop,.twitchFullscreenTop{padding:10px 13px}
+ .linksBrandMark,.twitchBrandMark{flex-basis:34px;height:34px;font-size:13px}
+ .linksFullscreenBrand strong,.twitchFullscreenBrand strong{font-size:12px}
+ .linksFullscreenBrand small,.twitchFullscreenBrand small{font-size:7px;letter-spacing:1px}
+ .linksCloseButton,.twitchCloseButton{min-height:34px;padding:6px 8px;font-size:10px}
+}
+
 </style>
 </head>
 <body>
@@ -767,7 +819,41 @@ body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive
         <a href="#start"><span class="navIcon" aria-hidden="true">⌂</span>Start</a>
         <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
         <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
-        <a href="#twitch"><span class="navIcon" aria-hidden="true">◉</span>Twitch</a>
+        <details class="navDropdown twitchDropdown" id="twitch">
+          <summary><span class="twitchNavIcon" aria-hidden="true">◉</span>Twitch <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <div class="navMenu twitchFullscreen" role="dialog" aria-modal="true" aria-label="Twitch-Streamer des Tanne-Clans">
+            <div class="twitchFullscreenTop">
+              <div class="twitchFullscreenBrand"><span class="twitchBrandMark">T</span><span><strong>Twitch</strong><small>TANNE CLAN · STREAMER</small></span></div>
+              <button class="twitchCloseButton" id="twitchCloseButton" type="button" aria-label="Twitch schließen">Schließen <span aria-hidden="true">×</span></button>
+            </div>
+            <div class="twitchFullscreenPage">
+              <div class="twitchFullscreenIntro"><div class="twitchFullscreenEyebrow">TANNE AUF TWITCH</div><h2>Streams aus der Community.</h2><p>Hier findest du Streamer aus dem Clan. Öffne einen Kanal, um direkt auf Twitch zu schauen.</p></div>
+              <section class="twitchSection twitchFullscreenContent">
+                <div class="sectionHead">
+      <div>
+        <div class="sectionKicker twitchKicker">TANNE AUF TWITCH</div>
+        <h2>Unsere Streamer.</h2>
+        <p>Hier findest du Streams aus dem Clan und der Community.</p>
+      </div>
+      <div class="twitchPlatform"><span class="twitchDot"></span> TWITCH CHANNELS</div>
+    </div>
+    <article class="streamerCard">
+      <div class="streamerIdentity">
+        <div class="streamerAvatar" aria-hidden="true"><span>H</span><i>◉</i></div>
+        <div class="streamerDetails">
+          <div class="streamerEyebrow">TANNE STREAMER</div>
+          <h3>HexMeOnce</h3>
+          <p>Gaming, Streams und Community — schau auf dem Twitch-Kanal vorbei.</p>
+          <div class="streamerTags"><span>TWITCH</span><span>GAMING</span><span>TANNE COMMUNITY</span></div>
+        </div>
+      </div>
+      <a class="streamerButton" href="https://twitch.tv/hexmeonce" target="_blank" rel="noopener noreferrer"><span class="streamerButtonIcon" aria-hidden="true">◉</span> Twitch-Kanal öffnen <span class="streamerArrow" aria-hidden="true">↗</span></a>
+      <div class="streamerCardGlow" aria-hidden="true"></div>
+    </article>
+              </section>
+            </div>
+          </div>
+        </details>
         <details class="navDropdown settingsDropdown">
           <summary><span class="settingsNavIcon" aria-hidden="true">⚙</span>Einstellungen <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu settingsFullscreen" role="dialog" aria-modal="true" aria-label="Website-Einstellungen">
@@ -873,17 +959,32 @@ body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive
             <a class="appealButton" href="https://appeal.gg/kz3y7Gqekq" target="_blank" rel="noopener noreferrer"><span><strong>Strafe anfechten</strong><small>Über das Appeal-Formular einen Einspruch einreichen</small></span><span aria-hidden="true">↗</span></a>
           </div>
         </details>
-        <details class="navDropdown">
-          <summary><span class="navIcon" aria-hidden="true">↗</span>Links <span class="menuChevron" aria-hidden="true">⌄</span></summary>
-          <div class="navMenu" aria-label="Externe HugoSMP-Links">
-            <div class="navMenuHeading">MARKT & TOOLS</div>
-            <a href="https://locomarket.net/" target="_blank" rel="noopener noreferrer"><span class="menuItemIcon">◈</span><span class="menuItemText"><strong>Loco Market</strong><small>Live-Feed & Preis-Tools</small></span><span class="menuArrow">↗</span></a>
-            <a href="https://hugosmp-market.net/live" target="_blank" rel="noopener noreferrer"><span class="menuItemIcon">▤</span><span class="menuItemText"><strong>HugoSMP Market</strong><small>Auktionen & Orders</small></span><span class="menuArrow">↗</span></a>
-            <a href="https://www.friendswithmoney.net/marketplace" target="_blank" rel="noopener noreferrer"><span class="menuItemIcon">◇</span><span class="menuItemText"><strong>FriendsWithMoney</strong><small>Community-Marktplatz</small></span><span class="menuArrow">↗</span></a>
-            <a href="https://hugosmpmarket.de/" target="_blank" rel="noopener noreferrer"><span class="menuItemIcon">◆</span><span class="menuItemText"><strong>Hugo Market</strong><small>Geld & Items</small></span><span class="menuArrow">↗</span></a>
-            <div class="navMenuDivider"></div>
-            <div class="navMenuHeading">OFFIZIELLER SHOP</div>
-            <a href="https://shop.hugosmp.net/" target="_blank" rel="noopener noreferrer"><span class="menuItemIcon">✦</span><span class="menuItemText"><strong>HugoSMP Shop</strong><small>Ränge & Gems</small></span><span class="menuArrow">↗</span></a>
+        <details class="navDropdown linksDropdown">
+          <summary><span class="linksNavIcon" aria-hidden="true">↗</span>Links <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <div class="navMenu linksFullscreen" role="dialog" aria-modal="true" aria-label="Tanne Clan Links">
+            <div class="linksFullscreenTop">
+              <div class="linksFullscreenBrand"><span class="linksBrandMark">T</span><span><strong>Links & Ressourcen</strong><small>TANNE CLAN · SAMMLUNG</small></span></div>
+              <button class="linksCloseButton" id="linksCloseButton" type="button" aria-label="Links schließen">Schließen <span aria-hidden="true">×</span></button>
+            </div>
+            <div class="linksFullscreenPage">
+              <div class="linksFullscreenIntro"><div class="linksFullscreenEyebrow">SCHNELLZUGRIFF</div><h2>Alles Wichtige an einem Ort.</h2><p>Marktplätze, Tools und der offizielle HugoSMP-Shop – direkt erreichbar, ohne lange suchen zu müssen.</p></div>
+              <section class="linksGroup">
+                <div class="linksGroupHead"><h3>Markt & Tools</h3><p>Handel, Auktionen und Community-Tools</p></div>
+                <div class="linksGrid">
+                  <a class="linksCard" href="https://locomarket.net/" target="_blank" rel="noopener noreferrer"><span class="linksCardIcon">◈</span><span class="linksCardText"><strong>Loco Market</strong><small>Live-Feed & Preis-Tools</small></span><span class="linksCardArrow">↗</span></a>
+                  <a class="linksCard" href="https://hugosmp-market.net/live" target="_blank" rel="noopener noreferrer"><span class="linksCardIcon">▤</span><span class="linksCardText"><strong>HugoSMP Market</strong><small>Auktionen & Orders</small></span><span class="linksCardArrow">↗</span></a>
+                  <a class="linksCard" href="https://www.friendswithmoney.net/marketplace" target="_blank" rel="noopener noreferrer"><span class="linksCardIcon">◇</span><span class="linksCardText"><strong>FriendsWithMoney</strong><small>Community-Marktplatz</small></span><span class="linksCardArrow">↗</span></a>
+                  <a class="linksCard" href="https://hugosmpmarket.de/" target="_blank" rel="noopener noreferrer"><span class="linksCardIcon">◆</span><span class="linksCardText"><strong>Hugo Market</strong><small>Geld & Items</small></span><span class="linksCardArrow">↗</span></a>
+                </div>
+              </section>
+              <section class="linksGroup">
+                <div class="linksGroupHead"><h3>Offizieller Shop</h3><p>Ränge und Gems für HugoSMP</p></div>
+                <div class="linksGrid">
+                  <a class="linksCard" href="https://shop.hugosmp.net/" target="_blank" rel="noopener noreferrer"><span class="linksCardIcon">✦</span><span class="linksCardText"><strong>HugoSMP Shop</strong><small>Offizieller Server-Shop</small></span><span class="linksCardArrow">↗</span></a>
+                </div>
+              </section>
+              <p class="linksFooterNote">Externe Seiten werden in einem neuen Tab geöffnet.</p>
+            </div>
           </div>
         </details>
         <a class="navCta" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer"><span class="navDiscordMark" aria-hidden="true">◉</span>Tanne Discord <span aria-hidden="true">↗</span></a>
@@ -903,23 +1004,7 @@ body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive
         <a class="btn clan" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer">Tanne Clan Discord <span aria-hidden="true">↗</span></a>
       </div>
       <div class="heroMini"><span>Minecraft</span><span>·</span><span>Discord</span><span>·</span><span>HugoSMP</span></div>
-    </div>
-    <aside class="panel heroSide" aria-label="Live-Serverstatus">
-      <div class="sideTitle"><span>HugoSMP Network</span><small id="checkedAt">Wird geladen …</small></div>
-      <div class="statusFeature">
-        <div class="statusFeatureTop">
-          <div class="statusName"><div class="serverIcon" aria-hidden="true">▦</div><span>Serverstatus</span></div>
-          <div class="livePill"><span class="pulse" id="serverPulse"></span><span id="serverState">PRÜFE STATUS</span></div>
-        </div>
-        <div class="playerBig"><span id="playersOnline">—</span> <small>/ <span id="playersMax">—</span></small></div>
-        <div class="playerLabel">Spieler online · aktuelle Statusabfrage</div>
-        <div class="progress" aria-label="Spielerauslastung"><div class="progressFill" id="playerProgress"></div></div>
-        <div class="featureFoot"><span>Serverauslastung</span><strong id="playerPercent">—</strong></div>
-      </div>
-      <div class="metaGrid">
-        <div class="meta"><div class="metaLabel">Minecraft-Version</div><div class="metaValue" id="serverVersion">—</div></div>
-        <div class="meta"><div class="metaLabel">Server-Adresse</div><div class="metaValue">hugosmp.net</div></div>
-      </div>
+    </ddiv>
       <button class="btn" id="refreshStatus" type="button">Status aktualisieren ↻</button>
     </aside>
   </section>
@@ -1025,19 +1110,23 @@ const dropdowns=[...document.querySelectorAll('.navDropdown')];
 const rulesDropdown=document.querySelector('.rulesDropdown');
 const mrDropdown=document.querySelector('.mrDropdown');
 const settingsDropdown=document.querySelector('.settingsDropdown');
+const linksDropdown=document.querySelector('.linksDropdown');
+const twitchDropdown=document.querySelector('.twitchDropdown');
 const portals=new Map();
 const getMenu=details=>{
   const saved=portals.get(details);
-  return saved?saved.menu:details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen');
+  return saved?saved.menu:details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen');
 };
 const syncFullscreen=()=>{
   document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
   document.body.classList.toggle('mrFullscreenActive',Boolean(mrDropdown&&mrDropdown.open));
   document.body.classList.toggle('settingsFullscreenActive',Boolean(settingsDropdown&&settingsDropdown.open));
+  document.body.classList.toggle('linksFullscreenActive',Boolean(linksDropdown&&linksDropdown.open));
+  document.body.classList.toggle('twitchFullscreenActive',Boolean(twitchDropdown&&twitchDropdown.open));
 };
 const portalMenu=details=>{
   if(portals.has(details))return;
-  const menu=details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen');
+  const menu=details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen');
   if(!menu)return;
   const placeholder=document.createComment('fullscreen-menu-placeholder');
   menu.parentNode.insertBefore(placeholder,menu);
@@ -1084,6 +1173,14 @@ document.querySelectorAll('#mrCloseButton').forEach(button=>button.addEventListe
 document.querySelectorAll('#settingsCloseButton').forEach(button=>button.addEventListener('click',()=>{
   closeMenu(settingsDropdown);
   settingsDropdown?.querySelector('summary')?.focus();
+}));
+document.querySelectorAll('#linksCloseButton').forEach(button=>button.addEventListener('click',()=>{
+  closeMenu(linksDropdown);
+  linksDropdown?.querySelector('summary')?.focus();
+}));
+document.querySelectorAll('#twitchCloseButton').forEach(button=>button.addEventListener('click',()=>{
+  closeMenu(twitchDropdown);
+  twitchDropdown?.querySelector('summary')?.focus();
 }));
 document.addEventListener('click',event=>{
   dropdowns.forEach(details=>{
