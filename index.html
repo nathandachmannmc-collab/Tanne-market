@@ -4,57 +4,207 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b120e">
-<title>Tanne Market · Hugo SMP Live Tracker</title>
+<meta name="description" content="Tanne Market – Hugo-SMP-Auktionen und Orders in einem übersichtlichen Markt-Dashboard.">
+<title>Tanne Market — Hugo SMP Marktübersicht</title>
 <style>
-:root{color-scheme:dark;--bg:#080d0a;--panel:#101914;--panel2:#151f18;--line:#29392e;--text:#eef6ef;--muted:#9bad9f;--green:#82d99b;--green2:#235d39;--amber:#e5bf72;--red:#e58b8b;--shadow:0 18px 45px #0004}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 460px at 70% -100px,#193b25 0,transparent 70%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:auto;padding:22px 16px 48px}.top{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px}.logo{height:44px;width:44px;display:grid;place-items:center;background:linear-gradient(145deg,#2f7846,#14351f);border:1px solid #4e8a5e;border-radius:14px;font-size:23px;box-shadow:0 8px 24px #173a2466}.brand h1{margin:0;font-size:20px;letter-spacing:-.5px}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.tag{font-size:12px;color:var(--amber);border:1px solid #5d4b25;background:#2b2414;border-radius:999px;padding:6px 10px;white-space:nowrap}.hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:stretch;margin-bottom:18px}.heroMain,.heroSide,.panel,.source{background:linear-gradient(160deg,#142019,#0d140f);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.heroMain{padding:26px;position:relative;overflow:hidden}.heroMain:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #6ac68420;border-radius:50%;right:-70px;bottom:-140px;box-shadow:0 0 0 25px #6ac68408,0 0 0 50px #6ac68406}.eyebrow{color:var(--green);text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:1.7px}.hero h2{font-size:clamp(26px,4vw,42px);line-height:1.08;letter-spacing:-1.3px;max-width:570px;margin:12px 0}.heroMain p{color:var(--muted);max-width:600px;margin:0 0 20px}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:10px 14px;font-weight:700;font-size:13px;border:1px solid var(--line);background:#1b281f;color:var(--text);cursor:pointer}.btn.primary{background:var(--green);color:#0b190e;border-color:var(--green)}.btn:hover{filter:brightness(1.08);text-decoration:none}.heroSide{padding:20px;display:flex;flex-direction:column;gap:13px}.sideTitle{font-weight:750;font-size:14px}.statusRow{border:1px solid var(--line);background:#0b120e;border-radius:13px;padding:13px;display:flex;gap:11px;align-items:flex-start}.statusIcon{height:30px;width:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:9px;background:#1d2d21;color:var(--green)}.statusRow strong{display:block;font-size:13px}.statusRow small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.pill{font-size:10px;color:var(--amber);font-weight:800;letter-spacing:.35px;margin-top:5px;display:inline-block}.sources{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:18px 0}.source{padding:18px;box-shadow:none}.sourceHead{display:flex;align-items:center;gap:12px;margin-bottom:12px}.sourceLogo{height:42px;width:42px;border-radius:12px;background:#1c2b20;border:1px solid #314b37;display:grid;place-items:center;font-weight:900;color:var(--green);font-size:17px}.source h3{font-size:16px;margin:0}.source p{font-size:12px;color:var(--muted);margin:2px 0 0}.source .btn{width:100%;margin-top:6px}.sourceState{font-size:12px;color:var(--amber);border-top:1px solid var(--line);padding-top:11px;margin-top:13px}.panel{padding:19px;margin-top:18px}.panelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.panel h3{margin:0;font-size:17px}.sub{font-size:12px;color:var(--muted);margin:4px 0 0}.toolbar{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:9px;margin-bottom:13px}input,select{width:100%;background:#080f0b;border:1px solid var(--line);color:var(--text);padding:11px 12px;border-radius:10px;font:inherit;font-size:13px;min-width:0}input:focus,select:focus{outline:2px solid #4d9962;outline-offset:1px}.tableWrap{overflow-x:auto;border:1px solid var(--line);border-radius:13px}table{border-collapse:collapse;width:100%;min-width:650px;text-align:left;font-size:13px}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.7px;background:#0b120e}td,th{padding:13px 14px;border-bottom:1px solid #253229}tbody tr:last-child td{border-bottom:0}.empty{text-align:center;padding:32px 20px!important;color:var(--muted)}.empty strong{display:block;color:var(--text);font-size:14px;margin-bottom:5px}.sourceBadge,.typeBadge{display:inline-block;padding:4px 7px;border-radius:7px;font-size:10px;font-weight:800;white-space:nowrap}.sourceBadge{background:#1a2a20;color:#a6edb7}.typeBadge{background:#29251a;color:#f0d18c}.localBadge{background:#202631;color:#b8c9f7}.smallActions{display:flex;gap:8px;flex-wrap:wrap}.note{font-size:12px;line-height:1.55;color:var(--muted);margin:14px 0 0}.manual{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.manual .wide{grid-column:span 2}.footer{display:flex;gap:15px;justify-content:space-between;flex-wrap:wrap;padding:22px 2px;color:var(--muted);font-size:11px}.footer a{color:var(--muted)}.hidden{display:none!important}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#e9f7ec;color:#102015;padding:11px 15px;border-radius:12px;box-shadow:var(--shadow);font-size:13px;font-weight:700;display:none;max-width:90vw}.toast.show{display:block}
-@media(max-width:760px){.hero{grid-template-columns:1fr}.sources{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr}.toolbar input{grid-column:1/-1}.manual{grid-template-columns:1fr 1fr}.manual .wide{grid-column:1/-1}.top{align-items:flex-start}.tag{white-space:normal;text-align:center}.heroMain{padding:22px}.panel{padding:14px}}
-
-/* Official source views */
-.embedGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.embedCard{min-width:0;border:1px solid var(--line);background:#0b120e;border-radius:15px;padding:14px}
-.embedCard h4{font-size:14px;margin:0}
-.embedCard .sub{min-height:34px}
-.embedActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.embedStatus{font-size:12px;color:var(--muted);margin:10px 0 0;min-height:18px}
-.frameWrap{margin-top:10px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#080f0b}
-.frameWrap iframe{display:block;width:100%;height:520px;border:0;background:#080f0b}
-@media(max-width:760px){.embedGrid{grid-template-columns:1fr}.frameWrap iframe{height:560px}.embedCard .sub{min-height:0}}
+:root{
+  color-scheme:dark;
+  --bg:#080d0a;--surface:#101914;--surface2:#141f18;--surface3:#1a2a20;
+  --line:#26392c;--line2:#34513c;--text:#edf5ee;--muted:#a0b1a3;
+  --green:#91e3a6;--green2:#43b86a;--gold:#e8c77f;--red:#ff9b9b;
+  --shadow:0 18px 48px #0005;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(900px 500px at 75% -140px,#193f26 0,transparent 68%),var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.shell{width:min(1160px,100% - 32px);margin-inline:auto}
+.topbar{padding:20px 0 16px;border-bottom:1px solid #243529}
+.topinner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:46px;height:46px;display:grid;place-items:center;border:1px solid #4a8056;border-radius:15px;background:linear-gradient(145deg,#275f38,#102819);box-shadow:0 7px 25px #1b462855;font-size:25px;flex-shrink:0}
+.brandname{font-weight:850;font-size:19px;letter-spacing:-.6px}
+.brandcaption{font-size:12px;color:var(--muted);margin-top:1px}
+.topstatus{display:inline-flex;align-items:center;gap:8px;border:1px solid #574728;background:#251f13;color:#f0d38b;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.5px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #e8c77f18}
+nav{display:flex;align-items:center;gap:7px;margin-top:18px;flex-wrap:wrap}
+nav a{font-size:12px;color:#b4c6b8;padding:8px 11px;border-radius:10px}
+nav a:hover{background:#1b2c20;color:var(--text)}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:18px;margin:26px 0 18px}
+.heroMain,.heroSide,.panel,.stat{border:1px solid var(--line);background:linear-gradient(150deg,#142119,#0e1510);border-radius:22px;box-shadow:var(--shadow)}
+.heroMain{position:relative;overflow:hidden;padding:clamp(22px,4vw,40px)}
+.heroMain:after{content:"";position:absolute;pointer-events:none;width:260px;height:260px;border-radius:50%;right:-120px;bottom:-165px;border:1px solid #83dc9726;box-shadow:0 0 0 25px #83dc9709,0 0 0 55px #83dc9705}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
+.kicker:before{content:"";height:1px;width:20px;background:var(--green)}
+h1,h2,h3,h4,p{margin-top:0}
+.hero h1{margin:15px 0 12px;max-width:620px;font-size:clamp(30px,4.7vw,49px);line-height:1.08;letter-spacing:-1.8px}
+.heroMain p{max-width:620px;color:var(--muted);font-size:14px;margin:0;line-height:1.75}
+.heroPills{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.pill{border:1px solid #304936;background:#14241a;color:#c5e8cc;border-radius:999px;padding:7px 10px;font-size:11px}
+.heroSide{padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.sideHead{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sideHead strong{font-size:14px}
+.sideHead span{font-size:10px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase}
+.sourceMini{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line);background:#0b120e;border-radius:14px}
+.sourceIcon{width:38px;height:38px;display:grid;place-items:center;flex-shrink:0;border:1px solid #304b36;background:#1a2c20;color:var(--green);border-radius:12px;font-weight:900;font-size:12px}
+.sourceMini strong{display:block;font-size:13px}
+.sourceMini small{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:3px}
+.sourceStatus{display:inline-flex;align-items:center;gap:6px;margin-top:8px;color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.4px}
+.sourceStatus .dot{width:6px;height:6px;background:var(--gold);box-shadow:none}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.stat{padding:16px 18px;box-shadow:none;background:linear-gradient(145deg,#111b14,#0c130e)}
+.statLabel{color:var(--muted);font-size:11px;display:flex;align-items:center;gap:7px}
+.statNum{font-size:23px;font-weight:850;letter-spacing:-.6px;margin:8px 0 2px}
+.statDesc{font-size:11px;color:#829688}
+.panel{padding:clamp(16px,3vw,25px);margin:18px 0}
+.panelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
+.panelHead h2{font-size:20px;letter-spacing:-.45px;margin:0 0 4px}
+.panelHead p{font-size:12px;color:var(--muted);margin:0}
+.tag{border:1px solid #574728;background:#251f13;color:#f0d38b;border-radius:8px;padding:6px 9px;font-size:10px;font-weight:850;letter-spacing:.5px;white-space:nowrap}
+.toolbar{display:grid;grid-template-columns:minmax(160px,1fr) auto auto;gap:9px;margin-bottom:14px}
+input,select{width:100%;min-width:0;background:#080f0b;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:11px 13px;font-size:12px}
+input::placeholder{color:#728576}
+input:focus,select:focus{outline:2px solid #4c9862;outline-offset:1px}
+.switches{display:flex;gap:4px;padding:4px;background:#080f0b;border:1px solid var(--line);border-radius:12px}
+.switch{border:0;border-radius:8px;background:transparent;color:var(--muted);padding:7px 11px;font-size:11px;font-weight:750}
+.switch[aria-pressed="true"]{background:#294832;color:#e2f6e6;box-shadow:inset 0 0 0 1px #3d6648}
+.tableFrame{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table{border-collapse:collapse;width:100%;text-align:left;font-size:12px}
+th{background:#0a120d;color:#90a494;font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:800}
+th,td{padding:13px 14px;border-bottom:1px solid #223127}
+tbody tr:last-child td{border-bottom:0}
+.empty{padding:0!important}
+.emptyBox{padding:36px 20px;text-align:center;max-width:590px;margin:auto}
+.emptyGlyph{margin:0 auto 13px;width:46px;height:46px;display:grid;place-items:center;border-radius:15px;border:1px solid #334a37;background:#18261b;color:var(--green);font-size:20px}
+.emptyBox h3{margin:0 0 7px;font-size:15px}
+.emptyBox p{max-width:490px;margin:0 auto;color:var(--muted);font-size:12px;line-height:1.75}
+.sourceGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sourcePanel{border:1px solid var(--line);background:#0b120e;border-radius:15px;padding:17px}
+.sourcePanelHead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sourcePanelHead strong{font-size:13px}
+.sourcePanelHead small{display:block;font-size:11px;color:var(--muted);margin-top:1px}
+.sourcePanel p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.stateLine{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;color:var(--gold);margin:12px 0 0}
+.stateLine .dot{box-shadow:none;width:6px;height:6px}
+.details{margin-top:14px;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;padding:13px 15px;background:#0c140e;color:#c9dbcd;font-size:12px;font-weight:750}
+.details summary::-webkit-details-marker{display:none}
+.details summary:after{content:"+";font-size:16px;line-height:1;color:var(--green)}
+.details[open] summary:after{content:"−"}
+.detailContent{padding:15px;color:var(--muted);font-size:12px;line-height:1.75;border-top:1px solid var(--line)}
+.detailContent code{color:#d9e9dc;background:#1a261d;border:1px solid #2a3a2d;padding:2px 5px;border-radius:5px}
+.footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 0 28px;color:#718477;font-size:10px}
+.notice{border:1px solid #4a4027;background:#1a180f;color:#d4c08b;padding:12px 14px;border-radius:12px;font-size:11px;line-height:1.65;margin-top:14px}
+@media(max-width:800px){
+ .shell{width:min(100% - 24px,1160px)}
+ .hero{grid-template-columns:1fr;margin-top:18px}
+ .heroSide{padding:15px}
+ .stats{gap:8px}
+ .stat{padding:13px}
+ .statNum{font-size:20px}
+ .toolbar{grid-template-columns:1fr 1fr}
+ .toolbar input{grid-column:1/-1}
+ .sourceGrid{grid-template-columns:1fr}
+}
+@media(max-width:430px){
+ .brandname{font-size:17px}
+ .topstatus{font-size:9px;padding:7px 9px}
+ .stats{grid-template-columns:1fr 1fr}
+ .stat:last-child{grid-column:1/-1}
+ .panelHead{flex-direction:column;align-items:stretch}
+ .toolbar{grid-template-columns:1fr}
+ .toolbar input{grid-column:auto}
+ .switches{width:100%}
+ .switch{flex:1;padding-inline:6px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top"><div class="brand"><div class="logo">🌲</div><div><h1>Tanne Market</h1><p>Hugo SMP · Auction & Order Tracker</p></div></div><div class="tag">LIVE-ANSICHTEN IM DASHBOARD</div></header>
+<header class="topbar">
+  <div class="shell">
+    <div class="topinner">
+      <div class="brand"><div class="logo" aria-hidden="true">🌲</div><div><div class="brandname">Tanne Market</div><div class="brandcaption">Hugo SMP · Markt-Dashboard</div></div></div>
+      <div class="topstatus"><span class="dot"></span> DATENZUGRIFF ERFORDERLICH</div>
+    </div>
+    <nav aria-label="Hauptnavigation">
+      <a href="#dashboard">Übersicht</a>
+      <a href="#auktionsfeed">Live-Auktionen</a>
+      <a href="#quellen">Quellenstatus</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell" id="dashboard">
   <section class="hero">
-    <div class="heroMain"><div class="eyebrow">Community Market Dashboard</div><h2>Dein Blick auf den Hugo-SMP-Markt.</h2><p>Beide Marktplatz-Ansichten werden direkt in Tanne Market angezeigt. Die Live-Inhalte kommen aus den jeweiligen Quellen; hier werden keine Auktionen oder Preise erfunden.</p><div class="actions"><a class="btn primary" href="#live-ansichten">Live-Ansichten öffnen ↓</a></div></div>
+    <div class="heroMain">
+      <div class="kicker">Community Market Intelligence</div>
+      <h1>Den Hugo-SMP-Markt im Blick. Ohne Umwege.</h1>
+      <p>Auktionen und Kaufaufträge an einem Ort. Tanne Market ist bereit für echte Live-Daten; aktuell blockieren die beiden Quellen den automatischen Abruf von unserem Veröffentlichungsdienst. Wir zeigen nur geprüfte Daten – keine erfundenen Angebote.</p>
+      <div class="heroPills"><span class="pill">Auktionen</span><span class="pill">Orders</span><span class="pill">Preisübersicht</span><span class="pill">Mobil optimiert</span></div>
+    </div>
+    <aside class="heroSide">
+      <div class="sideHead"><strong>Verbindungsübersicht</strong><span>2 Quellen geprüft</span></div>
+      <div class="sourceMini"><div class="sourceIcon">HM</div><div><strong>HugoSMP Market</strong><small>Öffentlicher Live-Feed vorhanden; automatischer Abruf lieferte HTTP 403.</small><span class="sourceStatus"><span class="dot"></span>ZUGRIFF BLOCKIERT</span></div></div>
+      <div class="sourceMini"><div class="sourceIcon">FW</div><div><strong>FriendsWithMoney</strong><small>Live-Auktionshaus und Orders auf der Website; automatischer Abruf lieferte HTTP 403.</small><span class="sourceStatus"><span class="dot"></span>ZUGRIFF BLOCKIERT</span></div></div>
+    </aside>
   </section>
-  <section class="panel" id="live-ansichten">
+
+  <section class="stats" aria-label="Marktstatus">
+    <article class="stat"><div class="statLabel">Auktionen geladen</div><div class="statNum">—</div><div class="statDesc">Datenquelle nicht erreichbar</div></article>
+    <article class="stat"><div class="statLabel">Orders geladen</div><div class="statNum">—</div><div class="statDesc">Datenquelle nicht erreichbar</div></article>
+    <article class="stat"><div class="statLabel">Quellen geprüft</div><div class="statNum">2 <span style="font-size:12px;color:var(--muted);font-weight:650">/ 2</span></div><div class="statDesc">Automatischer Abruf getestet</div></article>
+  </section>
+
+  <section class="panel" id="auktionsfeed">
     <div class="panelHead">
-      <div><h3>Live-Auktionen & Orders</h3><p class="sub">Eine gemeinsame Übersicht für HugoSMP Market und FriendsWithMoney.</p></div>
-      <span class="tag">API-ZUGRIFF ERFORDERLICH</span>
+      <div><h2>Live-Auktionen & Orders</h2><p>Die gemeinsame Übersicht füllt sich, sobald eine nutzbare Datenverbindung verfügbar ist.</p></div>
+      <span class="tag">LIVE-FEED</span>
     </div>
-    <div class="embedGrid">
-      <article class="embedCard">
-        <h4>HugoSMP Market</h4>
-        <p class="sub">Auktionen und Kaufaufträge</p>
-        <p class="embedStatus"><strong>Automatischer Abruf wurde abgelehnt (HTTP 403).</strong><br>Der Serverzugriff auf die öffentliche Seite wurde beim technischen Test blockiert. Für echte Live-Daten brauchen wir eine freigegebene API oder einen öffentlichen Datenfeed.</p>
-      </article>
-      <article class="embedCard">
-        <h4>FriendsWithMoney</h4>
-        <p class="sub">Live-Auktionshaus und Orders</p>
-        <p class="embedStatus"><strong>Öffentlicher Live-Feed nicht bestätigt.</strong><br>Die Seite zeigt im Live-Bereich „Verbinde …“. Ein automatisch nutzbarer Datenzugriff wurde noch nicht gefunden.</p>
-      </article>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Item oder Spieler suchen …" aria-label="Item oder Spieler suchen" disabled>
+      <select id="sourceFilter" aria-label="Quelle filtern" disabled><option value="all">Alle Quellen</option><option>HugoSMP Market</option><option>FriendsWithMoney</option></select>
+      <div class="switches" role="group" aria-label="Listing-Typ filtern">
+        <button class="switch" data-type="all" aria-pressed="true" type="button" disabled>Alle</button>
+        <button class="switch" data-type="auction" aria-pressed="false" type="button" disabled>Auktionen</button>
+        <button class="switch" data-type="order" aria-pressed="false" type="button" disabled>Orders</button>
+      </div>
     </div>
-    <div class="tableWrap" style="margin-top:14px">
-      <table aria-label="Gemeinsamer Live-Auktionsfeed">
+    <div class="tableFrame">
+      <table>
         <thead><tr><th>Item</th><th>Typ</th><th>Preis</th><th>Spieler</th><th>Quelle</th></tr></thead>
-        <tbody><tr><td colspan="5" class="empty"><strong>Warten auf freigegebenen Datenzugriff</strong>Der technische Abruf aus GitHub Actions bekam von beiden Websites HTTP 403. Ohne eine offiziell nutzbare API, einen öffentlichen JSON-Feed oder eine Freigabe der Betreiber können wir hier keine echten Auktionen laden.</td></tr></tbody>
+        <tbody id="rows"><tr><td colspan="5" class="empty"><div class="emptyBox"><div class="emptyGlyph" aria-hidden="true">↻</div><h3>Warten auf freigegebenen Marktdatenzugriff</h3><p>Die Quellen zeigen ihre Live-Ansichten in ihren eigenen Websites, aber unser unabhängiger Abruf erhielt HTTP 403. Ohne einen von den Betreibern freigegebenen Feed oder API-Zugang können wir echte Auktionen nicht zuverlässig importieren.</p></div></td></tr></tbody>
       </table>
     </div>
-    <p class="note">Die externen Links und leeren Ladefenster sind entfernt. Sobald die Betreiber einen freigegebenen Datenfeed oder API-Zugang bereitstellen, kann ich ihn in diese gemeinsame Tabelle einbauen. Bis dahin zeigt die Seite bewusst keine erfundenen Listings.</p>
+    <div class="notice">Das bedeutet nicht, dass auf Hugo SMP keine Auktionen existieren. Nur unser automatischer Datenabruf bekommt aktuell keine Daten zurück.</div>
   </section>
-  <footer class="footer"><span>© Tanne Market · Fanprojekt</span><span>Nicht offiziell mit HugoSMP, Mojang oder Microsoft verbunden.</span></footer>
-</div><div class="toast" id="toast" role="status"></div>
 
-</body></html>
+  <section class="panel" id="quellen">
+    <div class="panelHead"><div><h2>Quellenstatus</h2><p>Was technisch geprüft wurde und was für echte Live-Einträge noch fehlt.</p></div></div>
+    <div class="sourceGrid">
+      <article class="sourcePanel">
+        <div class="sourcePanelHead"><div class="sourceIcon">HM</div><div><strong>HugoSMP Market</strong><small>Live Feed · Auktionen und Orders</small></div></div>
+        <p>Die öffentliche Live-Seite lässt sich im Such-/Browserdienst darstellen. Direkte Abrufe aus dem automatischen Website-Dienst wurden mit <strong>HTTP 403</strong> abgewiesen. Ein dokumentierter, frei nutzbarer Endpunkt wurde nicht gefunden.</p>
+        <div class="stateLine"><span class="dot"></span> FEED NOCH NICHT ABRUFBAR</div>
+      </article>
+      <article class="sourcePanel">
+        <div class="sourcePanelHead"><div class="sourceIcon">FW</div><div><strong>FriendsWithMoney</strong><small>Marketplace · Live-Auktionshaus und Orders</small></div></div>
+        <p>Die öffentliche Marketplace-Seite zeigt die Bereiche „Live Auktionshaus“ und „Live Orders“. Der automatische Abruf wurde ebenfalls mit <strong>HTTP 403</strong> abgewiesen; ein öffentlich dokumentierter Datenendpunkt wurde nicht gefunden.</p>
+        <div class="stateLine"><span class="dot"></span> FEED NOCH NICHT ABRUFBAR</div>
+      </article>
+    </div>
+    <details class="details">
+      <summary>Technische Details anzeigen</summary>
+      <div class="detailContent">
+        <p>Geprüft wurden die öffentlich sichtbaren Live-Seiten sowie ein Abruf der Seiten und ihrer öffentlich referenzierten Skripte aus GitHub Actions mit normalen Browser-Headern. Beide Hauptseiten antworteten mit <code>HTTP 403</code>; daher standen in diesem Test keine Client-Skripte oder API-Endpunkte zum Auswerten bereit.</p>
+        <p>Der nächste technische Schritt benötigt eine offizielle API, einen öffentlichen JSON-/WebSocket-Feed oder eine Freigabe der Betreiber. Der HTTP-403-Status wird nicht umgangen.</p>
+      </div>
+    </details>
+  </section>
+  <footer class="footer"><span>Tanne Market · unabhängiges Community-Projekt</span><span>Nicht offiziell mit HugoSMP, Mojang oder Microsoft verbunden.</span></footer>
+</main>
+</body>
+</html>
