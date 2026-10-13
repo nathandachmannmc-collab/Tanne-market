@@ -569,6 +569,29 @@ body.mrFullscreenActive{overflow:hidden}
  .mrAuthUnavailable h3{font-size:19px}
 }
 
+
+/* M/R curated collection: no account or backend required */
+.mrCuratedBadge{display:inline-flex;align-items:center;min-height:32px;padding:7px 10px;border:1px solid #35483a;border-radius:7px;background:#121b14;color:#b4d1b0;font-size:9px;font-weight:850;letter-spacing:1px;white-space:nowrap}
+.mrCuratedNotice{margin-top:13px;display:flex;align-items:center;gap:11px;border-color:#2f4232;background:#101811}
+.mrCuratedNotice>div{flex:1;min-width:0}
+.mrCuratedNotice strong{color:#e0e9df}
+.mrCuratedNotice p{color:#98a899}
+.mrSourceBadge{flex:0 0 auto;padding:6px 8px;border:1px solid #374b39;border-radius:6px;color:#c4ddc0;font-size:9px;font-weight:800;white-space:nowrap}
+.mrProjectIcon{flex:0 0 58px;width:58px;height:58px;border-radius:9px;object-fit:contain;padding:0;background:#172019}
+.mrProjectMeta{gap:6px}
+.mrProjectTag{letter-spacing:.35px}
+.mrProjectDetails{font-size:10px}
+.mrDownload{background:#c4e8c2;border-color:#c4e8c2;color:#142416}
+.mrProjectCard{min-height:245px}
+.mrProjectFootNote{display:block;margin-top:8px;font-size:9px;color:#748477}
+.mrBrowse{margin-top:28px}
+@media(max-width:620px){
+ .mrCuratedBadge{font-size:8px;letter-spacing:.5px;padding:6px}
+ .mrSourceBadge{font-size:8px}
+ .mrProjectCard{min-height:0}
+ .mrProjectIcon{flex-basis:54px;width:54px;height:54px}
+}
+
 </style>
 </head>
 <body>
@@ -593,73 +616,24 @@ body.mrFullscreenActive{overflow:hidden}
           <div class="navMenu mrFullscreen" role="dialog" aria-modal="true" aria-label="M/R Mod- und Resource-Pack-Bibliothek">
             <div class="mrFullscreenTop">
               <a class="mrBrand" href="#start" aria-label="Zur Tanne-Clan-Startseite"><span class="mrBrandMark">M/R</span><span><strong>M/R Library</strong><small>COMMUNITY DOWNLOADS</small></span></a>
-              <div class="mrTopActions"><button class="mrBtn mrBtnQuiet" id="mrAuthAction" type="button">Anmelden</button><button class="mrBtn mrBtnPrimary" id="mrOpenUpload" type="button">+ Projekt hochladen</button><button class="mrCloseButton" id="mrCloseButton" type="button" aria-label="M/R schließen">Schließen <span aria-hidden="true">×</span></button></div>
+              <div class="mrTopActions"><span class="mrCuratedBadge">TANNE-AUSWAHL</span><button class="mrCloseButton" id="mrCloseButton" type="button" aria-label="M/R schließen">Schließen <span aria-hidden="true">×</span></button></div>
             </div>
             <div class="mrPage">
               <section class="mrHero">
-                <div><div class="mrKicker">TANNE CLAN · COMMUNITY LIBRARY</div><h2>Dein Minecraft.<br><span>Deine Mods.</span></h2><p>Finde Mods und Resource Packs aus der Community oder teile deine eigenen Projekte mit anderen Spielern.</p></div>
-                <div class="mrHeroSide"><div class="mrHeroStat"><strong id="mrProjectCount">0</strong><span>Projekte</span></div><div class="mrHeroDivider"></div><div class="mrHeroStat"><strong id="mrCreatorCount">0</strong><span>Creator</span></div></div>
+                <div><div class="mrKicker">TANNE CLAN · COMMUNITY LIBRARY</div><h2>Dein Minecraft.<br><span>Deine Mods.</span></h2><p>Ausgewählte Mods und Resource Packs an einem Ort. Neue Projekte und Updates füge ich direkt hier hinzu — ganz ohne Anmeldung.</p></div>
+                <div class="mrHeroSide"><div class="mrHeroStat"><strong id="mrProjectCount">7</strong><span>Projekte</span></div><div class="mrHeroDivider"></div><div class="mrHeroStat"><strong id="mrCreatorCount">T</strong><span>Tanne-Team</span></div></div>
               </section>
-              <div class="mrSetupNotice" id="mrSetupNotice">
-                <span class="mrSetupDot" aria-hidden="true"></span><div><strong>Anmeldung noch nicht aktiviert</strong><p>Die Bibliothek ist vorbereitet. Konten und Uploads funktionieren, sobald die Datenbank verbunden ist.</p></div>
-                <a href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup öffnen ↗</a>
+              <div class="mrSetupNotice mrCuratedNotice" id="mrSetupNotice">
+                <span class="mrSetupDot" aria-hidden="true"></span><div><strong>Offizielle Downloadseiten</strong><p>Diese Sammlung wird vom Tanne-Team gepflegt. Keine Anmeldung nötig; Besucher können keine eigenen Dateien hochladen.</p></div><span class="mrSourceBadge">Kein Login</span>
               </div>
-              <div class="mrFlash" id="mrFlash" role="status" aria-live="polite" hidden></div>
-
-              <section class="mrAuthPanel" id="mrAuthPanel" hidden>
-                <div class="mrPanelHead"><div><div class="mrKicker">DEIN ACCOUNT</div><h3 id="mrAuthTitle">Bei M/R anmelden</h3><p>Zum Hochladen brauchst du ein kostenloses Konto.</p></div><button class="mrSmallClose" type="button" data-mr-hide="auth" aria-label="Anmeldebereich schließen">×</button></div>
-                <div class="mrAuthGrid">
-                  <form id="mrAuthForm" class="mrForm">
-                    <div class="mrAuthModes"><button type="button" class="active" data-auth-mode="login">Anmelden</button><button type="button" data-auth-mode="signup">Konto erstellen</button></div>
-                    <label id="mrDisplayNameWrap" hidden>Profilname<input id="mrDisplayName" type="text" maxlength="32" autocomplete="nickname" placeholder="z. B. TannePlayer"></label>
-                    <label>E-Mail-Adresse<input id="mrEmail" type="email" autocomplete="email" required placeholder="name@example.com"></label>
-                    <label>Passwort<input id="mrPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mindestens 6 Zeichen"></label>
-                    <button class="mrBtn mrBtnPrimary mrFormSubmit" id="mrAuthSubmit" type="submit">Anmelden</button>
-                    <button class="mrTextButton" id="mrForgotPassword" type="button">Passwort vergessen?</button>
-                  </form>
-                  <aside class="mrAuthInfo"><strong>Ein Konto für deine Projekte</strong><p>Mit deinem Account kannst du Resource Packs und Mods hochladen, Beschreibungen bearbeiten und deine eigenen Projekte verwalten.</p><p class="mrSafetyNote">Lade nur Dateien hoch, die du teilen darfst. Mods können ausführbaren Code enthalten – lade nur Dateien von Creatorn herunter, denen du vertraust.</p></aside>
-                </div>
-              </section>
-
-              <section class="mrAuthUnavailable" id="mrAuthUnavailable" hidden>
-                <div class="mrUnavailableIcon" aria-hidden="true">M/R</div>
-                <div class="mrKicker">EINMALIGE EINRICHTUNG</div>
-                <h3>Login ist noch nicht verbunden.</h3>
-                <p>Du hast nichts falsch gemacht. Die Anmeldung kann erst funktionieren, wenn die Datenbank eingerichtet ist.</p>
-                <ol><li>Supabase-Projekt erstellen</li><li><a href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup-SQL öffnen</a> und im SQL Editor ausführen</li><li>Project URL und öffentlichen anon/publishable Key in der Website eintragen</li></ol>
-                <a class="mrBtn mrBtnPrimary mrSetupCta" href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup-Anleitung öffnen ↗</a>
-              </section>
-
-              <section class="mrAccountPanel" id="mrAccountPanel" hidden>
-                <div class="mrAccountIdentity"><div class="mrAvatar" id="mrAvatar">M</div><div><div class="mrKicker">EINGELOGGT</div><h3 id="mrAccountName">Dein Konto</h3><p id="mrAccountEmail"></p></div></div>
-                <button class="mrBtn mrBtnQuiet" id="mrSignOut" type="button">Abmelden</button>
-              </section>
-
-              <section class="mrPublishPanel" id="mrPublishPanel" hidden>
-                <div class="mrPanelHead"><div><div class="mrKicker">NEUES COMMUNITY-PROJEKT</div><h3>Projekt hochladen</h3><p>Gib deinem Upload einen Namen, ein Titelbild und eine kurze Beschreibung.</p></div><button class="mrSmallClose" type="button" data-mr-hide="publish" aria-label="Upload schließen">×</button></div>
-                <form id="mrPublishForm" class="mrForm mrUploadForm">
-                  <div class="mrFormGrid">
-                    <label>Projektname <span class="mrRequired">*</span><input id="mrTitle" type="text" minlength="2" maxlength="80" required placeholder="z. B. Tannes Clear GUI"></label>
-                    <label>Projektart <span class="mrRequired">*</span><select id="mrType" required><option value="resourcepack">Resource Pack</option><option value="mod">Mod</option></select></label>
-                    <label class="mrWide">Kurzbeschreibung <span class="mrRequired">*</span><input id="mrSummary" type="text" maxlength="180" required placeholder="Was macht dein Projekt besonders?"></label>
-                    <label class="mrWide">Beschreibung <span class="mrRequired">*</span><textarea id="mrDescription" rows="4" maxlength="5000" required placeholder="Funktionen, Installation, Anforderungen und bekannte Probleme …"></textarea></label>
-                    <label>Minecraft-Versionen<input id="mrVersions" type="text" maxlength="100" placeholder="z. B. 1.21.1, 1.21.4"></label>
-                    <label>Mod-Loader / Format<select id="mrLoader"><option value="Vanilla">Vanilla / Resource Pack</option><option value="Fabric">Fabric</option><option value="Forge">Forge</option><option value="NeoForge">NeoForge</option><option value="Quilt">Quilt</option><option value="Other">Sonstiges</option></select></label>
-                    <label>Projektbild / Icon <span class="mrRequired">*</span><input id="mrIconFile" type="file" accept="image/png,image/jpeg,image/webp" required><small>PNG, JPG oder WEBP · max. 5 MB</small></label>
-                    <label>Download-Datei <span class="mrRequired">*</span><input id="mrProjectFile" type="file" accept=".jar,.zip,.mrpack,application/java-archive,application/zip" required><small>JAR, ZIP oder MRPACK · max. 100 MB</small></label>
-                  </div>
-                  <div class="mrFormBottom"><p>Mit dem Upload bestätigst du, dass du die Rechte an den Dateien hast und keine schädlichen oder fremden Inhalte hochlädst.</p><button class="mrBtn mrBtnPrimary" id="mrPublishSubmit" type="submit">Projekt veröffentlichen</button></div>
-                </form>
-              </section>
-
               <section class="mrBrowse">
-                <div class="mrBrowseTitle"><div><div class="mrKicker">STÖBERN</div><h3>Community-Projekte</h3></div><span class="mrSortWrap"><label for="mrSort">Sortierung</label><select id="mrSort"><option value="newest">Neueste zuerst</option><option value="name">Name A–Z</option></select></span></div>
+                <div class="mrBrowseTitle"><div><div class="mrKicker">STÖBERN</div><h3>Community-Projekte</h3></div><span class="mrSortWrap"><label for="mrSort">Sortierung</label><select id="mrSort"><option value="featured">Tanne-Auswahl</option><option value="name">Name A–Z</option></select></span></div>
                 <div class="mrToolbar">
                   <div class="mrTabs" role="group" aria-label="Projekttyp filtern"><button class="active" type="button" data-project-filter="all">Alle</button><button type="button" data-project-filter="mod">Mods</button><button type="button" data-project-filter="resourcepack">Resource Packs</button></div>
                   <label class="mrSearch"><span aria-hidden="true">⌕</span><input id="mrSearch" type="search" placeholder="Projekte suchen …" aria-label="Projekte suchen"></label>
                 </div>
                 <div class="mrResultsMeta"><span id="mrResultsCount">Noch keine Projekte geladen</span><button class="mrTextButton" id="mrRefresh" type="button">Neu laden ↻</button></div>
-                <div class="mrProjectGrid" id="mrProjectGrid"><div class="mrEmpty"><div class="mrEmptyMark">M/R</div><h4>Projekte werden geladen</h4><p>Die neuesten Mods und Resource Packs erscheinen hier.</p></div></div>
+                <div class="mrProjectGrid" id="mrProjectGrid"><div class="mrEmpty"><div class="mrEmptyMark">M/R</div><h4>Projekte werden geladen</h4><p>Wähle eine Kategorie oder suche nach einem Namen. Der Download führt dich zur offiziellen Projektseite.</p></div></div>
               </section>
               <footer class="mrFooter"><span>M/R Library · Ein Community-Projekt von Tanne Clan</span><span>Prüfe immer Version und Quelle, bevor du etwas installierst.</span></footer>
             </div>
@@ -893,228 +867,65 @@ document.addEventListener('keydown',event=>{
 })();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (()=>{'use strict';
-const CONFIG={
-  /* Nach dem Anlegen deines Supabase-Projekts hier die Project URL und den öffentlichen anon/publishable Key eintragen. Niemals den service_role-Key verwenden. */
-  supabaseUrl:'SUPABASE_URL_HIER_EINFUEGEN',
-  supabaseAnonKey:'SUPABASE_ANON_KEY_HIER_EINFUEGEN'
-};
+const projects=[
+ {id:'sodium',title:'Sodium',type:'mod',summary:'Verbessert die Grafikleistung und reduziert Ruckler.',description:'Ein Performance-Mod für Minecraft Java Edition. Wähle auf der offiziellen Seite die passende Minecraft-Version und den passenden Mod-Loader aus.',versions:'Minecraft Java',loader:'Fabric · NeoForge · Quilt',icon:'https://cdn.modrinth.com/data/AANobbMI/295862f4724dc3f78df3447ad6072b2dcd3ef0c9_96.webp',url:'https://modrinth.com/mod/sodium',order:1},
+ {id:'lithium',title:'Lithium',type:'mod',summary:'Optimiert Spielabläufe, Mob-KI und Tick-Logik.',description:'Verbessert verschiedene Abläufe im Spiel, ohne die Vanilla-Mechaniken verändern zu wollen. Prüfe vor dem Download die richtige Spielversion.',versions:'Minecraft Java',loader:'Fabric · NeoForge · Quilt',icon:'https://cdn.modrinth.com/data/gvQqBUqZ/bcc8686c13af0143adf4285d741256af824f70b7_96.webp',url:'https://modrinth.com/mod/lithium',order:2},
+ {id:'iris',title:'Iris Shaders',type:'mod',summary:'Ermöglicht Shaderpacks für eine veränderte Minecraft-Grafik.',description:'Ein Shader-Loader mit Unterstützung für viele vorhandene Shaderpacks. Prüfe vor der Installation Version und Abhängigkeiten auf der Projektseite.',versions:'Minecraft Java',loader:'Fabric · Quilt',icon:'https://cdn.modrinth.com/data/YL57xq9U/18d0e7f076d3d6ed5bedd472b853909aac5da202_96.webp',url:'https://modrinth.com/mod/iris',order:3},
+ {id:'modmenu',title:'Mod Menu',type:'mod',summary:'Zeigt installierte Mods übersichtlich im Spiel an.',description:'Praktisch, um zu sehen, welche Mods installiert sind und bei unterstützten Mods ihre Einstellungen zu öffnen.',versions:'Minecraft Java',loader:'Fabric · Quilt',icon:'https://cdn.modrinth.com/data/mOgUt4GM/5a20ed1450a0e1e79a1fe04e61bb4e5878bf1d20.png',url:'https://modrinth.com/mod/modmenu',order:4},
+ {id:'fabric-api',title:'Fabric API',type:'mod',summary:'Eine Bibliothek, die viele Fabric-Mods als Voraussetzung brauchen.',description:'Kein eigenständiges Gameplay-Feature: Viele Mods benötigen diese API, damit sie mit Fabric funktionieren. Nur installieren, wenn sie gebraucht wird oder dein Modpack sie vorsieht.',versions:'Minecraft Java',loader:'Fabric',icon:'https://cdn.modrinth.com/data/P7dR8mSH/icon.png',url:'https://modrinth.com/mod/fabric-api',order:5},
+ {id:'faithful',title:'Faithful 32x',type:'resourcepack',summary:'Der klassische Minecraft-Look mit höher aufgelösten Texturen.',description:'Behält den vertrauten Stil bei, stellt Texturen aber in höherer Auflösung dar. Achte auf die zu deiner Minecraft-Version passende Ausgabe.',versions:'Minecraft Java',loader:'Resource Pack · 32x',icon:'https://cdn.modrinth.com/data/w0TnApzs/e8403d1fb2f55321ae74402c1e8c90a3a5670856.png',url:'https://modrinth.com/resourcepack/faithful-32x',order:6},
+ {id:'fresh-animations',title:'Fresh Animations',type:'resourcepack',summary:'Gibt vielen Minecraft-Mobs zusätzliche, flüssigere Animationen.',description:'Verändert vor allem die Animationen von Kreaturen. Lies die Hinweise auf der Projektseite: Je nach Minecraft-Version werden passende Zusatzmods oder bestimmte Funktionen benötigt.',versions:'Minecraft Java',loader:'Resource Pack · Version prüfen',icon:'https://cdn.modrinth.com/data/50dA9Sha/3132c10e9e3c73fde9799720fd3da5561071708c_96.webp',url:'https://modrinth.com/resourcepack/fresh-animations',order:7}
+];
 const $=id=>document.getElementById(id);
-const drop=document.querySelector('.mrDropdown');
-const setup=$('mrSetupNotice'), flash=$('mrFlash'), grid=$('mrProjectGrid');
-let client=null,session=null,projects=[],filter='all',authMode='login';
-const configReady=CONFIG.supabaseUrl.startsWith('https://')&&!CONFIG.supabaseUrl.includes('HIER_EINFUEGEN')&&CONFIG.supabaseAnonKey.length>20&&!CONFIG.supabaseAnonKey.includes('HIER_EINFUEGEN')&&window.supabase;
-function message(text,error){
-  flash.textContent=text;flash.hidden=false;flash.classList.toggle('error',!!error);
+const grid=$('mrProjectGrid');
+let filter='all';
+function make(tag,cls,text){
+ const e=document.createElement(tag);
+ if(cls)e.className=cls;
+ if(text!==undefined)e.textContent=text;
+ return e;
 }
-function clearMessage(){flash.hidden=true;flash.textContent='';flash.classList.remove('error')}
-function showPanel(which){
-  const authUnavailable=which==='auth'&&!client;
-  $('mrAuthPanel').hidden=which!=='auth'||authUnavailable;
-  $('mrAuthUnavailable').hidden=!authUnavailable;
-  $('mrPublishPanel').hidden=which!=='publish';
-  clearMessage();
-  if(authUnavailable){
-    $('mrAuthUnavailable').scrollIntoView({behavior:'smooth',block:'center'});
-    return;
-  }
-  if(which==='auth'&&!session){
-    setAuthMode(authMode);
-    $('mrAuthPanel').hidden=false;
-    $('mrAuthPanel').scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(()=>$('mrEmail').focus(),100);
-  }
-  if(which==='publish'&&session){
-    $('mrPublishPanel').scrollIntoView({behavior:'smooth',block:'start'});
-    setTimeout(()=>$('mrTitle').focus(),100);
-  }
+function render(){
+ const q=$('mrSearch').value.trim().toLocaleLowerCase('de');
+ const sort=$('mrSort').value;
+ let list=projects.filter(p=>(filter==='all'||p.type===filter)&&(!q||[p.title,p.summary,p.description,p.loader].join(' ').toLocaleLowerCase('de').includes(q)));
+ if(sort==='name')list.sort((a,b)=>a.title.localeCompare(b.title,'de'));else list.sort((a,b)=>a.order-b.order);
+ $('mrResultsCount').textContent=list.length+' '+(list.length===1?'Projekt':'Projekte');
+ $('mrProjectCount').textContent=String(projects.length);
+ $('mrCreatorCount').textContent='T';
+ grid.replaceChildren();
+ if(!list.length){
+  const empty=make('div','mrEmpty');empty.append(make('div','mrEmptyMark','M/R'),make('h4','', 'Keine passenden Projekte'),make('p','', 'Ändere die Suche oder wähle einen anderen Filter.'));grid.append(empty);return;
+ }
+ list.forEach(p=>{
+  const card=make('article','mrProjectCard');
+  const head=make('div','mrProjectHead');
+  const img=document.createElement('img');img.className='mrProjectIcon';img.alt='Icon von '+p.title;img.loading='lazy';img.src=p.icon;
+  img.addEventListener('error',()=>{const fb=make('div','mrProjectIcon mrProjectIconFallback',p.title.slice(0,2).toUpperCase());img.replaceWith(fb)},{once:true});
+  const name=make('div','mrProjectName');name.append(make('h4','',p.title));
+  const meta=make('div','mrProjectMeta');
+  meta.append(make('span','mrProjectTag '+(p.type==='resourcepack'?'pack':''),p.type==='mod'?'MOD':'RESOURCE PACK'));
+  name.append(meta);head.append(img,name);card.append(head);
+  card.append(make('p','mrProjectSummary',p.summary));
+  card.append(make('p','mrProjectDetails',p.description+'\n\n'+p.loader+' · '+p.versions));
+  const foot=make('div','mrProjectFooter'),author=make('div','mrProjectAuthor');
+  author.append(make('span','mrAuthorAvatar','T'),make('span','','Tanne-Auswahl'));
+  const link=document.createElement('a');link.className='mrDownload';link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Download ↗';link.setAttribute('aria-label','Offizielle Downloadseite für '+p.title);
+  foot.append(author,link);card.append(foot);card.append(make('small','mrProjectFootNote','Download und Versionen auf der offiziellen Projektseite'));
+  grid.append(card);
+ });
 }
-function setAuthMode(mode){
-  authMode=mode;
-  $('mrDisplayNameWrap').hidden=mode!=='signup';
-  $('mrAuthTitle').textContent=mode==='signup'?'Konto erstellen':'Bei M/R anmelden';
-  $('mrAuthSubmit').textContent=mode==='signup'?'Konto erstellen':'Anmelden';
-  $('mrPassword').autocomplete=mode==='signup'?'new-password':'current-password';
-  document.querySelectorAll('[data-auth-mode]').forEach(b=>b.classList.toggle('active',b.dataset.authMode===mode));
-  $('mrForgotPassword').hidden=mode==='signup';
-}
-function updateAccount(){
-  const user=session&&session.user;
-  $('mrAuthAction').textContent=user?(user.user_metadata&&user.user_metadata.display_name?user.user_metadata.display_name:(user.email||'Konto').split('@')[0]):'Anmelden';
-  $('mrAuthAction').classList.toggle('mrBtnPrimary',!!user);
-  $('mrAuthAction').classList.toggle('mrBtnQuiet',!user);
-  $('mrOpenUpload').textContent=user?'+ Projekt hochladen':'+ Projekt hochladen';
-  $('mrOpenUpload').title=user?'Neues Projekt veröffentlichen':'Zum Hochladen zuerst anmelden';
-  $('mrAccountPanel').hidden=!user;
-  if(user){
-    const name=(user.user_metadata&&user.user_metadata.display_name)||((user.email||'Creator').split('@')[0])||'Creator';
-    $('mrAccountName').textContent=name;
-    $('mrAccountEmail').textContent=user.email||'';
-    $('mrAvatar').textContent=name.slice(0,1).toUpperCase();
-  }
-}
-function filePublicUrl(path){
-  if(!path||!client)return '';
-  return client.storage.from('mr-files').getPublicUrl(path).data.publicUrl;
-}
-function el(tag,className,text){
-  const node=document.createElement(tag);
-  if(className)node.className=className;
-  if(text!==undefined&&text!==null)node.textContent=text;
-  return node;
-}
-function renderProjects(){
-  const query=$('mrSearch').value.trim().toLocaleLowerCase('de');
-  const sorting=$('mrSort').value;
-  let list=projects.filter(p=>(filter==='all'||p.project_type===filter)&&(!query||[p.title,p.summary,p.description,p.author_name,p.game_versions,p.loader].join(' ').toLocaleLowerCase('de').includes(query)));
-  if(sorting==='name')list.sort((a,b)=>(a.title||'').localeCompare(b.title||'','de'));
-  else list.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
-  $('mrResultsCount').textContent=list.length+' '+(list.length===1?'Projekt':'Projekte');
-  $('mrProjectCount').textContent=String(projects.length);
-  $('mrCreatorCount').textContent=String(new Set(projects.map(p=>p.author_id)).size);
-  grid.replaceChildren();
-  if(!list.length){
-    const empty=el('div','mrEmpty');
-    empty.append(el('div','mrEmptyMark','M/R'),el('h4', '',projects.length?'Keine passenden Projekte':'Noch keine Projekte'),el('p','',projects.length?'Ändere die Suche oder wähle einen anderen Filter.':'Sei einer der Ersten und veröffentliche ein Mod oder Resource Pack für die Community.'));
-    grid.append(empty);return;
-  }
-  list.forEach(p=>{
-    const card=el('article','mrProjectCard');
-    const head=el('div','mrProjectHead');
-    const img=document.createElement('img');img.className='mrProjectIcon';img.alt='Projektbild für '+p.title;img.loading='lazy';img.src=filePublicUrl(p.icon_path);
-    img.addEventListener('error',()=>{const fallback=el('div','mrProjectIcon mrProjectIconFallback',(p.title||'M/R').slice(0,2).toUpperCase());img.replaceWith(fallback)},{once:true});
-    const name=el('div','mrProjectName');name.append(el('h4','',p.title||'Unbenanntes Projekt'));
-    const meta=el('div','mrProjectMeta');
-    meta.append(el('span','mrProjectTag '+(p.project_type==='resourcepack'?'pack':''),p.project_type==='mod'?'MOD':'RESOURCE PACK'));
-    if(p.game_versions)meta.append(el('span','',p.game_versions));
-    if(p.loader)meta.append(el('span','',p.loader));
-    name.append(meta);head.append(img,name);card.append(head);
-    card.append(el('p','mrProjectSummary',p.summary||'Keine Kurzbeschreibung vorhanden.'));
-    if(p.description){const details=el('p','mrProjectDetails',p.description);card.append(details)}
-    const foot=el('div','mrProjectFooter'),author=el('div','mrProjectAuthor');
-    const avatar=el('span','mrAuthorAvatar',((p.author_name||'C').trim().slice(0,1)||'C').toUpperCase());
-    author.append(avatar,el('span','',p.author_name||'Community-Creator'));
-    const download=document.createElement('a');download.className='mrDownload';download.href=filePublicUrl(p.file_path);download.target='_blank';download.rel='noopener noreferrer';download.textContent='Download ↓';download.setAttribute('aria-label','Download für '+(p.title||'Projekt'));/* Download links open the public file; no unconfigured analytics RPC is called. */
-    foot.append(author,download);card.append(foot);grid.append(card);
-  });
-}
-async function loadProjects(){
-  if(!configReady||!client){grid.replaceChildren();const e=el('div','mrEmpty');e.append(el('div','mrEmptyMark','M/R'),el('h4','','Bibliothek noch nicht verbunden'),el('p','','Sobald Supabase eingerichtet ist, erscheinen hier die hochgeladenen Mods und Resource Packs für alle Besucher.'));grid.append(e);$('mrResultsCount').textContent='Verbindung erforderlich';return}
-  grid.replaceChildren();grid.append(el('div','mrEmpty','Projekte werden geladen …'));
-  const result=await client.from('mr_projects').select('id,author_id,author_name,title,project_type,summary,description,game_versions,loader,icon_path,file_path,created_at').order('created_at',{ascending:false}).limit(200);
-  if(result.error){const e=el('div','mrEmpty');e.append(el('div','mrEmptyMark','!'),el('h4','','Projekte konnten nicht geladen werden'),el('p','',result.error.message+' — prüfe bitte die Datenbankregeln in Supabase.'));grid.replaceChildren(e);$('mrResultsCount').textContent='Ladefehler';return}
-  projects=result.data||[];renderProjects();
-}
-if(configReady){
-  try{
-    client=window.supabase.createClient(CONFIG.supabaseUrl,CONFIG.supabaseAnonKey);
-    setup.hidden=true;
-  }catch(e){client=null}
-}
-if(!client){setup.hidden=false}
-document.querySelectorAll('[data-auth-mode]').forEach(b=>b.addEventListener('click',()=>setAuthMode(b.dataset.authMode)));
-$('mrAuthAction').addEventListener('click',()=>{
-  if(session){
-    $('mrAuthPanel').hidden=true;$('mrAuthUnavailable').hidden=true;$('mrPublishPanel').hidden=true;
-    $('mrAccountPanel').hidden=!$('mrAccountPanel').hidden;clearMessage();
-    if(!$('mrAccountPanel').hidden)$('mrAccountPanel').scrollIntoView({behavior:'smooth',block:'center'});
-  }else{
-    $('mrAccountPanel').hidden=true;
-    showPanel('auth');
-  }
-});
-$('mrOpenUpload').addEventListener('click',()=>{
-  $('mrAccountPanel').hidden=true;
-  if(!client){showPanel('auth');return}
-  if(!session){showPanel('auth');message('Melde dich an oder erstelle ein Konto, um etwas hochzuladen.');return}
-  showPanel('publish');
-});
-document.querySelectorAll('[data-mr-hide]').forEach(b=>b.addEventListener('click',()=>showPanel('none')));
-$('mrAuthForm').addEventListener('submit',async event=>{
-  event.preventDefault();clearMessage();
-  if(!client){message('Noch nicht verbunden: Füge die Supabase-URL und den öffentlichen Anon-Key in der M/R-Konfiguration ein.',true);return}
-  const email=$('mrEmail').value.trim(),password=$('mrPassword').value;
-  const button=$('mrAuthSubmit');button.disabled=true;button.textContent='Einen Moment …';
-  try{
-    if(authMode==='signup'){
-      const displayName=$('mrDisplayName').value.trim();
-      if(!displayName){message('Bitte wähle einen Profilnamen.',true);return}
-      const out=await client.auth.signUp({email,password,options:{data:{display_name:displayName}}});
-      if(out.error)throw out.error;
-      if(out.data.session){session=out.data.session;updateAccount();showPanel('none');message('Dein Konto ist erstellt. Du kannst jetzt ein Projekt hochladen.');}
-      else{message('Fast fertig! Öffne die Bestätigungs-E-Mail von Supabase und bestätige dein Konto. Danach kannst du dich anmelden.');setAuthMode('login');}
-    }else{
-      const out=await client.auth.signInWithPassword({email,password});
-      if(out.error)throw out.error;
-      session=out.data.session;updateAccount();showPanel('none');message('Du bist angemeldet. Jetzt kannst du ein Projekt hochladen.');
-    }
-  }catch(e){
-    const raw=String((e&&e.message)||'');
-    let friendly='Das hat nicht geklappt. Bitte prüfe deine Angaben und versuche es erneut.';
-    if(/invalid login credentials/i.test(raw))friendly='E-Mail-Adresse oder Passwort stimmt nicht.';
-    else if(/email not confirmed/i.test(raw))friendly='Bitte bestätige zuerst die E-Mail, die wir dir geschickt haben.';
-    else if(/already registered|user already exists/i.test(raw))friendly='Für diese E-Mail gibt es schon ein Konto. Wechsle zu „Anmelden“.';
-    else if(/password.*(weak|at least|characters)/i.test(raw))friendly='Wähle ein stärkeres Passwort mit mindestens 6 Zeichen.';
-    else if(/rate limit|too many requests/i.test(raw))friendly='Zu viele Versuche. Warte kurz und probiere es später erneut.';
-    else if(/failed to fetch|network|load failed/i.test(raw))friendly='Verbindung fehlgeschlagen. Prüfe deine Internetverbindung und die Supabase-Einstellungen.';
-    message(friendly,true);
-  }
-  finally{button.disabled=false;button.textContent=authMode==='signup'?'Konto erstellen':'Anmelden'}
-});
-$('mrForgotPassword').addEventListener('click',async()=>{
-  if(!client){message('Die Anmeldung ist noch nicht eingerichtet.',true);return}
-  const email=$('mrEmail').value.trim();if(!email){message('Trage zuerst deine E-Mail-Adresse ein.',true);return}
-  try{
-    const out=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
-    if(out.error)throw out.error;
-    message('Falls ein Konto mit dieser Adresse existiert, wurde eine E-Mail zum Zurücksetzen versandt.');
-  }catch(e){message(/failed to fetch|network|load failed/i.test(String(e.message||''))?'Verbindung fehlgeschlagen. Prüfe deine Internetverbindung und die Supabase-Einstellungen.':'Die E-Mail konnte gerade nicht versendet werden. Prüfe die Adresse und versuche es später erneut.',true)}
-});
-$('mrSignOut').addEventListener('click',async()=>{
-  if(client)await client.auth.signOut();session=null;updateAccount();showPanel('none');message('Du wurdest abgemeldet.');await loadProjects();
-});
-$('mrPublishForm').addEventListener('submit',async event=>{
-  event.preventDefault();clearMessage();
-  if(!client||!session){message('Du musst angemeldet sein, um ein Projekt zu veröffentlichen.',true);return}
-  const title=$('mrTitle').value.trim(),type=$('mrType').value,summary=$('mrSummary').value.trim(),description=$('mrDescription').value.trim();
-  const icon=$('mrIconFile').files[0],file=$('mrProjectFile').files[0];
-  if(!icon||!file){message('Bitte wähle sowohl ein Projektbild als auch eine Download-Datei aus.',true);return}
-  if(icon.size>5*1024*1024){message('Das Projektbild ist zu groß. Maximal 5 MB.',true);return}
-  if(file.size>100*1024*1024){message('Die Datei ist zu groß. Maximal 100 MB.',true);return}
-  const allowedExt=/\.(jar|zip|mrpack)$/i;
-  if(!allowedExt.test(file.name)){message('Erlaubt sind JAR-, ZIP- und MRPACK-Dateien.',true);return}
-  if(!/\.(png|jpe?g|webp)$/i.test(icon.name)){message('Beim Projektbild sind PNG, JPG oder WEBP erlaubt.',true);return}
-  const button=$('mrPublishSubmit');button.disabled=true;button.textContent='Upload läuft …';
-  const user=session.user,uid=user.id,cleanName=name=>name.replace(/[^a-zA-Z0-9._-]+/g,'-').slice(-100);
-  const base=window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now());
-  let iconPath=null,filePath=null;
-  try{
-    iconPath=uid+'/'+base+'-icon-'+cleanName(icon.name);
-    filePath=uid+'/'+base+'-file-'+cleanName(file.name);
-    let up=await client.storage.from('mr-files').upload(iconPath,icon,{upsert:false,contentType:icon.type||'application/octet-stream'});
-    if(up.error)throw up.error;
-    up=await client.storage.from('mr-files').upload(filePath,file,{upsert:false,contentType:file.type||'application/octet-stream'});
-    if(up.error)throw up.error;
-    const authorName=(user.user_metadata&&user.user_metadata.display_name)||user.email.split('@')[0]||'Community-Creator';
-    const out=await client.from('mr_projects').insert({author_id:uid,author_name:authorName,title:title,project_type:type,summary:summary,description:description,game_versions:$('mrVersions').value.trim(),loader:$('mrLoader').value,icon_path:iconPath,file_path:filePath,file_name:file.name}).select('id').single();
-    if(out.error)throw out.error;
-    $('mrPublishForm').reset();showPanel('none');message('Projekt wurde veröffentlicht und ist jetzt für alle Besucher sichtbar.');await loadProjects();
-  }catch(e){
-    message('Upload fehlgeschlagen: '+(e.message||'Unbekannter Fehler')+'. Prüfe Dateityp, Speicherregeln und Datenbank-Setup.',true);
-    if(iconPath)try{await client.storage.from('mr-files').remove([iconPath])}catch(ignore){}
-    if(filePath)try{await client.storage.from('mr-files').remove([filePath])}catch(ignore){}
-  }finally{button.disabled=false;button.textContent='Projekt veröffentlichen'}
-});
-document.querySelectorAll('[data-project-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.projectFilter;document.querySelectorAll('[data-project-filter]').forEach(other=>other.classList.toggle('active',other===b));renderProjects()}));
-$('mrSearch').addEventListener('input',renderProjects);
-$('mrSort').addEventListener('change',renderProjects);
-$('mrRefresh').addEventListener('click',()=>{loadProjects().catch(e=>message(e.message,true))});
-if(client){
-  client.auth.getSession().then(({data})=>{session=data.session;updateAccount();loadProjects()}).catch(()=>loadProjects());
-  client.auth.onAuthStateChange((event,newSession)=>{session=newSession;setTimeout(()=>{updateAccount();if(event==='SIGNED_IN'||event==='SIGNED_OUT'||event==='USER_UPDATED')loadProjects()},0)});
-}else{updateAccount();loadProjects()}
+document.querySelectorAll('[data-project-filter]').forEach(button=>button.addEventListener('click',()=>{
+ filter=button.dataset.projectFilter;
+ document.querySelectorAll('[data-project-filter]').forEach(b=>b.classList.toggle('active',b===button));
+ render();
+}));
+$('mrSearch').addEventListener('input',render);
+$('mrSort').addEventListener('change',render);
+$('mrRefresh').addEventListener('click',render);
+render();
 })();
 </script>
 
