@@ -287,6 +287,39 @@ h1,h2,h3,p{margin-top:0}
 @media(max-width:720px){.rulesMenu{max-height:68vh;width:min(500px,calc(100vw - 26px))}}
 @media(max-width:520px){.rulesDropdown{position:relative}.rulesMenu{left:auto;right:auto;max-width:calc(100vw - 24px);width:min(440px,calc(100vw - 24px));max-height:68vh;padding:11px}.rulesMenu:before{left:32px;right:auto}.rulesMenuHero h3{font-size:18px}}
 
+
+/* Fullscreen rules view */
+body.rulesFullscreenActive{overflow:hidden}
+.rulesFullscreenTop{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1100px;margin:0 auto 16px;padding:8px 0 13px;border-bottom:1px solid rgba(117,169,123,.25);background:rgba(7,16,10,.94);backdrop-filter:blur(14px)}
+.rulesFullscreenBrand{display:flex;align-items:center;gap:9px;color:#a9d9ac;font-size:10px;font-weight:950;letter-spacing:1.7px}
+.rulesFullscreenBrand>span{display:grid;place-items:center;width:30px;height:30px;border:1px solid #355c3c;border-radius:9px;background:#142a1a;font-size:15px}
+.rulesFullscreenBrand i{font-style:normal;color:#547658}
+.rulesCloseButton{display:inline-flex;align-items:center;gap:12px;min-height:40px;padding:8px 13px;border:1px solid #3b6242;border-radius:11px;background:#142a1a;color:#effaef;font-size:12px;font-weight:850;transition:background .18s,border-color .18s}
+.rulesCloseButton:hover{background:#23482b;border-color:#6aa773}
+.rulesCloseButton span{font-size:22px;line-height:1;color:#b6efb7}
+.rulesDropdown[open] .rulesMenu{position:fixed!important;inset:0!important;z-index:99999!important;width:100vw!important;max-width:none!important;height:100vh;height:100dvh;max-height:none!important;margin:0!important;padding:18px clamp(16px,3.4vw,48px) 38px!important;overflow-y:auto;overscroll-behavior:contain;border:0!important;border-radius:0!important;background:radial-gradient(ellipse at 50% -15%,rgba(40,91,49,.65),transparent 53%),radial-gradient(ellipse at 100% 55%,rgba(17,49,27,.45),transparent 42%),#07100a;box-shadow:none!important;backdrop-filter:blur(18px);scrollbar-width:thin;scrollbar-color:#3b6242 #0b170e;animation:rulesFullscreenIn .2s ease-out}
+.rulesDropdown[open] .rulesMenu:before{display:none}
+.rulesDropdown[open] .rulesMenu>*{max-width:1100px;margin-left:auto;margin-right:auto}
+.rulesDropdown[open] .rulesMenu .rulesMenuHero{margin-bottom:13px}
+.rulesDropdown[open] .rulesMenu .rulesIntro{margin-bottom:14px}
+.rulesDropdown[open] .rulesMenu .rulesColumns{gap:14px}
+.rulesDropdown[open] .rulesMenu .rulesBlock{padding:17px}
+.rulesDropdown[open] .rulesMenu .rulesList li{font-size:12px;padding-top:10px;padding-bottom:10px;line-height:1.7}
+.rulesDropdown[open] .rulesMenu .consequencesBlock{margin-top:14px}
+.rulesDropdown[open] .rulesMenu .consequencesBlock p{font-size:12px}
+.rulesDropdown[open] .rulesMenu .appealButton{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin-top:14px;padding:15px 18px!important}
+@keyframes rulesFullscreenIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:620px){
+ .rulesFullscreenTop{gap:10px;margin-bottom:12px;padding-top:3px}
+ .rulesFullscreenBrand{font-size:8px;letter-spacing:1px;gap:6px}
+ .rulesFullscreenBrand>span{width:27px;height:27px;flex-basis:27px}
+ .rulesCloseButton{min-height:38px;padding:7px 10px;font-size:11px}
+ .rulesDropdown[open] .rulesMenu{padding:12px 12px 24px!important}
+ .rulesDropdown[open] .rulesMenu .rulesBlock{padding:13px}
+ .rulesDropdown[open] .rulesMenu .rulesList li{font-size:11px;padding-top:8px;padding-bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){.rulesDropdown[open] .rulesMenu{animation:none}}
+
 </style>
 </head>
 <body>
@@ -308,7 +341,8 @@ h1,h2,h3,p{margin-top:0}
         <a href="#twitch"><span class="navIcon" aria-hidden="true">◉</span>Twitch</a>
         <details class="navDropdown rulesDropdown">
           <summary><span class="navIcon" aria-hidden="true">☷</span>Regeln <span class="menuChevron" aria-hidden="true">⌄</span></summary>
-          <div class="navMenu rulesMenu" aria-label="Tanne Clan Regelwerk">
+          <div class="navMenu rulesMenu" role="dialog" aria-modal="true" aria-label="Tanne Clan Regelwerk">
+            <div class="rulesFullscreenTop"><span class="rulesFullscreenBrand"><span aria-hidden="true">🌲</span> TANNE CLAN <i>/</i> REGELWERK</span><button class="rulesCloseButton" type="button" aria-label="Regeln schließen">Schließen <span aria-hidden="true">×</span></button></div>
             <div class="rulesMenuHero">
               <div class="rulesMenuEyebrow">TANNE CLAN · COMMUNITY-REGELN</div>
               <h3>Respekt. Fairplay. Teamgeist.</h3>
@@ -499,14 +533,27 @@ loadStatus();
 <script>
 (()=>{'use strict';
 const dropdowns=[...document.querySelectorAll('.navDropdown')];
+const rulesDropdown=document.querySelector('.rulesDropdown');
+const syncFullscreen=()=>document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
 dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
   if(details.open)dropdowns.forEach(other=>{if(other!==details)other.open=false});
+  syncFullscreen();
+}));
+document.querySelectorAll('.rulesCloseButton').forEach(button=>button.addEventListener('click',()=>{
+  if(!rulesDropdown)return;
+  rulesDropdown.open=false;
+  rulesDropdown.querySelector('summary')?.focus();
 }));
 document.addEventListener('click',event=>{
   dropdowns.forEach(details=>{if(details.open&&!details.contains(event.target))details.open=false});
 });
 document.addEventListener('keydown',event=>{
-  if(event.key==='Escape')dropdowns.forEach(details=>details.open=false);
+  if(event.key==='Escape'){
+    const openedRules=rulesDropdown&&rulesDropdown.open;
+    dropdowns.forEach(details=>details.open=false);
+    if(openedRules){event.preventDefault();rulesDropdown.querySelector('summary')?.focus();}
+    syncFullscreen();
+  }
 });
 })();
 </script>
