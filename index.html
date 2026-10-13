@@ -218,6 +218,43 @@ h1,h2,h3,p{margin-top:0}
 @media(prefers-reduced-motion:reduce){.navDropdown summary,.menuChevron{transition:none}.navMenu{animation:none}}
 
 
+
+/* Clear, premium rules panel */
+.rulesMenu{width:min(690px,calc(100vw - 32px));max-height:min(78vh,760px);padding:16px;border-radius:20px}
+.rulesMenuHero{position:relative;overflow:hidden;padding:17px 18px;margin-bottom:12px;border-radius:15px;background:radial-gradient(ellipse at 100% 0,rgba(93,169,103,.22),transparent 48%),linear-gradient(135deg,#193821,#0b170e);border-color:#355d3e}
+.rulesMenuHero:after{content:"🌲";position:absolute;right:12px;bottom:-23px;font-size:85px;opacity:.07;pointer-events:none}
+.rulesMenuEyebrow{font-size:9px;letter-spacing:1.9px;margin-bottom:8px}
+.rulesMenuHero h3{font-size:clamp(19px,3vw,24px);letter-spacing:-.65px;margin:0 0 6px}
+.rulesMenuHero p{font-size:11px;max-width:470px;line-height:1.7}
+.rulesIntro{display:grid;grid-template-columns:32px 1fr;align-items:start;gap:10px;padding:12px 13px;margin-bottom:13px;background:#101e13;border-color:#2b4931;border-radius:13px}
+.rulesIntroIcon{width:29px;height:29px;border-radius:9px;background:#1d3522;border:1px solid #3a6041;display:grid;place-items:center;color:#bdf0b9;font-weight:950}
+.rulesIntro>div{display:flex;flex-direction:column;gap:3px}
+.rulesIntro strong{font-size:11px}
+.rulesIntro span{font-size:10px;line-height:1.65}
+.rulesColumns{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}
+.rulesBlock{margin:0;padding:14px;border-color:#2a4430;border-radius:14px}
+.rulesBlockTitle{gap:8px;margin-bottom:13px;padding-bottom:10px;border-bottom:1px solid #243c29}
+.rulesBlockTitle h4{font-size:12px;flex:1}
+.rulesCount{display:inline-flex;align-items:center;justify-content:center;min-width:25px;height:22px;padding:0 6px;border:1px solid #36583c;border-radius:7px;background:#162b1b;color:#a8e6aa;font-size:9px;font-weight:950}
+.rulesList{gap:0;counter-reset:rule}
+.rulesList li{padding:8px 0 8px 28px;border-bottom:1px solid rgba(47,73,52,.55);font-size:10px;line-height:1.6;color:#d0ddd1}
+.rulesList li:last-child{border-bottom:0;padding-bottom:1px}
+.rulesList li:before{top:8px;width:20px;height:19px;display:grid;place-items:center;border-radius:6px;background:#15291a;color:#9bdca0;font-size:8px}
+.consequencesBlock{margin-top:12px;padding:13px 15px;display:grid;grid-template-columns:minmax(145px,.35fr) 1fr;gap:14px;align-items:start;border-color:rgba(211,171,100,.27);background:linear-gradient(110deg,rgba(71,53,26,.18),rgba(7,17,10,.72))}
+.consequencesBlock .rulesBlockTitle{margin:0;padding:0;border:0}
+.consequencesBlock p{font-size:10px;line-height:1.75}
+.appealButton{min-height:51px;margin-top:12px;padding:12px 15px!important;border-radius:13px!important;box-shadow:0 8px 21px rgba(125,206,127,.1);font-size:12px}
+@media(max-width:620px){
+ .rulesMenu{width:min(540px,calc(100vw - 24px));max-height:72vh;padding:11px}
+ .rulesMenuHero{padding:15px}
+ .rulesColumns{grid-template-columns:1fr;gap:9px}
+ .rulesBlock{padding:12px}
+ .rulesBlockTitle{margin-bottom:8px;padding-bottom:8px}
+ .rulesList li{padding-top:7px;padding-bottom:7px}
+ .rulesList li:before{top:7px}
+ .consequencesBlock{grid-template-columns:1fr;gap:7px}
+}
+
 /* Rules menu, opened only from the top navigation */
 .rulesDropdown summary{position:relative}
 .rulesMenu{width:min(530px,calc(100vw - 28px));max-height:min(72vh,720px);overflow-y:auto;overscroll-behavior:contain;padding:14px;scrollbar-width:thin;scrollbar-color:#3b6242 #0b170e}
@@ -278,35 +315,37 @@ h1,h2,h3,p{margin-top:0}
               <p>Die Regeln gelten für alle Mitglieder auf dem Discord und bei gemeinsamen Clan-Aktionen.</p>
             </div>
             <div class="rulesIntro">
-              <strong>HugoSMP-Regelwerk</strong>
-              <span>Zusätzlich gelten die <a href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">HugoSMP-Regeln ↗</a> und die <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Discord-Nutzungsbedingungen ↗</a>.</span>
+              <span class="rulesIntroIcon" aria-hidden="true">i</span>
+              <div><strong>Bitte beachten</strong><span>Es gelten auch das <a href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">HugoSMP-Regelwerk ↗</a> und die <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Discord-Nutzungsbedingungen ↗</a>.</span></div>
             </div>
-            <section class="rulesBlock">
-              <div class="rulesBlockTitle"><span class="rulesBlockIcon">✦</span><h4>Allgemeine Regeln</h4></div>
-              <ol class="rulesList">
-                <li>Gehe respektvoll mit allen Mitgliedern um.</li>
-                <li>Kein Spam, keine Beleidigungen und kein unnötiger Streit.</li>
-                <li>Anweisungen des Teams sind zu beachten.</li>
-                <li>Kein Trollen oder absichtliches Stören.</li>
-                <li>Keine Eigenwerbung ohne Erlaubnis.</li>
-                <li>Keine unnötigen Pings oder Massen-Erwähnungen.</li>
-                <li>Kein NSFW-Content.</li>
-                <li>Respektiere die Privatsphäre und persönlichen Daten anderer.</li>
-              </ol>
-            </section>
-            <section class="rulesBlock clanRulesBlock">
-              <div class="rulesBlockTitle"><span class="rulesBlockIcon">🌲</span><h4>Clan-Regeln</h4></div>
-              <ol class="rulesList">
-                <li>Bleibe aktiv im Clan. Längere Inaktivität kann zum Kick führen.</li>
-                <li>Unterstütze deine Clanmates und spiele fair im Team.</li>
-                <li>Nutze die vorgesehenen Channels und halte Gespräche übersichtlich.</li>
-                <li>Nimm nach Möglichkeit an Clan-Aktionen und Events teil.</li>
-                <li>Vertrete den Clan innerhalb und außerhalb des Servers respektvoll.</li>
-              </ol>
-            </section>
+            <div class="rulesColumns">
+              <section class="rulesBlock">
+                <div class="rulesBlockTitle"><span class="rulesBlockIcon">✦</span><h4>Allgemeine Regeln</h4><span class="rulesCount">08</span></div>
+                <ol class="rulesList">
+                  <li>Gehe respektvoll mit allen Mitgliedern um.</li>
+                  <li>Kein Spam, keine Beleidigungen und kein unnötiger Streit.</li>
+                  <li>Anweisungen des Teams sind zu beachten.</li>
+                  <li>Kein Trollen oder absichtliches Stören.</li>
+                  <li>Keine Eigenwerbung ohne Erlaubnis.</li>
+                  <li>Keine unnötigen Pings oder Massen-Erwähnungen.</li>
+                  <li>Kein NSFW-Content.</li>
+                  <li>Respektiere Privatsphäre und persönliche Daten anderer.</li>
+                </ol>
+              </section>
+              <section class="rulesBlock clanRulesBlock">
+                <div class="rulesBlockTitle"><span class="rulesBlockIcon">🌲</span><h4>Clan-Regeln</h4><span class="rulesCount">05</span></div>
+                <ol class="rulesList">
+                  <li>Bleibe aktiv im Clan. Längere Inaktivität kann zum Kick führen.</li>
+                  <li>Unterstütze deine Clanmates und spiele fair im Team.</li>
+                  <li>Nutze die vorgesehenen Channels und halte Gespräche übersichtlich.</li>
+                  <li>Nimm nach Möglichkeit an Clan-Aktionen und Events teil.</li>
+                  <li>Vertrete den Clan innerhalb und außerhalb des Servers respektvoll.</li>
+                </ol>
+              </section>
+            </div>
             <section class="rulesBlock consequencesBlock">
               <div class="rulesBlockTitle"><span class="rulesBlockIcon">!</span><h4>Strafen & Entscheidungen</h4></div>
-              <p>Regelverstöße können zu Verwarnungen, Stummschaltungen, Kick, temporären Sperren oder permanenten Bans führen. Das Team muss Entscheidungen nicht öffentlich begründen. Die Eigentümer haben das letzte Wort.</p>
+              <p>Verstöße können Verwarnungen, Stummschaltungen, Kicks, temporäre Sperren oder permanente Bans nach sich ziehen. Das Team muss Entscheidungen nicht öffentlich begründen. Die Eigentümer haben das letzte Wort.</p>
             </section>
             <a class="appealButton" href="https://appeal.gg/kz3y7Gqekq" target="_blank" rel="noopener noreferrer"><span><strong>Strafe anfechten</strong><small>Über das Appeal-Formular einen Einspruch einreichen</small></span><span aria-hidden="true">↗</span></a>
           </div>
