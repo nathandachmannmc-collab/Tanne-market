@@ -1,0 +1,55 @@
+name: Test public Minecraft server status APIs
+
+on:
+  push:
+    paths:
+      - ".github/workflows/test-server-status-apis.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Test documented public status APIs
+        run: |
+          node <<'NODE'
+          const tests = [
+            {
+              name: 'mcstatus.io',
+              url: 'https://api.mcstatus.io/v2/status/java/hugosmp.net',
+              headers: {'Accept':'application/json'}
+            },
+            {
+              name: 'minecraftstatus.com',
+              url: 'https://minecraftstatus.com/api/v1/status/java?address=hugosmp.net',
+              headers: {'Accept':'application/json'}
+            },
+            {
+              name: 'mcsrvstat.us',
+              url: 'https://api.mcsrvstat.us/3/hugosmp.net',
+              headers: {'Accept':'application/json','User-Agent':'TanneClanWebsite/1.0 contact: public-site-status-check'}
+            },
+            {
+              name: 'minecraftpinger.com',
+              url: 'https://www.minecraftpinger.com/api/v1/hugosmp.net:25565',
+              headers: {'Accept':'application/json','User-Agent':'TanneClanWebsite/1.0'}
+            }
+          ];
+          (async()=>{
+            for(const t of tests){
+              try {
+                const r=await fetch(t.url,{headers:t.headers,redirect:'follow',signal:AbortSignal.timeout(12000)});
+                const text=await r.text();
+                console.log('\n=== '+t.name+' ===');
+                console.log('status='+r.status+' url='+r.url);
+                console.log('acao='+String(r.headers.get('access-control-allow-origin')));
+                console.log('content-type='+String(r.headers.get('content-type')));
+                console.log('body='+text.slice(0,2200).replace(/\s+/g,' '));
+              }catch(e){console.log('\n=== '+t.name+' ERROR === '+String(e).slice(0,400))}
+            }
+          })();
+          NODE
