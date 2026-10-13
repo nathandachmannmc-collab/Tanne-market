@@ -512,6 +512,63 @@ body.mrFullscreenActive{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.mrDropdown[open] .mrFullscreen{animation:none}.mrProjectCard,.mrBtn{transition:none}}
 
+
+/* M/R clarity pass: compact setup notice, cleaner auth, less visual noise */
+.mrHero{padding:24px 27px;background:#111812;border-color:#29392c}
+.mrHero h2{font-size:clamp(26px,3.5vw,39px);letter-spacing:-1.1px}
+.mrHero p{max-width:590px}
+.mrHeroSide{gap:17px;padding-right:1px}
+.mrHeroStat strong{font-size:24px}
+.mrSetupNotice{display:flex;align-items:center;gap:11px;padding:11px 13px;margin-top:12px;border-color:#394238;background:#121812;color:#b5c1b6}
+.mrSetupDot{flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#d0b66d}
+.mrSetupNotice>div{flex:1;min-width:0}
+.mrSetupNotice strong{font-size:11px;color:#e4e9e3;margin:0 0 2px}
+.mrSetupNotice p{font-size:10px;line-height:1.55;color:#9aa69b;margin:0}
+.mrSetupNotice>a{flex:0 0 auto;font-size:10px;color:#c1d9bf;white-space:nowrap;text-decoration:none;border:1px solid #3b4c3d;border-radius:6px;padding:7px 9px}
+.mrSetupNotice>a:hover{background:#1c2a1e}
+.mrAuthPanel{max-width:520px;margin:16px auto 0;padding:20px;background:#111812;border-color:#2d3c30}
+.mrAuthPanel .mrPanelHead{margin-bottom:15px}
+.mrAuthPanel .mrPanelHead h3{font-size:22px}
+.mrAuthGrid{display:block}
+.mrAuthInfo{display:none!important}
+.mrAuthPanel .mrForm{gap:12px}
+.mrAuthModes{margin-bottom:2px}
+.mrAuthModes button{min-height:38px}
+.mrForm label{font-size:11px}
+.mrForm input:not([type=file]),.mrForm select,.mrForm textarea{min-height:43px;border-radius:8px;background:#0b120d;border-color:#304033}
+.mrFormSubmit{min-height:43px;margin-top:5px}
+.mrAuthPanel .mrTextButton{margin-top:-2px}
+.mrAuthUnavailable{max-width:540px;margin:16px auto 0;padding:23px;border:1px solid #2e4032;border-radius:12px;background:#111812}
+.mrUnavailableIcon{display:grid;place-items:center;width:44px;height:44px;margin-bottom:17px;border:1px solid #3b6041;border-radius:10px;background:#1b2d1e;color:#cce6c9;font-size:12px;font-weight:950;letter-spacing:-.6px}
+.mrAuthUnavailable .mrKicker{margin-bottom:6px}
+.mrAuthUnavailable h3{margin:0 0 8px;color:#eef4ed;font-size:21px;letter-spacing:-.4px}
+.mrAuthUnavailable p{margin:0 0 13px;color:#9eada0;font-size:12px;line-height:1.75}
+.mrAuthUnavailable ol{margin:0 0 17px;padding-left:20px;color:#bdc9bd;font-size:11px;line-height:1.9}
+.mrAuthUnavailable a:not(.mrBtn){color:#c2e2be;text-decoration:underline;text-underline-offset:3px}
+.mrSetupCta{display:inline-flex;text-decoration:none!important}
+.mrBrowse{margin-top:24px}
+.mrBrowseTitle h3{font-size:21px}
+.mrProjectGrid{gap:11px}
+.mrProjectCard{padding:13px;background:#101811;border-color:#28382b}
+.mrProjectCard:hover{background:#131d15;border-color:#425b45}
+.mrProjectIcon{width:50px;height:50px;flex-basis:50px}
+.mrProjectSummary{margin:11px 0 12px;line-height:1.65}
+.mrProjectDetails{max-height:125px;overflow:auto}
+.mrSearch{background:#101811}
+.mrTabs button{border-radius:6px}
+.mrTabs button.active{background:#202d22;border-color:#354b38}
+.mrFooter{margin-top:25px}
+@media(max-width:620px){
+ .mrSetupNotice{align-items:flex-start;flex-wrap:wrap;gap:8px}
+ .mrSetupDot{margin-top:5px}
+ .mrSetupNotice>div{flex:1 1 calc(100% - 25px)}
+ .mrSetupNotice>a{margin-left:17px}
+ .mrHero{padding:18px}
+ .mrHeroSide{padding:0}
+ .mrAuthPanel,.mrAuthUnavailable{padding:16px}
+ .mrAuthUnavailable h3{font-size:19px}
+}
+
 </style>
 </head>
 <body>
@@ -544,9 +601,8 @@ body.mrFullscreenActive{overflow:hidden}
                 <div class="mrHeroSide"><div class="mrHeroStat"><strong id="mrProjectCount">0</strong><span>Projekte</span></div><div class="mrHeroDivider"></div><div class="mrHeroStat"><strong id="mrCreatorCount">0</strong><span>Creator</span></div></div>
               </section>
               <div class="mrSetupNotice" id="mrSetupNotice">
-                <strong>M/R muss noch verbunden werden</strong>
-                <p>Login und gemeinsame Uploads brauchen eine Datenbank. Die Website-Oberfläche ist bereit; verbinde jetzt Supabase mit der SQL-Datei und trage danach URL und öffentlichen Anon-Key in die Konfiguration ein.</p>
-                <a href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup-SQL öffnen ↗</a>
+                <span class="mrSetupDot" aria-hidden="true"></span><div><strong>Anmeldung noch nicht aktiviert</strong><p>Die Bibliothek ist vorbereitet. Konten und Uploads funktionieren, sobald die Datenbank verbunden ist.</p></div>
+                <a href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup öffnen ↗</a>
               </div>
               <div class="mrFlash" id="mrFlash" role="status" aria-live="polite" hidden></div>
 
@@ -563,6 +619,15 @@ body.mrFullscreenActive{overflow:hidden}
                   </form>
                   <aside class="mrAuthInfo"><strong>Ein Konto für deine Projekte</strong><p>Mit deinem Account kannst du Resource Packs und Mods hochladen, Beschreibungen bearbeiten und deine eigenen Projekte verwalten.</p><p class="mrSafetyNote">Lade nur Dateien hoch, die du teilen darfst. Mods können ausführbaren Code enthalten – lade nur Dateien von Creatorn herunter, denen du vertraust.</p></aside>
                 </div>
+              </section>
+
+              <section class="mrAuthUnavailable" id="mrAuthUnavailable" hidden>
+                <div class="mrUnavailableIcon" aria-hidden="true">M/R</div>
+                <div class="mrKicker">EINMALIGE EINRICHTUNG</div>
+                <h3>Login ist noch nicht verbunden.</h3>
+                <p>Du hast nichts falsch gemacht. Die Anmeldung kann erst funktionieren, wenn die Datenbank eingerichtet ist.</p>
+                <ol><li>Supabase-Projekt erstellen</li><li><a href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup-SQL öffnen</a> und im SQL Editor ausführen</li><li>Project URL und öffentlichen anon/publishable Key in der Website eintragen</li></ol>
+                <a class="mrBtn mrBtnPrimary mrSetupCta" href="https://github.com/nathandachmannmc-collab/Tanne-market/blob/main/mr-setup.sql" target="_blank" rel="noopener noreferrer">Setup-Anleitung öffnen ↗</a>
               </section>
 
               <section class="mrAccountPanel" id="mrAccountPanel" hidden>
@@ -846,18 +911,31 @@ function message(text,error){
 }
 function clearMessage(){flash.hidden=true;flash.textContent='';flash.classList.remove('error')}
 function showPanel(which){
-  $('mrAuthPanel').hidden=which!=='auth';
+  const authUnavailable=which==='auth'&&!client;
+  $('mrAuthPanel').hidden=which!=='auth'||authUnavailable;
+  $('mrAuthUnavailable').hidden=!authUnavailable;
   $('mrPublishPanel').hidden=which!=='publish';
   clearMessage();
-  if(which==='auth'&&!session){setAuthMode(authMode)}
-  if(which==='publish'&&session)$('mrTitle').focus();
-  if(which==='auth')$('mrEmail').focus();
+  if(authUnavailable){
+    $('mrAuthUnavailable').scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  if(which==='auth'&&!session){
+    setAuthMode(authMode);
+    $('mrAuthPanel').hidden=false;
+    $('mrAuthPanel').scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(()=>$('mrEmail').focus(),100);
+  }
+  if(which==='publish'&&session){
+    $('mrPublishPanel').scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>$('mrTitle').focus(),100);
+  }
 }
 function setAuthMode(mode){
   authMode=mode;
   $('mrDisplayNameWrap').hidden=mode!=='signup';
   $('mrAuthTitle').textContent=mode==='signup'?'Konto erstellen':'Bei M/R anmelden';
-  $('mrAuthSubmit').textContent=mode==='signup'?'Kostenloses Konto erstellen':'Anmelden';
+  $('mrAuthSubmit').textContent=mode==='signup'?'Konto erstellen':'Anmelden';
   $('mrPassword').autocomplete=mode==='signup'?'new-password':'current-password';
   document.querySelectorAll('[data-auth-mode]').forEach(b=>b.classList.toggle('active',b.dataset.authMode===mode));
   $('mrForgotPassword').hidden=mode==='signup';
@@ -938,13 +1016,20 @@ if(configReady){
 if(!client){setup.hidden=false}
 document.querySelectorAll('[data-auth-mode]').forEach(b=>b.addEventListener('click',()=>setAuthMode(b.dataset.authMode)));
 $('mrAuthAction').addEventListener('click',()=>{
-  if(session){$('mrAuthPanel').hidden=true;$('mrPublishPanel').hidden=true;$('mrAccountPanel').hidden=!$('mrAccountPanel').hidden;clearMessage()}
-  else {showPanel('auth')}
+  if(session){
+    $('mrAuthPanel').hidden=true;$('mrAuthUnavailable').hidden=true;$('mrPublishPanel').hidden=true;
+    $('mrAccountPanel').hidden=!$('mrAccountPanel').hidden;clearMessage();
+    if(!$('mrAccountPanel').hidden)$('mrAccountPanel').scrollIntoView({behavior:'smooth',block:'center'});
+  }else{
+    $('mrAccountPanel').hidden=true;
+    showPanel('auth');
+  }
 });
 $('mrOpenUpload').addEventListener('click',()=>{
-  if(!configReady||!client){showPanel('auth');message('Anmeldung ist noch nicht aktiviert. Verbinde zuerst Supabase wie in der Setup-Anleitung beschrieben.',true);return}
-  if(!session){showPanel('auth');message('Melde dich an oder erstelle ein Konto, bevor du etwas hochlädst.');return}
-  $('mrAccountPanel').hidden=true;showPanel('publish');
+  $('mrAccountPanel').hidden=true;
+  if(!client){showPanel('auth');return}
+  if(!session){showPanel('auth');message('Melde dich an oder erstelle ein Konto, um etwas hochzuladen.');return}
+  showPanel('publish');
 });
 document.querySelectorAll('[data-mr-hide]').forEach(b=>b.addEventListener('click',()=>showPanel('none')));
 $('mrAuthForm').addEventListener('submit',async event=>{
@@ -965,8 +1050,18 @@ $('mrAuthForm').addEventListener('submit',async event=>{
       if(out.error)throw out.error;
       session=out.data.session;updateAccount();showPanel('none');message('Du bist angemeldet. Jetzt kannst du ein Projekt hochladen.');
     }
-  }catch(e){message(e.message||'Anmeldung fehlgeschlagen. Prüfe deine Angaben.',true)}
-  finally{button.disabled=false;button.textContent=authMode==='signup'?'Kostenloses Konto erstellen':'Anmelden'}
+  }catch(e){
+    const raw=String((e&&e.message)||'');
+    let friendly='Das hat nicht geklappt. Bitte prüfe deine Angaben und versuche es erneut.';
+    if(/invalid login credentials/i.test(raw))friendly='E-Mail-Adresse oder Passwort stimmt nicht.';
+    else if(/email not confirmed/i.test(raw))friendly='Bitte bestätige zuerst die E-Mail, die wir dir geschickt haben.';
+    else if(/already registered|user already exists/i.test(raw))friendly='Für diese E-Mail gibt es schon ein Konto. Wechsle zu „Anmelden“.';
+    else if(/password.*(weak|at least|characters)/i.test(raw))friendly='Wähle ein stärkeres Passwort mit mindestens 6 Zeichen.';
+    else if(/rate limit|too many requests/i.test(raw))friendly='Zu viele Versuche. Warte kurz und probiere es später erneut.';
+    else if(/failed to fetch|network|load failed/i.test(raw))friendly='Verbindung fehlgeschlagen. Prüfe deine Internetverbindung und die Supabase-Einstellungen.';
+    message(friendly,true);
+  }
+  finally{button.disabled=false;button.textContent=authMode==='signup'?'Konto erstellen':'Anmelden'}
 });
 $('mrForgotPassword').addEventListener('click',async()=>{
   if(!client){message('Die Anmeldung ist noch nicht eingerichtet.',true);return}
