@@ -592,6 +592,101 @@ body.mrFullscreenActive{overflow:hidden}
  .mrProjectIcon{flex-basis:54px;width:54px;height:54px}
 }
 
+
+/* Website settings */
+.settingsNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#b8d9b4;font-size:15px;line-height:1}
+body.settingsFullscreenActive{overflow:hidden}
+.settingsDropdown summary{gap:7px}
+.settingsDropdown[open] .settingsNavIcon{color:var(--green)}
+.settingsDropdown[open] .settingsFullscreen{position:fixed!important;inset:0!important;z-index:100000!important;width:100vw!important;max-width:none!important;height:100vh;height:100dvh;max-height:none!important;margin:0!important;padding:0!important;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;border:0!important;border-radius:0!important;background:#0b100d!important;color:#e5e9e5;box-shadow:none!important;backdrop-filter:none!important;animation:settingsEnter .14s ease-out}
+.settingsDropdown[open] .settingsFullscreen:before{display:none}
+.settingsTop{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px;padding:12px clamp(15px,3vw,42px);background:rgba(15,22,17,.97);border-bottom:1px solid #28372c;backdrop-filter:blur(12px)}
+.settingsBrand{display:flex;align-items:center;gap:11px;min-width:0}
+.settingsBrandMark{display:grid;place-items:center;flex:0 0 40px;height:40px;border:1px solid #376244;border-radius:10px;background:#173021;color:#c1e5c1;font-size:16px;font-weight:950}
+.settingsBrand>span:last-child{display:flex;flex-direction:column;gap:3px}
+.settingsBrand strong{font-size:15px;font-weight:850;line-height:1.2}
+.settingsBrand small{font-size:8px;letter-spacing:1.5px;color:#89998c}
+.settingsCloseButton{min-height:39px;display:inline-flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid #35473a;border-radius:8px;background:transparent;color:#e2e9e2;font-size:11px;font-weight:750;cursor:pointer}
+.settingsCloseButton:hover{background:#202b22}
+.settingsCloseButton span{font-size:20px;line-height:1}
+.settingsPage{width:min(900px,calc(100% - 40px));margin:0 auto;padding:36px 0 48px}
+.settingsIntro{margin-bottom:24px}
+.settingsEyebrow{font-size:9px;font-weight:900;letter-spacing:1.7px;color:#8aaa8c;margin-bottom:9px}
+.settingsIntro h2{margin:0 0 9px;font-size:clamp(28px,4vw,39px);line-height:1.1;letter-spacing:-1.1px;color:#eef4ed}
+.settingsIntro p{max-width:600px;margin:0;color:#9eada0;font-size:12px;line-height:1.8}
+.settingsGroup{padding:20px;margin-bottom:13px;border:1px solid #2b3b2e;border-radius:12px;background:#101811}
+.settingsGroupHead{display:flex;align-items:center;gap:12px;margin-bottom:17px}
+.settingsGroupIcon{display:grid;place-items:center;flex:0 0 36px;height:36px;border:1px solid #334c36;border-radius:9px;background:#17261a;color:#bedfb9;font-size:16px;font-weight:850}
+.settingsGroupHead h3{margin:0 0 3px;color:#e8f0e7;font-size:14px}
+.settingsGroupHead p{margin:0;color:#91a193;font-size:10px;line-height:1.6}
+.settingsChoices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.settingsTextChoices{grid-template-columns:repeat(2,minmax(0,1fr))}
+.settingsChoice{display:flex;align-items:center;gap:10px;min-width:0;position:relative;padding:12px;border:1px solid #2c3c2f;border-radius:9px;background:#0d1510;color:#dfe8df;text-align:left;cursor:pointer}
+.settingsChoice:hover{border-color:#58715b;background:#131e15}
+.settingsChoice[aria-pressed="true"]{border-color:#719876;background:#17251a;box-shadow:inset 0 0 0 1px #71987620}
+.settingsChoice>span:nth-child(2){display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.settingsChoice strong{font-size:11px;font-weight:800}
+.settingsChoice small{font-size:9px;line-height:1.4;color:#91a193}
+.settingsSwatch{display:block;flex:0 0 25px;width:25px;height:25px;border-radius:7px;border:1px solid #ffffff30}
+.swatchGreen{background:#b5f3b8}
+.swatchBlue{background:#b9dcff}
+.swatchPurple{background:#dcc5ff}
+.settingsCheck{display:none;color:#c6e8c2;font-size:12px;font-weight:950}
+.settingsChoice[aria-pressed="true"] .settingsCheck{display:block}
+.settingsTextSample{display:grid;place-items:center;flex:0 0 34px;height:34px;border:1px solid #324534;border-radius:7px;background:#17251a;color:#c2e4be;font-weight:900;font-size:14px}
+.settingsTextSample.large{font-size:19px}
+.settingsToggleGroup{padding:0 20px}
+.settingsToggleRow{position:relative;display:flex;align-items:center;gap:12px;padding:17px 0;cursor:pointer}
+.settingsToggleRow+.settingsToggleRow{border-top:1px solid #27372a}
+.settingsToggleIcon{display:grid;place-items:center;flex:0 0 34px;height:34px;border:1px solid #334c36;border-radius:8px;background:#17261a;color:#b8d8b5;font-size:16px}
+.settingsToggleText{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.settingsToggleText strong{font-size:11px;color:#e1eae0}
+.settingsToggleText small{font-size:10px;color:#91a193;line-height:1.5}
+.settingsToggleRow input{position:absolute;opacity:0;width:1px;height:1px}
+.settingsToggleTrack{position:relative;flex:0 0 40px;width:40px;height:23px;border-radius:99px;background:#2c3a2e;border:1px solid #405543;transition:background .15s}
+.settingsToggleTrack:after{content:"";position:absolute;left:3px;top:3px;width:15px;height:15px;border-radius:50%;background:#c8d2c8;transition:transform .15s}
+.settingsToggleRow input:checked+.settingsToggleTrack{background:#3e7547;border-color:#66966a}
+.settingsToggleRow input:checked+.settingsToggleTrack:after{transform:translateX(17px);background:#f2fff0}
+.settingsToggleRow input:focus-visible+.settingsToggleTrack{outline:2px solid var(--green);outline-offset:3px}
+.settingsBottom{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:15px 2px 0}
+.settingsBottom>div{display:flex;flex-direction:column;gap:5px}
+.settingsBottom strong{font-size:10px;color:#d5e5d3;font-weight:750}
+.settingsBottom small{font-size:9px;color:#7f9081}
+.settingsResetButton{min-height:36px;padding:8px 11px;border:1px solid #3b4c3d;border-radius:7px;background:#111a13;color:#cad8ca;font-size:10px;font-weight:800;cursor:pointer}
+.settingsResetButton:hover{background:#1b2a1d;border-color:#647c66}
+@keyframes settingsEnter{from{opacity:.92}to{opacity:1}}
+html[data-tanne-accent="blue"]{--green:#b9dcff;--green2:#70aaf2;--deep:#172a42}
+html[data-tanne-accent="purple"]{--green:#dcc5ff;--green2:#b196ef;--deep:#2b2040}
+html[data-tanne-accent="blue"] .btn.primary,html[data-tanne-accent="blue"] .nav .navCta,html[data-tanne-accent="blue"] .mrDownload{background:#b9dcff!important;border-color:#b9dcff!important;color:#111b27!important}
+html[data-tanne-accent="purple"] .btn.primary,html[data-tanne-accent="purple"] .nav .navCta,html[data-tanne-accent="purple"] .mrDownload{background:#dcc5ff!important;border-color:#dcc5ff!important;color:#20152c!important}
+html[data-tanne-accent="blue"] .hero h1 span,html[data-tanne-accent="blue"] .eyebrow,html[data-tanne-accent="blue"] .joinLabel,html[data-tanne-accent="blue"] .mrHero h2 span,html[data-tanne-accent="blue"] .settingsEyebrow,html[data-tanne-accent="blue"] .mrKicker{color:#b9dcff!important}
+html[data-tanne-accent="purple"] .hero h1 span,html[data-tanne-accent="purple"] .eyebrow,html[data-tanne-accent="purple"] .joinLabel,html[data-tanne-accent="purple"] .mrHero h2 span,html[data-tanne-accent="purple"] .settingsEyebrow,html[data-tanne-accent="purple"] .mrKicker{color:#dcc5ff!important}
+html[data-tanne-text="large"] body{font-size:17px}
+html[data-tanne-text="large"] .heroText{font-size:16px}
+html[data-tanne-text="large"] .heroMini{font-size:11px}
+html[data-tanne-text="large"] .nav a,html[data-tanne-text="large"] .navDropdown summary{font-size:13px}
+html[data-tanne-text="large"] .statusCard p,html[data-tanne-text="large"] .infoItem p,html[data-tanne-text="large"] .sectionHead p,html[data-tanne-text="large"] .joinPanel p{font-size:13px}
+html[data-tanne-text="large"] .mrHero p,html[data-tanne-text="large"] .mrProjectSummary{font-size:13px}
+html[data-tanne-text="large"] .mrProjectDetails,html[data-tanne-text="large"] .mrProjectMeta{font-size:11px}
+html[data-tanne-text="large"] .rulesList li{font-size:11px}
+html[data-tanne-contrast="high"] body{color:#fff}
+html[data-tanne-contrast="high"] .panel,html[data-tanne-contrast="high"] .statusCard,html[data-tanne-contrast="high"] .infoItem,html[data-tanne-contrast="high"] .joinPanel,html[data-tanne-contrast="high"] .mrProjectCard,html[data-tanne-contrast="high"] .rulesBlock,html[data-tanne-contrast="high"] .settingsGroup{border-color:#687e6a!important}
+html[data-tanne-contrast="high"] .heroText,html[data-tanne-contrast="high"] .statusCard p,html[data-tanne-contrast="high"] .infoItem p,html[data-tanne-contrast="high"] .sectionHead p,html[data-tanne-contrast="high"] .joinPanel p,html[data-tanne-contrast="high"] .mrHero p,html[data-tanne-contrast="high"] .mrProjectSummary,html[data-tanne-contrast="high"] .mrProjectDetails,html[data-tanne-contrast="high"] .rulesList li,html[data-tanne-contrast="high"] .rulesMenuHero p,html[data-tanne-contrast="high"] .rulesIntro span,html[data-tanne-contrast="high"] .footer{color:#e1e9e1!important}
+html[data-tanne-motion="reduced"] *,html[data-tanne-motion="reduced"] *:before,html[data-tanne-motion="reduced"] *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(max-width:720px){
+ .settingsPage{width:calc(100% - 26px);padding:23px 0 30px}
+ .settingsGroup{padding:15px}
+ .settingsToggleGroup{padding:0 15px}
+ .settingsChoices{grid-template-columns:1fr}
+ .settingsTextChoices{grid-template-columns:1fr 1fr}
+ .settingsChoice{padding:10px}
+ .settingsChoice small{font-size:9px}
+ .settingsBottom{align-items:flex-start;flex-direction:column}
+ .settingsResetButton{width:100%}
+ .settingsTop{padding:10px 13px}
+}
+@media(prefers-reduced-motion:reduce){.settingsDropdown[open] .settingsFullscreen{animation:none}}
+
 </style>
 </head>
 <body>
@@ -611,6 +706,38 @@ body.mrFullscreenActive{overflow:hidden}
         <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
         <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
         <a href="#twitch"><span class="navIcon" aria-hidden="true">◉</span>Twitch</a>
+        <details class="navDropdown settingsDropdown">
+          <summary><span class="settingsNavIcon" aria-hidden="true">⚙</span>Einstellungen <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <div class="navMenu settingsFullscreen" role="dialog" aria-modal="true" aria-label="Website-Einstellungen">
+            <div class="settingsTop">
+              <div class="settingsBrand"><span class="settingsBrandMark">T</span><span><strong>Einstellungen</strong><small>TANNE CLAN · WEBSITE</small></span></div>
+              <button class="settingsCloseButton" id="settingsCloseButton" type="button">Schließen <span aria-hidden="true">×</span></button>
+            </div>
+            <main class="settingsPage">
+              <div class="settingsIntro"><div class="settingsEyebrow">DEIN BROWSER · DEINE AUSWAHL</div><h2>Mach es dir passend.</h2><p>Hier kannst du das Aussehen der Website anpassen. Deine Auswahl wird nur in diesem Browser gespeichert.</p></div>
+              <section class="settingsGroup" aria-labelledby="settingsDesignTitle">
+                <div class="settingsGroupHead"><span class="settingsGroupIcon" aria-hidden="true">◐</span><div><h3 id="settingsDesignTitle">Akzentfarbe</h3><p>Wähle die Farbe für Buttons und Hervorhebungen.</p></div></div>
+                <div class="settingsChoices settingsAccentChoices" role="group" aria-label="Akzentfarbe">
+                  <button class="settingsChoice" type="button" data-setting-accent="green" aria-pressed="true"><span class="settingsSwatch swatchGreen"></span><span><strong>Waldgrün</strong><small>Originales Tanne-Design</small></span><span class="settingsCheck" aria-hidden="true">✓</span></button>
+                  <button class="settingsChoice" type="button" data-setting-accent="blue" aria-pressed="false"><span class="settingsSwatch swatchBlue"></span><span><strong>Blau</strong><small>Kühler Akzent</small></span><span class="settingsCheck" aria-hidden="true">✓</span></button>
+                  <button class="settingsChoice" type="button" data-setting-accent="purple" aria-pressed="false"><span class="settingsSwatch swatchPurple"></span><span><strong>Lila</strong><small>Violetter Akzent</small></span><span class="settingsCheck" aria-hidden="true">✓</span></button>
+                </div>
+              </section>
+              <section class="settingsGroup" aria-labelledby="settingsTextTitle">
+                <div class="settingsGroupHead"><span class="settingsGroupIcon" aria-hidden="true">Aa</span><div><h3 id="settingsTextTitle">Textgröße</h3><p>Für bessere Lesbarkeit auf deinem Gerät.</p></div></div>
+                <div class="settingsChoices settingsTextChoices" role="group" aria-label="Textgröße">
+                  <button class="settingsChoice" type="button" data-setting-text="normal" aria-pressed="true"><span class="settingsTextSample">Aa</span><span><strong>Standard</strong><small>Normale Textgröße</small></span><span class="settingsCheck" aria-hidden="true">✓</span></button>
+                  <button class="settingsChoice" type="button" data-setting-text="large" aria-pressed="false"><span class="settingsTextSample large">Aa</span><span><strong>Größer</strong><small>Mehr Lesbarkeit</small></span><span class="settingsCheck" aria-hidden="true">✓</span></button>
+                </div>
+              </section>
+              <section class="settingsGroup settingsToggleGroup" aria-label="Weitere Einstellungen">
+                <label class="settingsToggleRow" for="settingsReduceMotion"><span class="settingsToggleIcon" aria-hidden="true">↔</span><span class="settingsToggleText"><strong>Animationen reduzieren</strong><small>Weniger Bewegung und Übergänge.</small></span><input id="settingsReduceMotion" type="checkbox"><span class="settingsToggleTrack" aria-hidden="true"></span></label>
+                <label class="settingsToggleRow" for="settingsHighContrast"><span class="settingsToggleIcon" aria-hidden="true">◑</span><span class="settingsToggleText"><strong>Mehr Kontrast</strong><small>Deutlichere Ränder und hellere Texte.</small></span><input id="settingsHighContrast" type="checkbox"><span class="settingsToggleTrack" aria-hidden="true"></span></label>
+              </section>
+              <div class="settingsBottom"><div><strong id="settingsSaveStatus" role="status" aria-live="polite">Einstellungen werden automatisch gespeichert.</strong><small>Nur lokal auf diesem Gerät – keine Anmeldung nötig.</small></div><button class="settingsResetButton" id="settingsResetButton" type="button">Auf Standard zurücksetzen</button></div>
+            </main>
+          </div>
+        </details>
         <details class="navDropdown mrDropdown">
           <summary><span class="mrNavMonogram" aria-hidden="true">M/R</span>M/R <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu mrFullscreen" role="dialog" aria-modal="true" aria-label="M/R Mod- und Resource-Pack-Bibliothek">
@@ -835,9 +962,11 @@ loadStatus();
 const dropdowns=[...document.querySelectorAll('.navDropdown')];
 const rulesDropdown=document.querySelector('.rulesDropdown');
 const mrDropdown=document.querySelector('.mrDropdown');
+const settingsDropdown=document.querySelector('.settingsDropdown');
 const syncFullscreen=()=>{
   document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
   document.body.classList.toggle('mrFullscreenActive',Boolean(mrDropdown&&mrDropdown.open));
+  document.body.classList.toggle('settingsFullscreenActive',Boolean(settingsDropdown&&settingsDropdown.open));
 };
 dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
   if(details.open)dropdowns.forEach(other=>{if(other!==details)other.open=false});
@@ -852,6 +981,11 @@ document.querySelectorAll('#mrCloseButton').forEach(button=>button.addEventListe
   if(!mrDropdown)return;
   mrDropdown.open=false;
   mrDropdown.querySelector('summary')?.focus();
+}));
+document.querySelectorAll('#settingsCloseButton').forEach(button=>button.addEventListener('click',()=>{
+  if(!settingsDropdown)return;
+  settingsDropdown.open=false;
+  settingsDropdown.querySelector('summary')?.focus();
 }));
 document.addEventListener('click',event=>{
   dropdowns.forEach(details=>{if(details.open&&!details.contains(event.target))details.open=false});
@@ -929,5 +1063,51 @@ render();
 })();
 </script>
 
+<script>
+(()=>{'use strict';
+const KEY='tanne-clan-settings-v1';
+const defaults={accent:'green',text:'normal',reduceMotion:false,highContrast:false};
+const root=document.documentElement;
+const status=document.getElementById('settingsSaveStatus');
+let settings={...defaults};
+try{
+  const stored=JSON.parse(localStorage.getItem(KEY)||'{}');
+  if(['green','blue','purple'].includes(stored.accent))settings.accent=stored.accent;
+  if(['normal','large'].includes(stored.text))settings.text=stored.text;
+  if(typeof stored.reduceMotion==='boolean')settings.reduceMotion=stored.reduceMotion;
+  if(typeof stored.highContrast==='boolean')settings.highContrast=stored.highContrast;
+}catch(e){}
+function apply(save=true){
+  root.dataset.tanneAccent=settings.accent;
+  root.dataset.tanneText=settings.text;
+  root.dataset.tanneMotion=settings.reduceMotion?'reduced':'normal';
+  root.dataset.tanneContrast=settings.highContrast?'high':'normal';
+  document.querySelectorAll('[data-setting-accent]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.settingAccent===settings.accent)));
+  document.querySelectorAll('[data-setting-text]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.settingText===settings.text)));
+  document.getElementById('settingsReduceMotion').checked=settings.reduceMotion;
+  document.getElementById('settingsHighContrast').checked=settings.highContrast;
+  if(save){
+    try{localStorage.setItem(KEY,JSON.stringify(settings));status.textContent='Gespeichert in diesem Browser.'}
+    catch(e){status.textContent='Aktiv für diese Sitzung. Dein Browser blockiert das Speichern.'}
+  }
+}
+document.querySelectorAll('[data-setting-accent]').forEach(button=>button.addEventListener('click',()=>{
+  settings.accent=button.dataset.settingAccent;apply();
+}));
+document.querySelectorAll('[data-setting-text]').forEach(button=>button.addEventListener('click',()=>{
+  settings.text=button.dataset.settingText;apply();
+}));
+document.getElementById('settingsReduceMotion').addEventListener('change',event=>{
+  settings.reduceMotion=event.target.checked;apply();
+});
+document.getElementById('settingsHighContrast').addEventListener('change',event=>{
+  settings.highContrast=event.target.checked;apply();
+});
+document.getElementById('settingsResetButton').addEventListener('click',()=>{
+  settings={...defaults};apply();status.textContent='Standardeinstellungen wiederhergestellt.';
+});
+apply(false);
+})();
+</script>
 </body>
 </html>
