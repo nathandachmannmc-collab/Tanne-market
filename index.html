@@ -32,27 +32,27 @@ a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}.wra
   <section class="panel" id="live-ansichten">
     <div class="panelHead">
       <div><h3>Live-Auktionen & Orders</h3><p class="sub">Eine gemeinsame Übersicht für HugoSMP Market und FriendsWithMoney.</p></div>
-      <span class="tag">DATENSTATUS</span>
+      <span class="tag">API-ZUGRIFF ERFORDERLICH</span>
     </div>
     <div class="embedGrid">
       <article class="embedCard">
         <h4>HugoSMP Market</h4>
         <p class="sub">Auktionen und Kaufaufträge</p>
-        <p class="embedStatus"><strong>Wartet auf einen direkten Datenfeed.</strong><br>Die Seite lässt sich nicht zuverlässig als eingebettetes Fenster laden. Es werden keine Angebote erfunden.</p>
+        <p class="embedStatus"><strong>Automatischer Abruf wurde abgelehnt (HTTP 403).</strong><br>Der Serverzugriff auf die öffentliche Seite wurde beim technischen Test blockiert. Für echte Live-Daten brauchen wir eine freigegebene API oder einen öffentlichen Datenfeed.</p>
       </article>
       <article class="embedCard">
         <h4>FriendsWithMoney</h4>
         <p class="sub">Live-Auktionshaus und Orders</p>
-        <p class="embedStatus"><strong>Wartet auf einen direkten Datenfeed.</strong><br>Die Live-Einträge sind über eine öffentliche Datenschnittstelle bisher nicht bestätigt.</p>
+        <p class="embedStatus"><strong>Öffentlicher Live-Feed nicht bestätigt.</strong><br>Die Seite zeigt im Live-Bereich „Verbinde …“. Ein automatisch nutzbarer Datenzugriff wurde noch nicht gefunden.</p>
       </article>
     </div>
     <div class="tableWrap" style="margin-top:14px">
       <table aria-label="Gemeinsamer Live-Auktionsfeed">
         <thead><tr><th>Item</th><th>Typ</th><th>Preis</th><th>Spieler</th><th>Quelle</th></tr></thead>
-        <tbody><tr><td colspan="5" class="empty"><strong>Noch keine echten Live-Einträge verfügbar</strong>Sobald ein Anbieter einen erlaubten direkten Datenzugriff bereitstellt, können die aktuellen Auktionen hier automatisch erscheinen. Keine Demo-Preise, keine erfundenen Listings.</td></tr></tbody>
+        <tbody><tr><td colspan="5" class="empty"><strong>Warten auf freigegebenen Datenzugriff</strong>Der technische Abruf aus GitHub Actions bekam von beiden Websites HTTP 403. Ohne eine offiziell nutzbare API, einen öffentlichen JSON-Feed oder eine Freigabe der Betreiber können wir hier keine echten Auktionen laden.</td></tr></tbody>
       </table>
     </div>
-    <p class="note">Die ursprünglichen externen Links und leeren Ladefenster wurden entfernt. Für echte automatische Angebote wird ein freigegebener Datenfeed oder eine offizielle API der jeweiligen Quelle benötigt.</p>
+    <p class="note">Die externen Links und leeren Ladefenster sind entfernt. Sobald die Betreiber einen freigegebenen Datenfeed oder API-Zugang bereitstellen, kann ich ihn in diese gemeinsame Tabelle einbauen. Bis dahin zeigt die Seite bewusst keine erfundenen Listings.</p>
   </section>
   <footer class="footer"><span>© Tanne Market · Fanprojekt</span><span>Nicht offiziell mit HugoSMP, Mojang oder Microsoft verbunden.</span></footer>
 </div><div class="toast" id="toast" role="status"></div>
