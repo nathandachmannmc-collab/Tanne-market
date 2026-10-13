@@ -217,6 +217,39 @@ h1,h2,h3,p{margin-top:0}
 }
 @media(prefers-reduced-motion:reduce){.navDropdown summary,.menuChevron{transition:none}.navMenu{animation:none}}
 
+
+/* Rules menu, opened only from the top navigation */
+.rulesDropdown summary{position:relative}
+.rulesMenu{width:min(530px,calc(100vw - 28px));max-height:min(72vh,720px);overflow-y:auto;overscroll-behavior:contain;padding:14px;scrollbar-width:thin;scrollbar-color:#3b6242 #0b170e}
+.rulesMenu:before{left:28px}
+.rulesMenuHero{padding:13px 13px 16px;margin-bottom:12px;border:1px solid rgba(101,158,109,.27);border-radius:13px;background:radial-gradient(ellipse at 100% 0,rgba(83,155,94,.18),transparent 55%),linear-gradient(145deg,#152b1b,#0b170e)}
+.rulesMenuEyebrow{font-size:8px;color:#9bdda1;font-weight:950;letter-spacing:1.7px;margin-bottom:7px}
+.rulesMenuHero h3{font-size:20px;line-height:1.15;letter-spacing:-.5px;margin:0 0 6px;color:#f2fff0}
+.rulesMenuHero p{font-size:11px;line-height:1.6;color:#a6baa8;margin:0}
+.rulesIntro{display:flex;flex-direction:column;gap:5px;padding:11px 12px;border-radius:11px;background:rgba(155,195,131,.07);border:1px solid rgba(140,177,119,.2);margin-bottom:12px}
+.rulesIntro strong{font-size:11px;color:#d8f4d7}
+.rulesIntro span{font-size:10px;line-height:1.7;color:#a7bca9}
+.rulesIntro a{color:#b7f3b6;text-decoration:underline;text-underline-offset:3px}
+.rulesBlock{padding:13px 12px;border:1px solid #263f2c;border-radius:12px;background:rgba(7,17,10,.72);margin-top:10px}
+.rulesBlockTitle{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.rulesBlockIcon{width:27px;height:27px;display:grid;place-items:center;flex:0 0 27px;border:1px solid #355a3c;border-radius:9px;background:#183020;color:#b8f1b7;font-size:13px}
+.rulesBlockTitle h4{margin:0;color:#eff8ef;font-size:12px;font-weight:900}
+.rulesList{counter-reset:rule;list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.rulesList li{position:relative;padding-left:27px;font-size:10px;line-height:1.65;color:#b6c7b8}
+.rulesList li:before{counter-increment:rule;content:counter(rule,decimal-leading-zero);position:absolute;left:0;top:1px;color:#83c98b;font-size:9px;font-weight:950;font-variant-numeric:tabular-nums}
+.clanRulesBlock .rulesList li:before{color:#b3dcae}
+.consequencesBlock{border-color:rgba(211,171,100,.22);background:linear-gradient(145deg,rgba(71,53,26,.12),rgba(7,17,10,.72))}
+.consequencesBlock .rulesBlockIcon{background:#362a19;border-color:#5b4729;color:#efd29b}
+.consequencesBlock p{font-size:10px;line-height:1.75;color:#b8b9a8;margin:0}
+.appealButton{display:flex!important;align-items:center;justify-content:space-between;gap:12px;padding:12px 13px!important;margin-top:12px;border:1px solid #547f5a!important;border-radius:12px!important;background:linear-gradient(135deg,#b9efb2,#93d99b)!important;color:#102014!important}
+.appealButton:hover{background:#d3ffcd!important;transform:translateY(-1px)!important}
+.appealButton>span:first-child{display:flex;flex-direction:column;gap:3px}
+.appealButton strong{font-size:11px}
+.appealButton small{font-size:9px;line-height:1.5;color:#2d5033}
+.appealButton>span:last-child{font-size:16px}
+@media(max-width:720px){.rulesMenu{max-height:68vh;width:min(500px,calc(100vw - 26px))}}
+@media(max-width:520px){.rulesDropdown{position:relative}.rulesMenu{left:auto;right:auto;max-width:calc(100vw - 24px);width:min(440px,calc(100vw - 24px));max-height:68vh;padding:11px}.rulesMenu:before{left:32px;right:auto}.rulesMenuHero h3{font-size:18px}}
+
 </style>
 </head>
 <body>
@@ -236,6 +269,48 @@ h1,h2,h3,p{margin-top:0}
         <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
         <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
         <a href="#twitch"><span class="navIcon" aria-hidden="true">◉</span>Twitch</a>
+        <details class="navDropdown rulesDropdown">
+          <summary><span class="navIcon" aria-hidden="true">☷</span>Regeln <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <div class="navMenu rulesMenu" aria-label="Tanne Clan Regelwerk">
+            <div class="rulesMenuHero">
+              <div class="rulesMenuEyebrow">TANNE CLAN · COMMUNITY-REGELN</div>
+              <h3>Respekt. Fairplay. Teamgeist.</h3>
+              <p>Die Regeln gelten für alle Mitglieder auf dem Discord und bei gemeinsamen Clan-Aktionen.</p>
+            </div>
+            <div class="rulesIntro">
+              <strong>HugoSMP-Regelwerk</strong>
+              <span>Zusätzlich gelten die <a href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer">HugoSMP-Regeln ↗</a> und die <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Discord-Nutzungsbedingungen ↗</a>.</span>
+            </div>
+            <section class="rulesBlock">
+              <div class="rulesBlockTitle"><span class="rulesBlockIcon">✦</span><h4>Allgemeine Regeln</h4></div>
+              <ol class="rulesList">
+                <li>Gehe respektvoll mit allen Mitgliedern um.</li>
+                <li>Kein Spam, keine Beleidigungen und kein unnötiger Streit.</li>
+                <li>Anweisungen des Teams sind zu beachten.</li>
+                <li>Kein Trollen oder absichtliches Stören.</li>
+                <li>Keine Eigenwerbung ohne Erlaubnis.</li>
+                <li>Keine unnötigen Pings oder Massen-Erwähnungen.</li>
+                <li>Kein NSFW-Content.</li>
+                <li>Respektiere die Privatsphäre und persönlichen Daten anderer.</li>
+              </ol>
+            </section>
+            <section class="rulesBlock clanRulesBlock">
+              <div class="rulesBlockTitle"><span class="rulesBlockIcon">🌲</span><h4>Clan-Regeln</h4></div>
+              <ol class="rulesList">
+                <li>Bleibe aktiv im Clan. Längere Inaktivität kann zum Kick führen.</li>
+                <li>Unterstütze deine Clanmates und spiele fair im Team.</li>
+                <li>Nutze die vorgesehenen Channels und halte Gespräche übersichtlich.</li>
+                <li>Nimm nach Möglichkeit an Clan-Aktionen und Events teil.</li>
+                <li>Vertrete den Clan innerhalb und außerhalb des Servers respektvoll.</li>
+              </ol>
+            </section>
+            <section class="rulesBlock consequencesBlock">
+              <div class="rulesBlockTitle"><span class="rulesBlockIcon">!</span><h4>Strafen & Entscheidungen</h4></div>
+              <p>Regelverstöße können zu Verwarnungen, Stummschaltungen, Kick, temporären Sperren oder permanenten Bans führen. Das Team muss Entscheidungen nicht öffentlich begründen. Die Eigentümer haben das letzte Wort.</p>
+            </section>
+            <a class="appealButton" href="https://appeal.gg/kz3y7Gqekq" target="_blank" rel="noopener noreferrer"><span><strong>Strafe anfechten</strong><small>Über das Appeal-Formular einen Einspruch einreichen</small></span><span aria-hidden="true">↗</span></a>
+          </div>
+        </details>
         <details class="navDropdown">
           <summary><span class="navIcon" aria-hidden="true">↗</span>Links <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu" aria-label="Externe HugoSMP-Links">
@@ -379,6 +454,21 @@ async function copyText(value){
 $('copyIp').addEventListener('click',()=>copyText('hugosmp.net'));
 $('refreshStatus').addEventListener('click',()=>{if(refreshTimer)window.clearTimeout(refreshTimer);loadStatus()});
 loadStatus();
+})();
+</script>
+
+<script>
+(()=>{'use strict';
+const dropdowns=[...document.querySelectorAll('.navDropdown')];
+dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
+  if(details.open)dropdowns.forEach(other=>{if(other!==details)other.open=false});
+}));
+document.addEventListener('click',event=>{
+  dropdowns.forEach(details=>{if(details.open&&!details.contains(event.target))details.open=false});
+});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape')dropdowns.forEach(details=>details.open=false);
+});
 })();
 </script>
 </body>
