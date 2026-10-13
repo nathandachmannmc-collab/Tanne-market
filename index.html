@@ -949,7 +949,7 @@ function updateAccount(){
   $('mrOpenUpload').title=user?'Neues Projekt veröffentlichen':'Zum Hochladen zuerst anmelden';
   $('mrAccountPanel').hidden=!user;
   if(user){
-    const name=(user.user_metadata&&user.user_metadata.display_name)||user.email.split('@')[0]||'Creator';
+    const name=(user.user_metadata&&user.user_metadata.display_name)||((user.email||'Creator').split('@')[0])||'Creator';
     $('mrAccountName').textContent=name;
     $('mrAccountEmail').textContent=user.email||'';
     $('mrAvatar').textContent=name.slice(0,1).toUpperCase();
@@ -996,7 +996,7 @@ function renderProjects(){
     const foot=el('div','mrProjectFooter'),author=el('div','mrProjectAuthor');
     const avatar=el('span','mrAuthorAvatar',((p.author_name||'C').trim().slice(0,1)||'C').toUpperCase());
     author.append(avatar,el('span','',p.author_name||'Community-Creator'));
-    const download=document.createElement('a');download.className='mrDownload';download.href=filePublicUrl(p.file_path);download.target='_blank';download.rel='noopener noreferrer';download.textContent='Download ↓';download.setAttribute('aria-label','Download für '+(p.title||'Projekt'));download.addEventListener('click',()=>{try{client.rpc('mr_record_download',{project_id:p.id})}catch(e){}});
+    const download=document.createElement('a');download.className='mrDownload';download.href=filePublicUrl(p.file_path);download.target='_blank';download.rel='noopener noreferrer';download.textContent='Download ↓';download.setAttribute('aria-label','Download für '+(p.title||'Projekt'));/* Download links open the public file; no unconfigured analytics RPC is called. */
     foot.append(author,download);card.append(foot);grid.append(card);
   });
 }
@@ -1066,8 +1066,11 @@ $('mrAuthForm').addEventListener('submit',async event=>{
 $('mrForgotPassword').addEventListener('click',async()=>{
   if(!client){message('Die Anmeldung ist noch nicht eingerichtet.',true);return}
   const email=$('mrEmail').value.trim();if(!email){message('Trage zuerst deine E-Mail-Adresse ein.',true);return}
-  const out=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
-  if(out.error)message(out.error.message,true);else message('Falls ein Konto mit dieser Adresse existiert, wurde eine E-Mail zum Zurücksetzen versandt.');
+  try{
+    const out=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
+    if(out.error)throw out.error;
+    message('Falls ein Konto mit dieser Adresse existiert, wurde eine E-Mail zum Zurücksetzen versandt.');
+  }catch(e){message(/failed to fetch|network|load failed/i.test(String(e.message||''))?'Verbindung fehlgeschlagen. Prüfe deine Internetverbindung und die Supabase-Einstellungen.':'Die E-Mail konnte gerade nicht versendet werden. Prüfe die Adresse und versuche es später erneut.',true)}
 });
 $('mrSignOut').addEventListener('click',async()=>{
   if(client)await client.auth.signOut();session=null;updateAccount();showPanel('none');message('Du wurdest abgemeldet.');await loadProjects();
