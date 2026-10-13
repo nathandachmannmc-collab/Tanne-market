@@ -785,6 +785,13 @@ body.linksFullscreenActive .header,body.twitchFullscreenActive .header,body.mrFu
 .twitchFullscreenContent .streamerButton{box-shadow:none}
 @media(max-width:720px){.linksFullscreenPage,.twitchFullscreenPage{width:calc(100% - 26px);padding:23px 0 30px}.linksGrid{grid-template-columns:1fr}.linksCard{padding:13px}.linksFullscreenTop,.twitchFullscreenTop{padding:10px 13px}.linksBrandMark,.twitchBrandMark{flex-basis:34px;height:34px;font-size:13px}.linksFullscreenBrand strong,.twitchFullscreenBrand strong{font-size:12px}.linksFullscreenBrand small,.twitchFullscreenBrand small{font-size:7px;letter-spacing:1px}.linksCloseButton,.twitchCloseButton{min-height:34px;padding:6px 8px;font-size:10px}}
 
+
+/* Small beta version label next to the clan name */
+.brandCopy{min-width:0}
+.brandTitle{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.betaBadge{display:inline-flex;align-items:center;justify-content:center;padding:4px 6px;border:1px solid #46684a;border-radius:5px;background:#17251a;color:#c6e2c2;font-size:8px;font-weight:900;line-height:1;letter-spacing:1px;white-space:nowrap}
+@media(max-width:520px){.brandTitle{gap:6px}.betaBadge{font-size:7px;padding:4px 5px;letter-spacing:.7px}}
+
 </style>
 </head>
 <body>
@@ -793,7 +800,7 @@ body.linksFullscreenActive .header,body.twitchFullscreenActive .header,body.mrFu
     <div class="headerRow">
       <a class="brand" href="#start" aria-label="Tanne Clan Startseite">
         <div class="brandMark" aria-hidden="true">T</div>
-        <div><div class="brandTitle">TANNE CLAN</div><div class="brandSub">HUGOSMP · GEMEINSAM STÄRKER</div></div>
+        <div class="brandCopy"><div class="brandTitle">TANNE CLAN <span class="betaBadge">BETA 1.0</span></div><div class="brandSub">HUGOSMP · GEMEINSAM STÄRKER</div></div>
       </a>
       <div class="livePill"><span class="pulse" id="headerPulse"></span><span id="headerStatus">SERVERSTATUS WIRD GEPRÜFT</span></div>
     </div>
