@@ -3,208 +3,263 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b120e">
-<meta name="description" content="Tanne Market – Hugo-SMP-Auktionen und Orders in einem übersichtlichen Markt-Dashboard.">
-<title>Tanne Market — Hugo SMP Marktübersicht</title>
+<meta name="theme-color" content="#0a130d">
+<meta name="description" content="Tanne Clan – Community, Teamplay und Live-Serverdaten für HugoSMP.">
+<title>Tanne Clan — HugoSMP Community</title>
 <style>
 :root{
-  color-scheme:dark;
-  --bg:#080d0a;--surface:#101914;--surface2:#141f18;--surface3:#1a2a20;
-  --line:#26392c;--line2:#34513c;--text:#edf5ee;--muted:#a0b1a3;
-  --green:#91e3a6;--green2:#43b86a;--gold:#e8c77f;--red:#ff9b9b;
-  --shadow:0 18px 48px #0005;
+ --bg:#080f0a;--surface:#0f1a12;--surface2:#142319;--surface3:#1a2b1e;
+ --line:#263d2b;--line2:#35543a;--text:#f0f6ef;--muted:#a4b5a5;
+ --green:#a7efad;--green2:#55c879;--gold:#e8ca86;--red:#ff9292;
+ --shadow:0 22px 64px #0005;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(900px 500px at 75% -140px,#193f26 0,transparent 68%),var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{margin:0;background:radial-gradient(900px 560px at 75% -180px,#22502d 0,transparent 70%),radial-gradient(600px 400px at -240px 460px,#142b1a 0,transparent 65%),var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button{font:inherit;cursor:pointer}
 a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-button{cursor:pointer}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px}
-.shell{width:min(1160px,100% - 32px);margin-inline:auto}
-.topbar{padding:20px 0 16px;border-bottom:1px solid #243529}
-.topinner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.shell{width:min(1160px,calc(100% - 32px));margin-inline:auto}
+.header{padding:21px 0 15px;border-bottom:1px solid #26372a}
+.headerRow{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
-.logo{width:46px;height:46px;display:grid;place-items:center;border:1px solid #4a8056;border-radius:15px;background:linear-gradient(145deg,#275f38,#102819);box-shadow:0 7px 25px #1b462855;font-size:25px;flex-shrink:0}
-.brandname{font-weight:850;font-size:19px;letter-spacing:-.6px}
-.brandcaption{font-size:12px;color:var(--muted);margin-top:1px}
-.topstatus{display:inline-flex;align-items:center;gap:8px;border:1px solid #574728;background:#251f13;color:#f0d38b;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.5px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #e8c77f18}
-nav{display:flex;align-items:center;gap:7px;margin-top:18px;flex-wrap:wrap}
-nav a{font-size:12px;color:#b4c6b8;padding:8px 11px;border-radius:10px}
-nav a:hover{background:#1b2c20;color:var(--text)}
-.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:18px;margin:26px 0 18px}
-.heroMain,.heroSide,.panel,.stat{border:1px solid var(--line);background:linear-gradient(150deg,#142119,#0e1510);border-radius:22px;box-shadow:var(--shadow)}
-.heroMain{position:relative;overflow:hidden;padding:clamp(22px,4vw,40px)}
-.heroMain:after{content:"";position:absolute;pointer-events:none;width:260px;height:260px;border-radius:50%;right:-120px;bottom:-165px;border:1px solid #83dc9726;box-shadow:0 0 0 25px #83dc9709,0 0 0 55px #83dc9705}
-.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
-.kicker:before{content:"";height:1px;width:20px;background:var(--green)}
+.brandMark{width:48px;height:48px;display:grid;place-items:center;flex-shrink:0;border:1px solid #53835a;border-radius:16px;background:linear-gradient(145deg,#347243,#102b18);box-shadow:0 8px 25px #1c4d2a55;font-size:27px}
+.brandTitle{font-size:20px;font-weight:900;letter-spacing:-.7px;line-height:1.1}
+.brandSub{font-size:11px;color:var(--muted);margin-top:4px}
+.livePill{display:inline-flex;align-items:center;gap:8px;border:1px solid #3a583e;background:#132419;color:#c8f3ce;border-radius:999px;padding:8px 11px;font-size:10px;font-weight:850;letter-spacing:.7px;white-space:nowrap}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #e8ca861a;flex-shrink:0}
+.pulse.online{background:var(--green2);box-shadow:0 0 0 4px #55c87920}
+.pulse.offline{background:var(--red);box-shadow:0 0 0 4px #ff92921a}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:17px}
+.nav a{color:#b7c8b9;font-size:12px;padding:8px 11px;border-radius:10px}
+.nav a:hover{background:#19291d;color:var(--text)}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(310px,.8fr);gap:17px;margin:25px 0 17px}
+.card{border:1px solid var(--line);background:linear-gradient(155deg,#142319,#0c150e);border-radius:22px;box-shadow:var(--shadow)}
+.heroMain{position:relative;overflow:hidden;padding:clamp(24px,4.5vw,43px)}
+.heroMain:after{content:"";position:absolute;right:-86px;bottom:-142px;width:300px;height:300px;border-radius:50%;border:1px solid #9debab28;box-shadow:0 0 0 26px #9debab08,0 0 0 54px #9debab05,0 0 0 82px #9debab03;pointer-events:none}
+.eyebrow{display:flex;align-items:center;gap:9px;color:var(--green);font-size:10px;font-weight:900;letter-spacing:1.9px;text-transform:uppercase}
+.eyebrow:before{content:"";width:22px;height:1px;background:var(--green)}
 h1,h2,h3,h4,p{margin-top:0}
-.hero h1{margin:15px 0 12px;max-width:620px;font-size:clamp(30px,4.7vw,49px);line-height:1.08;letter-spacing:-1.8px}
-.heroMain p{max-width:620px;color:var(--muted);font-size:14px;margin:0;line-height:1.75}
-.heroPills{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
-.pill{border:1px solid #304936;background:#14241a;color:#c5e8cc;border-radius:999px;padding:7px 10px;font-size:11px}
-.heroSide{padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
-.sideHead{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.sideHead strong{font-size:14px}
-.sideHead span{font-size:10px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase}
-.sourceMini{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line);background:#0b120e;border-radius:14px}
-.sourceIcon{width:38px;height:38px;display:grid;place-items:center;flex-shrink:0;border:1px solid #304b36;background:#1a2c20;color:var(--green);border-radius:12px;font-weight:900;font-size:12px}
-.sourceMini strong{display:block;font-size:13px}
-.sourceMini small{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:3px}
-.sourceStatus{display:inline-flex;align-items:center;gap:6px;margin-top:8px;color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.4px}
-.sourceStatus .dot{width:6px;height:6px;background:var(--gold);box-shadow:none}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
-.stat{padding:16px 18px;box-shadow:none;background:linear-gradient(145deg,#111b14,#0c130e)}
-.statLabel{color:var(--muted);font-size:11px;display:flex;align-items:center;gap:7px}
-.statNum{font-size:23px;font-weight:850;letter-spacing:-.6px;margin:8px 0 2px}
-.statDesc{font-size:11px;color:#829688}
-.panel{padding:clamp(16px,3vw,25px);margin:18px 0}
-.panelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
-.panelHead h2{font-size:20px;letter-spacing:-.45px;margin:0 0 4px}
-.panelHead p{font-size:12px;color:var(--muted);margin:0}
-.tag{border:1px solid #574728;background:#251f13;color:#f0d38b;border-radius:8px;padding:6px 9px;font-size:10px;font-weight:850;letter-spacing:.5px;white-space:nowrap}
-.toolbar{display:grid;grid-template-columns:minmax(160px,1fr) auto auto;gap:9px;margin-bottom:14px}
-input,select{width:100%;min-width:0;background:#080f0b;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:11px 13px;font-size:12px}
-input::placeholder{color:#728576}
-input:focus,select:focus{outline:2px solid #4c9862;outline-offset:1px}
-.switches{display:flex;gap:4px;padding:4px;background:#080f0b;border:1px solid var(--line);border-radius:12px}
-.switch{border:0;border-radius:8px;background:transparent;color:var(--muted);padding:7px 11px;font-size:11px;font-weight:750}
-.switch[aria-pressed="true"]{background:#294832;color:#e2f6e6;box-shadow:inset 0 0 0 1px #3d6648}
-.tableFrame{border:1px solid var(--line);border-radius:14px;overflow:hidden}
-table{border-collapse:collapse;width:100%;text-align:left;font-size:12px}
-th{background:#0a120d;color:#90a494;font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:800}
-th,td{padding:13px 14px;border-bottom:1px solid #223127}
-tbody tr:last-child td{border-bottom:0}
-.empty{padding:0!important}
-.emptyBox{padding:36px 20px;text-align:center;max-width:590px;margin:auto}
-.emptyGlyph{margin:0 auto 13px;width:46px;height:46px;display:grid;place-items:center;border-radius:15px;border:1px solid #334a37;background:#18261b;color:var(--green);font-size:20px}
-.emptyBox h3{margin:0 0 7px;font-size:15px}
-.emptyBox p{max-width:490px;margin:0 auto;color:var(--muted);font-size:12px;line-height:1.75}
-.sourceGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.sourcePanel{border:1px solid var(--line);background:#0b120e;border-radius:15px;padding:17px}
-.sourcePanelHead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.sourcePanelHead strong{font-size:13px}
-.sourcePanelHead small{display:block;font-size:11px;color:var(--muted);margin-top:1px}
-.sourcePanel p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
-.stateLine{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;color:var(--gold);margin:12px 0 0}
-.stateLine .dot{box-shadow:none;width:6px;height:6px}
-.details{margin-top:14px;border:1px solid var(--line);border-radius:13px;overflow:hidden}
-.details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;padding:13px 15px;background:#0c140e;color:#c9dbcd;font-size:12px;font-weight:750}
-.details summary::-webkit-details-marker{display:none}
-.details summary:after{content:"+";font-size:16px;line-height:1;color:var(--green)}
-.details[open] summary:after{content:"−"}
-.detailContent{padding:15px;color:var(--muted);font-size:12px;line-height:1.75;border-top:1px solid var(--line)}
-.detailContent code{color:#d9e9dc;background:#1a261d;border:1px solid #2a3a2d;padding:2px 5px;border-radius:5px}
-.footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 0 28px;color:#718477;font-size:10px}
-.notice{border:1px solid #4a4027;background:#1a180f;color:#d4c08b;padding:12px 14px;border-radius:12px;font-size:11px;line-height:1.65;margin-top:14px}
-@media(max-width:800px){
- .shell{width:min(100% - 24px,1160px)}
- .hero{grid-template-columns:1fr;margin-top:18px}
- .heroSide{padding:15px}
- .stats{gap:8px}
- .stat{padding:13px}
- .statNum{font-size:20px}
- .toolbar{grid-template-columns:1fr 1fr}
- .toolbar input{grid-column:1/-1}
- .sourceGrid{grid-template-columns:1fr}
-}
-@media(max-width:430px){
- .brandname{font-size:17px}
- .topstatus{font-size:9px;padding:7px 9px}
- .stats{grid-template-columns:1fr 1fr}
- .stat:last-child{grid-column:1/-1}
- .panelHead{flex-direction:column;align-items:stretch}
- .toolbar{grid-template-columns:1fr}
- .toolbar input{grid-column:auto}
- .switches{width:100%}
- .switch{flex:1;padding-inline:6px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+.hero h1{max-width:650px;margin:16px 0 14px;font-size:clamp(34px,5vw,55px);line-height:1.03;letter-spacing:-2px}
+.hero h1 span{color:var(--green)}
+.heroText{max-width:570px;margin:0;color:var(--muted);font-size:14px;line-height:1.8}
+.heroButtons{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.btn{min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line2);background:#1a2c1e;color:var(--text);font-size:12px;font-weight:850;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px);background:#213927}
+.btn.primary{background:var(--green);border-color:var(--green);color:#0b1a0d}
+.btn.primary:hover{background:#c5f8c9}
+.btn.ghost{background:#0d170f}
+.heroSide{padding:19px;display:flex;flex-direction:column;gap:13px}
+.sideTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:850;margin-bottom:2px}
+.sideTitle small{color:var(--muted);font-size:10px;font-weight:650}
+.statusFeature{padding:17px;border-radius:16px;border:1px solid #34523a;background:linear-gradient(135deg,#172a1b,#0c150e)}
+.statusFeatureTop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.statusName{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:850}
+.serverIcon{width:35px;height:35px;display:grid;place-items:center;background:#203b27;border:1px solid #3f6747;border-radius:11px;font-size:17px}
+.statusText{font-size:11px;color:var(--muted);margin:11px 0 0}
+.playerBig{font-size:36px;line-height:1;font-weight:900;letter-spacing:-1px;margin:14px 0 4px}
+.playerBig small{font-size:14px;color:var(--muted);font-weight:700;letter-spacing:0}
+.playerLabel{font-size:11px;color:var(--muted)}
+.progress{height:7px;border-radius:999px;background:#09110b;overflow:hidden;border:1px solid #293d2d;margin-top:13px}
+.progressFill{height:100%;width:0;background:linear-gradient(90deg,#4fbd70,#b3f1a9);border-radius:999px;transition:width .35s ease}
+.featureFoot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:10px;margin-top:9px}
+.metaGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.meta{padding:12px 13px;border:1px solid var(--line);background:#0b140d;border-radius:13px;min-width:0}
+.metaLabel{font-size:10px;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.7px}
+.metaValue{font-size:15px;font-weight:850;margin-top:5px;overflow-wrap:anywhere}
+.section{margin:19px 0}
+.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px}
+.sectionHead h2{font-size:21px;letter-spacing:-.6px;margin:0 0 4px}
+.sectionHead p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
+.sectionKicker{font-size:10px;font-weight:900;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
+.statusGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.statusCard{padding:17px 18px;border:1px solid var(--line);background:linear-gradient(140deg,#111e14,#0b140d);border-radius:16px}
+.statusIcon{width:34px;height:34px;display:grid;place-items:center;background:#1a2e1e;border:1px solid #34543a;border-radius:11px;color:var(--green);font-size:16px;margin-bottom:14px}
+.statusCard h3{font-size:13px;margin:0 0 6px}
+.statusCard p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
+.sectionPanel{padding:clamp(17px,3vw,25px)}
+.infoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.infoItem{padding:16px;border:1px solid var(--line);border-radius:14px;background:#0c150e;display:flex;align-items:flex-start;gap:12px}
+.infoIcon{width:36px;height:36px;display:grid;place-items:center;flex-shrink:0;border-radius:12px;background:#1b3020;border:1px solid #33543a;font-size:17px}
+.infoItem h3{font-size:13px;margin:1px 0 5px}
+.infoItem p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.rule{padding:16px;border:1px solid var(--line);border-radius:14px;background:#0c150e}
+.ruleNo{font-size:10px;color:var(--green);font-weight:900;letter-spacing:1px}
+.rule h3{font-size:13px;margin:8px 0 5px}
+.rule p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+.statusMessage{border-radius:12px;border:1px solid var(--line);padding:12px 14px;background:#0b140d;color:var(--muted);font-size:11px;line-height:1.7;margin-top:12px}
+.statusMessage strong{color:var(--text)}
+.tiny{font-size:10px;color:var(--muted)}
+.btn[disabled]{opacity:.55;cursor:wait;transform:none}
+.footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #223528;padding:19px 0 27px;margin-top:26px;color:#879a8a;font-size:10px}
+.toast{position:fixed;left:50%;bottom:17px;transform:translateX(-50%);background:#e7f8e8;color:#0a1a0e;padding:11px 15px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;font-weight:850;display:none;z-index:20;max-width:90vw;text-align:center}
+.toast.show{display:block}
+@media(max-width:820px){.shell{width:calc(100% - 24px)}.hero{grid-template-columns:1fr}.heroSide{padding:16px}.statusGrid{grid-template-columns:1fr 1fr}.statusCard:last-child{grid-column:1/-1}}
+@media(max-width:560px){.headerRow{align-items:flex-start}.brandTitle{font-size:18px}.brandMark{width:43px;height:43px}.livePill{font-size:9px;padding:7px 8px;gap:6px}.nav{margin-top:13px}.hero{margin-top:17px}.hero h1{font-size:37px}.heroMain{padding:23px}.sectionHead{align-items:flex-start;flex-direction:column}.infoGrid,.rules{grid-template-columns:1fr}.statusGrid{gap:8px}.statusCard{padding:13px}.playerBig{font-size:33px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-<header class="topbar">
+<header class="header">
   <div class="shell">
-    <div class="topinner">
-      <div class="brand"><div class="logo" aria-hidden="true">🌲</div><div><div class="brandname">Tanne Market</div><div class="brandcaption">Hugo SMP · Markt-Dashboard</div></div></div>
-      <div class="topstatus"><span class="dot"></span> DATENZUGRIFF ERFORDERLICH</div>
+    <div class="headerRow">
+      <div class="brand">
+        <div class="brandMark" aria-hidden="true">🌲</div>
+        <div><div class="brandTitle">TANNE CLAN</div><div class="brandSub">HugoSMP · Gemeinsam stärker</div></div>
+      </div>
+      <div class="livePill"><span class="pulse" id="headerPulse"></span><span id="headerStatus">SERVERSTATUS WIRD GEPRÜFT</span></div>
     </div>
-    <nav aria-label="Hauptnavigation">
-      <a href="#dashboard">Übersicht</a>
-      <a href="#auktionsfeed">Live-Auktionen</a>
-      <a href="#quellen">Quellenstatus</a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="#start">Start</a><a href="#hugo-daten">HugoSMP-Daten</a><a href="#team">Clan & Teamplay</a><a href="#regeln">Regeln</a>
     </nav>
   </div>
 </header>
 
-<main class="shell" id="dashboard">
+<main class="shell" id="start">
   <section class="hero">
-    <div class="heroMain">
-      <div class="kicker">Community Market Intelligence</div>
-      <h1>Den Hugo-SMP-Markt im Blick. Ohne Umwege.</h1>
-      <p>Auktionen und Kaufaufträge an einem Ort. Tanne Market ist bereit für echte Live-Daten; aktuell blockieren die beiden Quellen den automatischen Abruf von unserem Veröffentlichungsdienst. Wir zeigen nur geprüfte Daten – keine erfundenen Angebote.</p>
-      <div class="heroPills"><span class="pill">Auktionen</span><span class="pill">Orders</span><span class="pill">Preisübersicht</span><span class="pill">Mobil optimiert</span></div>
+    <div class="card heroMain">
+      <div class="eyebrow">Eine Community. Ein Ziel. Ein Team.</div>
+      <h1>Willkommen bei<br><span>Tanne Clan.</span></h1>
+      <p class="heroText">Dein Platz für Teamplay auf HugoSMP. Hier findest du den aktuellen Serverstatus, echte Spielerzahlen und die Werte, für die Tanne steht — übersichtlich, schnell und auch auf dem iPad angenehm zu nutzen.</p>
+      <div class="heroButtons">
+        <button class="btn primary" id="copyIp" type="button">HugoSMP-IP kopieren <span aria-hidden="true">↗</span></button>
+        <a class="btn ghost" href="#hugo-daten">Serverdaten ansehen ↓</a>
+      </div>
     </div>
-    <aside class="heroSide">
-      <div class="sideHead"><strong>Verbindungsübersicht</strong><span>2 Quellen geprüft</span></div>
-      <div class="sourceMini"><div class="sourceIcon">HM</div><div><strong>HugoSMP Market</strong><small>Öffentlicher Live-Feed vorhanden; automatischer Abruf lieferte HTTP 403.</small><span class="sourceStatus"><span class="dot"></span>ZUGRIFF BLOCKIERT</span></div></div>
-      <div class="sourceMini"><div class="sourceIcon">FW</div><div><strong>FriendsWithMoney</strong><small>Live-Auktionshaus und Orders auf der Website; automatischer Abruf lieferte HTTP 403.</small><span class="sourceStatus"><span class="dot"></span>ZUGRIFF BLOCKIERT</span></div></div>
+    <aside class="card heroSide">
+      <div class="sideTitle"><span>HugoSMP live</span><small id="checkedAt">Wird geladen …</small></div>
+      <div class="statusFeature">
+        <div class="statusFeatureTop">
+          <div class="statusName"><div class="serverIcon">⛏</div><span>HugoSMP Network</span></div>
+          <div class="livePill"><span class="pulse" id="serverPulse"></span><span id="serverState">PRÜFE STATUS</span></div>
+        </div>
+        <div class="playerBig"><span id="playersOnline">—</span> <small>/ <span id="playersMax">—</span></small></div>
+        <div class="playerLabel">Spieler online · laut Serverstatus-Abfrage</div>
+        <div class="progress" aria-label="Spielerauslastung"><div class="progressFill" id="playerProgress"></div></div>
+        <div class="featureFoot"><span>Serverauslastung</span><strong id="playerPercent">—</strong></div>
+      </div>
+      <div class="metaGrid">
+        <div class="meta"><div class="metaLabel">Minecraft-Version</div><div class="metaValue" id="serverVersion">—</div></div>
+        <div class="meta"><div class="metaLabel">Adresse</div><div class="metaValue">hugosmp.net</div></div>
+      </div>
+      <button class="btn" id="refreshStatus" type="button">Status aktualisieren ↻</button>
     </aside>
   </section>
 
-  <section class="stats" aria-label="Marktstatus">
-    <article class="stat"><div class="statLabel">Auktionen geladen</div><div class="statNum">—</div><div class="statDesc">Datenquelle nicht erreichbar</div></article>
-    <article class="stat"><div class="statLabel">Orders geladen</div><div class="statNum">—</div><div class="statDesc">Datenquelle nicht erreichbar</div></article>
-    <article class="stat"><div class="statLabel">Quellen geprüft</div><div class="statNum">2 <span style="font-size:12px;color:var(--muted);font-weight:650">/ 2</span></div><div class="statDesc">Automatischer Abruf getestet</div></article>
+  <section class="section" id="hugo-daten">
+    <div class="sectionHead"><div><div class="sectionKicker">Server-Übersicht</div><h2>HugoSMP in Zahlen</h2><p>Direkt aus einem öffentlichen Minecraft-Statusdienst geladen. Die Werte werden regelmäßig aktualisiert, nicht fest in der Website gespeichert.</p></div><span class="tiny">Java Edition · hugosmp.net</span></div>
+    <div class="statusGrid">
+      <article class="statusCard"><div class="statusIcon">◉</div><h3>Serverstatus</h3><p id="statusExplanation">Aktuelle Serverantwort wird angefragt …</p></article>
+      <article class="statusCard"><div class="statusIcon">♟</div><h3>Spieler online</h3><p id="playersExplanation">Die Spielerzahl wird live abgefragt.</p></article>
+      <article class="statusCard"><div class="statusIcon">▤</div><h3>Server-MOTD</h3><p id="serverMotd">Wird aus der aktuellen Serverantwort gelesen …</p></article>
+    </div>
+    <div class="statusMessage" id="statusMessage"><strong>Verbinde …</strong> Die Website ruft die öffentlichen Statusdaten ab. Falls der Dienst vorübergehend nicht antwortet, bleibt der letzte erfolgreiche Wert nicht als aktuell markiert.</div>
   </section>
 
-  <section class="panel" id="auktionsfeed">
-    <div class="panelHead">
-      <div><h2>Live-Auktionen & Orders</h2><p>Die gemeinsame Übersicht füllt sich, sobald eine nutzbare Datenverbindung verfügbar ist.</p></div>
-      <span class="tag">LIVE-FEED</span>
+  <section class="section card sectionPanel" id="team">
+    <div class="sectionHead"><div><div class="sectionKicker">Tanne Clan</div><h2>Was uns ausmacht</h2><p>Ein Clan ist mehr als ein Name. Er lebt davon, wie man zusammen spielt.</p></div></div>
+    <div class="infoGrid">
+      <article class="infoItem"><div class="infoIcon">🛡️</div><div><h3>Zusammenhalt</h3><p>Wir unterstützen uns bei Projekten, Ausrüstung und gemeinsamen Zielen statt nur auf eigene Vorteile zu schauen.</p></div></article>
+      <article class="infoItem"><div class="infoIcon">⚔️</div><div><h3>PvP & Events</h3><p>Vorbereitung, Kommunikation und Teamtaktik stehen vor unnötigem Risiko. Jeder kann etwas zum Team beitragen.</p></div></article>
+      <article class="infoItem"><div class="infoIcon">💚</div><div><h3>Handel & Wirtschaft</h3><p>Wir behalten die HugoSMP-Wirtschaft im Blick, vergleichen Preise fair und teilen nützliche Marktkenntnisse.</p></div></article>
+      <article class="infoItem"><div class="infoIcon">🌳</div><div><h3>Builds & Projekte</h3><p>Von Basen bis zu großen Gemeinschaftsprojekten: Planung und zuverlässige Mithilfe machen den Unterschied.</p></div></article>
     </div>
-    <div class="toolbar">
-      <input id="search" type="search" placeholder="Item oder Spieler suchen …" aria-label="Item oder Spieler suchen" disabled>
-      <select id="sourceFilter" aria-label="Quelle filtern" disabled><option value="all">Alle Quellen</option><option>HugoSMP Market</option><option>FriendsWithMoney</option></select>
-      <div class="switches" role="group" aria-label="Listing-Typ filtern">
-        <button class="switch" data-type="all" aria-pressed="true" type="button" disabled>Alle</button>
-        <button class="switch" data-type="auction" aria-pressed="false" type="button" disabled>Auktionen</button>
-        <button class="switch" data-type="order" aria-pressed="false" type="button" disabled>Orders</button>
-      </div>
-    </div>
-    <div class="tableFrame">
-      <table>
-        <thead><tr><th>Item</th><th>Typ</th><th>Preis</th><th>Spieler</th><th>Quelle</th></tr></thead>
-        <tbody id="rows"><tr><td colspan="5" class="empty"><div class="emptyBox"><div class="emptyGlyph" aria-hidden="true">↻</div><h3>Warten auf freigegebenen Marktdatenzugriff</h3><p>Die Quellen zeigen ihre Live-Ansichten in ihren eigenen Websites, aber unser unabhängiger Abruf erhielt HTTP 403. Ohne einen von den Betreibern freigegebenen Feed oder API-Zugang können wir echte Auktionen nicht zuverlässig importieren.</p></div></td></tr></tbody>
-      </table>
-    </div>
-    <div class="notice">Das bedeutet nicht, dass auf Hugo SMP keine Auktionen existieren. Nur unser automatischer Datenabruf bekommt aktuell keine Daten zurück.</div>
   </section>
 
-  <section class="panel" id="quellen">
-    <div class="panelHead"><div><h2>Quellenstatus</h2><p>Was technisch geprüft wurde und was für echte Live-Einträge noch fehlt.</p></div></div>
-    <div class="sourceGrid">
-      <article class="sourcePanel">
-        <div class="sourcePanelHead"><div class="sourceIcon">HM</div><div><strong>HugoSMP Market</strong><small>Live Feed · Auktionen und Orders</small></div></div>
-        <p>Die öffentliche Live-Seite lässt sich im Such-/Browserdienst darstellen. Direkte Abrufe aus dem automatischen Website-Dienst wurden mit <strong>HTTP 403</strong> abgewiesen. Ein dokumentierter, frei nutzbarer Endpunkt wurde nicht gefunden.</p>
-        <div class="stateLine"><span class="dot"></span> FEED NOCH NICHT ABRUFBAR</div>
-      </article>
-      <article class="sourcePanel">
-        <div class="sourcePanelHead"><div class="sourceIcon">FW</div><div><strong>FriendsWithMoney</strong><small>Marketplace · Live-Auktionshaus und Orders</small></div></div>
-        <p>Die öffentliche Marketplace-Seite zeigt die Bereiche „Live Auktionshaus“ und „Live Orders“. Der automatische Abruf wurde ebenfalls mit <strong>HTTP 403</strong> abgewiesen; ein öffentlich dokumentierter Datenendpunkt wurde nicht gefunden.</p>
-        <div class="stateLine"><span class="dot"></span> FEED NOCH NICHT ABRUFBAR</div>
-      </article>
+  <section class="section" id="regeln">
+    <div class="sectionHead"><div><div class="sectionKicker">Unser Fundament</div><h2>Die Tanne-Regeln</h2><p>Einfach, klar und für alle im Team.</p></div></div>
+    <div class="rules">
+      <article class="rule"><div class="ruleNo">01 / RESPEKT</div><h3>Fair miteinander</h3><p>Keine Beleidigungen oder unnötiges Drama. Probleme lösen wir direkt und respektvoll.</p></article>
+      <article class="rule"><div class="ruleNo">02 / FAIRPLAY</div><h3>Sauber spielen</h3><p>Keine Cheats oder Exploits. Wir spielen fair und schützen den Ruf des Clans.</p></article>
+      <article class="rule"><div class="ruleNo">03 / TEAMGEIST</div><h3>Absprachen halten</h3><p>Bei Clan-Projekten kommunizieren wir klar, helfen einander und halten Vereinbarungen ein.</p></article>
     </div>
-    <details class="details">
-      <summary>Technische Details anzeigen</summary>
-      <div class="detailContent">
-        <p>Geprüft wurden die öffentlich sichtbaren Live-Seiten sowie ein Abruf der Seiten und ihrer öffentlich referenzierten Skripte aus GitHub Actions mit normalen Browser-Headern. Beide Hauptseiten antworteten mit <code>HTTP 403</code>; daher standen in diesem Test keine Client-Skripte oder API-Endpunkte zum Auswerten bereit.</p>
-        <p>Der nächste technische Schritt benötigt eine offizielle API, einen öffentlichen JSON-/WebSocket-Feed oder eine Freigabe der Betreiber. Der HTTP-403-Status wird nicht umgangen.</p>
-      </div>
-    </details>
   </section>
-  <footer class="footer"><span>Tanne Market · unabhängiges Community-Projekt</span><span>Nicht offiziell mit HugoSMP, Mojang oder Microsoft verbunden.</span></footer>
+
+  <footer class="footer"><span>© Tanne Clan · Community-Projekt</span><span>Serverstatus: mcstatus.io · Keine offizielle Verbindung zu HugoSMP, Mojang oder Microsoft.</span></footer>
 </main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{'use strict';
+const API='https://api.mcstatus.io/v2/status/java/hugosmp.net';
+const $=id=>document.getElementById(id);
+let refreshTimer=null;
+function toast(message){const node=$('toast');node.textContent=message;node.classList.add('show');window.setTimeout(()=>node.classList.remove('show'),2300)}
+function formatTime(value){
+  const date=value?new Date(value):new Date();
+  if(Number.isNaN(date.getTime())) return 'gerade eben';
+  return date.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+}
+function setState(state,label){
+  $('serverState').textContent=label;
+  $('headerStatus').textContent=label;
+  $('serverPulse').className='pulse '+state;
+  $('headerPulse').className='pulse '+state;
+}
+async function loadStatus(){
+  const button=$('refreshStatus');
+  button.disabled=true;
+  $('checkedAt').textContent='Prüfe …';
+  try{
+    const response=await fetch(API,{method:'GET',headers:{'Accept':'application/json'},cache:'no-store'});
+    if(!response.ok) throw new Error('Statusdienst antwortet mit HTTP '+response.status);
+    const data=await response.json();
+    if(typeof data.online!=='boolean') throw new Error('Die Antwort enthält keinen bestätigten Serverstatus.');
+    const observedAt=typeof data.retrieved_at==='number'?data.retrieved_at:Date.now();
+    $('checkedAt').textContent='Geprüft '+formatTime(observedAt);
+    $('playersOnline').textContent=Number.isFinite(data.players?.online)?Number(data.players.online).toLocaleString('de-DE'):'—';
+    $('playersMax').textContent=Number.isFinite(data.players?.max)?Number(data.players.max).toLocaleString('de-DE'):'—';
+    $('serverVersion').textContent=data.version?.name_clean||data.version?.name_raw||'Nicht gemeldet';
+    $('serverMotd').textContent=data.motd?.clean?String(data.motd.clean).replace(/\s+/g,' ').trim():'Keine MOTD gemeldet.';
+    if(data.online){
+      setState('online','ONLINE');
+      $('statusExplanation').textContent='HugoSMP antwortet auf die aktuelle Statusabfrage.';
+    }else{
+      setState('offline','OFFLINE');
+      $('statusExplanation').textContent='Der Statusdienst meldet den Server derzeit als offline.';
+    }
+    const online=Number.isFinite(data.players?.online)?data.players.online:null;
+    const max=Number.isFinite(data.players?.max)&&data.players.max>0?data.players.max:null;
+    if(online!==null&&max){
+      const percent=Math.max(0,Math.min(100,(online/max)*100));
+      $('playerProgress').style.width=percent+'%';
+      $('playerPercent').textContent=percent.toLocaleString('de-DE',{maximumFractionDigits:1})+'%';
+      $('playersExplanation').textContent=online.toLocaleString('de-DE')+' von '+max.toLocaleString('de-DE')+' Slots belegt.';
+    }else{
+      $('playerProgress').style.width='0%';$('playerPercent').textContent='—';
+      $('playersExplanation').textContent='Der Server hat aktuell keine auswertbare Spielerzahl gemeldet.';
+    }
+    $('statusMessage').textContent='Letzte erfolgreiche Abfrage: '+formatTime(observedAt)+'. Daten werden ungefähr jede Minute neu geprüft. Statuswerte können durch den Cache des Dienstes leicht verzögert sein.';
+  }catch(error){
+    setState('','STATUS UNKLAR');
+    $('checkedAt').textContent='Nicht erreichbar';
+    $('statusExplanation').textContent='Der öffentliche Statusdienst ist momentan nicht erreichbar. Daraus lässt sich nicht schließen, dass HugoSMP offline ist.';
+    $('playersExplanation').textContent='Spielerzahl momentan nicht verfügbar.';
+    $('serverMotd').textContent='Keine aktuelle Antwort verfügbar.';
+    $('playerProgress').style.width='0%';$('playerPercent').textContent='—';
+    $('statusMessage').textContent='Statusdaten konnten nicht geladen werden. Bitte später erneut versuchen. Es wird kein alter Wert als aktuell ausgegeben.';
+  }finally{
+    button.disabled=false;
+    if(refreshTimer) window.clearTimeout(refreshTimer);
+    refreshTimer=window.setTimeout(loadStatus,65000);
+  }
+}
+async function copyText(value){
+  try{
+    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);}
+    else{
+      const ta=document.createElement('textarea');ta.value=value;ta.setAttribute('readonly','');
+      ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+      const ok=document.execCommand('copy');ta.remove();if(!ok) throw new Error('copy failed');
+    }
+    toast(value+' kopiert!');
+  }catch{toast('Kopieren wurde vom Browser blockiert. IP: '+value)}
+}
+$('copyIp').addEventListener('click',()=>copyText('hugosmp.net'));
+$('refreshStatus').addEventListener('click',()=>{if(refreshTimer)window.clearTimeout(refreshTimer);loadStatus()});
+loadStatus();
+})();
+</script>
 </body>
 </html>
