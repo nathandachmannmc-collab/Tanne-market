@@ -687,6 +687,45 @@ html[data-tanne-motion="reduced"] *,html[data-tanne-motion="reduced"] *:before,h
 }
 @media(prefers-reduced-motion:reduce){.settingsDropdown[open] .settingsFullscreen{animation:none}}
 
+
+/* Fix: sticky header blur created a containing block for fixed full-screen menus. */
+body.mrFullscreenActive .header,
+body.rulesFullscreenActive .header,
+body.settingsFullscreenActive .header{
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  background:#07100a!important;
+}
+body.mrFullscreenActive .mrDropdown[open] .mrFullscreen,
+body.rulesFullscreenActive .rulesDropdown[open] .rulesMenu,
+body.settingsFullscreenActive .settingsDropdown[open] .settingsFullscreen{
+  position:fixed!important;
+  inset:0!important;
+  left:0!important;
+  top:0!important;
+  right:0!important;
+  bottom:0!important;
+  width:100vw!important;
+  max-width:none!important;
+  height:100vh!important;
+  height:100dvh!important;
+  margin:0!important;
+  z-index:2147483000!important;
+}
+body.mrFullscreenActive .rulesDropdown .rulesMenu,
+body.mrFullscreenActive .settingsDropdown .settingsFullscreen,
+body.rulesFullscreenActive .mrDropdown .mrFullscreen,
+body.rulesFullscreenActive .settingsDropdown .settingsFullscreen,
+body.settingsFullscreenActive .mrDropdown .mrFullscreen,
+body.settingsFullscreenActive .rulesDropdown .rulesMenu{
+  display:none!important;
+}
+body.mrFullscreenActive .mrDropdown[open] .mrFullscreen,
+body.rulesFullscreenActive .rulesDropdown[open] .rulesMenu,
+body.settingsFullscreenActive .settingsDropdown[open] .settingsFullscreen{
+  display:block!important;
+}
+
 </style>
 </head>
 <body>
