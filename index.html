@@ -108,6 +108,53 @@ h1,h2,h3,p{margin-top:0}
 @media(max-width:720px){.shell{width:calc(100% - 26px)}.headerRow{min-height:70px}.nav{gap:2px}.nav a{padding:8px 9px;font-size:11px}.hero{grid-template-columns:1fr;margin-top:18px}.heroMain{padding:30px 25px;min-height:360px}.heroSide{padding:16px}.statusGrid{gap:9px}.statusCard{padding:15px}.joinPanel{align-items:flex-start;flex-direction:column}.joinAction{width:100%}.joinAction .btn{width:100%}.section{margin:24px 0}}
 @media(max-width:520px){.shell{width:calc(100% - 22px)}.headerRow{align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0 10px}.brandMark{width:40px;height:40px;border-radius:13px;font-size:22px}.brandTitle{font-size:16px}.brandSub{font-size:9px}.headerRow>.livePill{font-size:8px;padding:6px 8px}.nav{margin:0 0 8px;justify-content:space-between}.nav a{font-size:10px;padding:7px 8px}.nav .navCta{padding-inline:10px}.heroMain{padding:26px 21px;border-radius:20px;min-height:0}.hero h1{font-size:clamp(38px,10vw,51px);letter-spacing:-1.9px}.heroText{font-size:13px}.heroActions{gap:8px;margin-top:22px}.heroActions .btn{width:100%}.heroMini{margin-top:20px;line-height:1.8}.playerBig{font-size:40px}.sectionHead{align-items:flex-start;flex-direction:column;gap:8px}.sectionAside{white-space:normal}.statusGrid{grid-template-columns:1fr}.statusCard{min-height:0;padding:16px}.statusIcon{margin-bottom:11px}.teamPanel{padding:20px 15px;border-radius:20px}.infoGrid{grid-template-columns:1fr}.infoItem{display:flex;gap:13px;padding:15px}.infoIcon{flex-shrink:0;margin:0}.joinPanel{padding:24px 20px}.footer{flex-direction:column;gap:7px;margin-top:25px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Premium top theme bar and finishing polish */
+.header{background:rgba(6,15,9,.88);border-bottom:1px solid rgba(105,151,112,.22);box-shadow:0 12px 40px rgba(0,0,0,.14)}
+.headerRow{min-height:76px}
+.brandMark{border-radius:14px;box-shadow:0 0 0 4px rgba(127,205,135,.045),0 8px 28px rgba(13,48,22,.45)}
+.brandTitle{letter-spacing:2px}
+.navBar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 0 13px}
+.navLabel{display:flex;align-items:center;gap:8px;color:#809984;font-size:9px;font-weight:950;letter-spacing:2px;white-space:nowrap}
+.navLabelDot{width:6px;height:6px;background:var(--green2);border-radius:50%;box-shadow:0 0 0 4px rgba(97,209,125,.12)}
+.nav{display:flex;align-items:center;justify-content:flex-start;gap:4px;flex-wrap:wrap;padding:5px;border:1px solid rgba(91,126,96,.25);background:linear-gradient(180deg,rgba(20,38,24,.94),rgba(10,21,13,.94));border-radius:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.025),0 8px 25px rgba(0,0,0,.15)}
+.nav a{display:inline-flex;align-items:center;justify-content:center;gap:8px;color:#adbfaf;font-size:11px;font-weight:800;padding:9px 13px;border-radius:10px;white-space:nowrap;transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav a:not(.navCta):hover{background:rgba(118,170,125,.12);color:#f5fff3;transform:translateY(-1px)}
+.navIcon{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:5px;color:#9fcea3;background:rgba(113,177,121,.1);font-size:13px;line-height:1}
+.nav .navCta{display:inline-flex;gap:8px;background:linear-gradient(135deg,#c9f7c3,#a4e9a6);color:#0b1a0e;padding:9px 14px;box-shadow:0 4px 18px rgba(128,222,137,.12);border:1px solid rgba(225,255,219,.65)}
+.nav .navCta:hover{background:#e4ffdd;color:#08170a;transform:translateY(-1px)}
+.navDiscordMark{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:6px;background:rgba(8,38,15,.09);font-size:13px}
+.hero{gap:18px;margin-top:25px}
+.panel{border-color:rgba(83,125,90,.34);box-shadow:0 26px 76px rgba(0,0,0,.27),inset 0 1px 0 rgba(241,255,241,.025)}
+.heroMain{background:radial-gradient(ellipse at 100% 0,rgba(67,128,75,.13),transparent 45%),linear-gradient(145deg,rgba(18,39,24,.98),rgba(8,18,11,.98))}
+.hero h1{line-height:1.02;text-wrap:balance}
+.heroText{color:#b8c8ba}
+.btn{box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+.btn.clan{background:linear-gradient(135deg,#183b24,#102417);border-color:#4c7953}
+.statusFeature{box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+.statusCard{box-shadow:inset 0 1px 0 rgba(255,255,255,.018)}
+.statusCard:hover,.infoItem:hover{box-shadow:0 13px 34px rgba(0,0,0,.14)}
+.teamPanel{border-color:rgba(91,143,100,.32)}
+.joinPanel{border-color:rgba(104,163,112,.5);box-shadow:0 24px 70px rgba(0,0,0,.25),inset 0 1px 0 rgba(239,255,238,.03)}
+@media(max-width:720px){
+ .headerRow{min-height:68px}
+ .navBar{display:block;padding:0 0 10px}
+ .navLabel{display:none}
+ .nav{width:100%;gap:3px;justify-content:space-between}
+ .nav a{padding:8px 10px;font-size:10px}
+ .navIcon{width:15px;height:15px;font-size:12px}
+}
+@media(max-width:520px){
+ .headerRow{padding:11px 0 9px}
+ .navBar{padding-bottom:9px}
+ .nav{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .nav::-webkit-scrollbar{display:none}
+ .nav a{flex:0 0 auto;padding:8px 10px;font-size:10px}
+ .nav .navCta{margin-left:auto}
+ .hero{margin-top:15px}
+ .heroMain{background:radial-gradient(ellipse at 100% 0,rgba(67,128,75,.15),transparent 48%),linear-gradient(145deg,rgba(18,39,24,.98),rgba(8,18,11,.98))}
+}
+
 </style>
 </head>
 <body>
@@ -120,9 +167,15 @@ h1,h2,h3,p{margin-top:0}
       </a>
       <div class="livePill"><span class="pulse" id="headerPulse"></span><span id="headerStatus">SERVERSTATUS WIRD GEPRÜFT</span></div>
     </div>
-    <nav class="nav" aria-label="Navigation">
-      <a href="#start">Start</a><a href="#hugo-daten">Serverdaten</a><a href="#team">Der Clan</a><a class="navCta" href="https://discord.gg/wm6mRzAgD" target="_blank" rel="noopener noreferrer">Tanne Discord ↗</a>
-    </nav>
+    <div class="navBar">
+      <div class="navLabel"><span class="navLabelDot"></span> THEMEN</div>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#start"><span class="navIcon" aria-hidden="true">⌂</span>Start</a>
+        <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
+        <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
+        <a class="navCta" href="https://discord.gg/wm6mRzAgD" target="_blank" rel="noopener noreferrer"><span class="navDiscordMark" aria-hidden="true">◉</span>Tanne Discord <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
   </div>
 </header>
 <main class="shell" id="start">
