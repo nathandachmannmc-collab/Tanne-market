@@ -726,6 +726,29 @@ body.settingsFullscreenActive .settingsDropdown[open] .settingsFullscreen{
   display:block!important;
 }
 
+
+/* Robust fullscreen portals: move overlays out of the sticky header at runtime. */
+.fullscreenPortal{position:fixed!important;inset:0!important;left:0!important;top:0!important;right:0!important;bottom:0!important;width:100vw!important;max-width:none!important;height:100vh!important;height:100dvh!important;max-height:none!important;margin:0!important;z-index:2147483000!important;display:block!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+.rulesMenu.fullscreenPortal{padding:18px clamp(16px,3.4vw,48px) 38px!important;background:radial-gradient(ellipse at 50% -15%,rgba(40,91,49,.65),transparent 53%),radial-gradient(ellipse at 100% 55%,rgba(17,49,27,.45),transparent 42%),#07100a!important;backdrop-filter:none!important;scrollbar-width:thin;scrollbar-color:#3b6242 #0b170e}
+.rulesMenu.fullscreenPortal:before,.mrFullscreen.fullscreenPortal:before,.settingsFullscreen.fullscreenPortal:before{display:none!important}
+.rulesMenu.fullscreenPortal>*{max-width:1100px;margin-left:auto;margin-right:auto}
+.rulesMenu.fullscreenPortal .rulesMenuHero{margin-bottom:13px}
+.rulesMenu.fullscreenPortal .rulesIntro{margin-bottom:14px}
+.rulesMenu.fullscreenPortal .rulesColumns{gap:14px}
+.rulesMenu.fullscreenPortal .rulesBlock{padding:17px}
+.rulesMenu.fullscreenPortal .rulesList li{font-size:12px;padding-top:10px;padding-bottom:10px;line-height:1.7}
+.rulesMenu.fullscreenPortal .consequencesBlock{margin-top:14px}
+.rulesMenu.fullscreenPortal .consequencesBlock p{font-size:12px}
+.rulesMenu.fullscreenPortal .appealButton{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin-top:14px;padding:15px 18px!important}
+.mrFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important;animation:mrEnter .14s ease-out}
+.settingsFullscreen.fullscreenPortal{padding:0!important;background:#0b100d!important;color:#e5e9e5!important;backdrop-filter:none!important;animation:settingsEnter .14s ease-out}
+body.mrFullscreenActive,body.rulesFullscreenActive,body.settingsFullscreenActive{overflow:hidden!important}
+@media(max-width:620px){
+ .rulesMenu.fullscreenPortal{padding:12px 12px 24px!important}
+ .rulesMenu.fullscreenPortal .rulesBlock{padding:13px}
+ .rulesMenu.fullscreenPortal .rulesList li{font-size:11px;padding-top:8px;padding-bottom:8px}
+}
+
 </style>
 </head>
 <body>
@@ -1002,39 +1025,82 @@ const dropdowns=[...document.querySelectorAll('.navDropdown')];
 const rulesDropdown=document.querySelector('.rulesDropdown');
 const mrDropdown=document.querySelector('.mrDropdown');
 const settingsDropdown=document.querySelector('.settingsDropdown');
+const portals=new Map();
+const getMenu=details=>{
+  const saved=portals.get(details);
+  return saved?saved.menu:details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen');
+};
 const syncFullscreen=()=>{
   document.body.classList.toggle('rulesFullscreenActive',Boolean(rulesDropdown&&rulesDropdown.open));
   document.body.classList.toggle('mrFullscreenActive',Boolean(mrDropdown&&mrDropdown.open));
   document.body.classList.toggle('settingsFullscreenActive',Boolean(settingsDropdown&&settingsDropdown.open));
 };
+const portalMenu=details=>{
+  if(portals.has(details))return;
+  const menu=details.querySelector('.rulesMenu,.mrFullscreen,.settingsFullscreen');
+  if(!menu)return;
+  const placeholder=document.createComment('fullscreen-menu-placeholder');
+  menu.parentNode.insertBefore(placeholder,menu);
+  portals.set(details,{menu,placeholder});
+  menu.classList.add('fullscreenPortal');
+  document.body.appendChild(menu);
+};
+const restoreMenu=details=>{
+  const portal=portals.get(details);
+  if(!portal)return;
+  portal.menu.classList.remove('fullscreenPortal');
+  if(portal.placeholder.parentNode)portal.placeholder.parentNode.insertBefore(portal.menu,portal.placeholder);
+  portal.placeholder.remove();
+  portals.delete(details);
+};
+const closeMenu=details=>{
+  if(!details)return;
+  details.open=false;
+  restoreMenu(details);
+  syncFullscreen();
+};
 dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
-  if(details.open)dropdowns.forEach(other=>{if(other!==details)other.open=false});
+  if(details.open){
+    dropdowns.forEach(other=>{
+      if(other!==details){
+        if(other.open)other.open=false;
+        restoreMenu(other);
+      }
+    });
+    portalMenu(details);
+  }else{
+    restoreMenu(details);
+  }
   syncFullscreen();
 }));
 document.querySelectorAll('.rulesCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  if(!rulesDropdown)return;
-  rulesDropdown.open=false;
-  rulesDropdown.querySelector('summary')?.focus();
+  closeMenu(rulesDropdown);
+  rulesDropdown?.querySelector('summary')?.focus();
 }));
 document.querySelectorAll('#mrCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  if(!mrDropdown)return;
-  mrDropdown.open=false;
-  mrDropdown.querySelector('summary')?.focus();
+  closeMenu(mrDropdown);
+  mrDropdown?.querySelector('summary')?.focus();
 }));
 document.querySelectorAll('#settingsCloseButton').forEach(button=>button.addEventListener('click',()=>{
-  if(!settingsDropdown)return;
-  settingsDropdown.open=false;
-  settingsDropdown.querySelector('summary')?.focus();
+  closeMenu(settingsDropdown);
+  settingsDropdown?.querySelector('summary')?.focus();
 }));
 document.addEventListener('click',event=>{
-  dropdowns.forEach(details=>{if(details.open&&!details.contains(event.target))details.open=false});
+  dropdowns.forEach(details=>{
+    if(details.open){
+      const menu=getMenu(details);
+      if(!details.contains(event.target)&&!(menu&&menu.contains(event.target)))closeMenu(details);
+    }
+  });
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='Escape'){
     const opened=dropdowns.find(details=>details.open);
-    dropdowns.forEach(details=>details.open=false);
-    if(opened){event.preventDefault();opened.querySelector('summary')?.focus();}
-    syncFullscreen();
+    if(opened){
+      event.preventDefault();
+      closeMenu(opened);
+      opened.querySelector('summary')?.focus();
+    }
   }
 });
 })();
