@@ -746,6 +746,20 @@ body.linksFullscreenActive .header,body.twitchFullscreenActive .header,body.mrFu
 @media(max-width:620px){.rulesMenu.fullscreenPortal{padding:12px 12px 24px!important}.rulesMenu.fullscreenPortal .rulesBlock{padding:13px}.rulesMenu.fullscreenPortal .rulesList li{font-size:11px;padding-top:8px;padding-bottom:8px}}
 
 
+/* Clan member directory — responsive fullscreen portal */
+.membersNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#c4e8c2;font-size:16px;line-height:1}
+.membersFullscreen.fullscreenPortal{padding:0!important;background:radial-gradient(ellipse at 50% -15%,rgba(40,91,49,.65),transparent 53%),#07100a!important;color:var(--text)}
+.membersFullscreenTop{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px;padding:12px clamp(15px,3vw,42px);background:rgba(7,16,10,.94);border-bottom:1px solid #29412e;backdrop-filter:blur(16px)}
+.membersFullscreenBrand{display:flex;align-items:center;gap:12px;min-width:0}.membersFullscreenBrand>span:last-child{display:grid;gap:2px}.membersFullscreenBrand strong{font-size:17px;letter-spacing:.2px}.membersFullscreenBrand small{font-size:10px;letter-spacing:1.5px;color:var(--muted)}
+.membersBrandMark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #426a49;border-radius:12px;background:linear-gradient(145deg,#1e4328,#0c1c11);color:#d6f5d3;font-weight:950}
+.membersCloseButton{display:inline-flex;align-items:center;gap:10px;min-height:42px;padding:9px 14px;border:1px solid #365641;border-radius:12px;background:#102116;color:var(--text);font-weight:750}.membersCloseButton span{font-size:20px;line-height:1}
+.membersFullscreenPage{width:min(1080px,calc(100% - 36px));margin:0 auto;padding:clamp(24px,5vw,56px) 0 50px}.membersIntro{text-align:center;max-width:680px;margin:0 auto 28px}.membersEyebrow{color:#a7e8ac;font-size:11px;font-weight:850;letter-spacing:1.8px}.membersIntro h2{margin:8px 0;font-size:clamp(27px,5vw,43px);line-height:1.12;letter-spacing:-1px}.membersIntro p{margin:10px auto 0;color:var(--muted);max-width:570px}
+.membersTabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:7px;border:1px solid #243d2b;border-radius:16px;background:#0a160d;margin:0 auto 28px}.membersTab{min-width:0;min-height:44px;padding:9px 8px;border:1px solid transparent;border-radius:10px;background:transparent;color:#a0b3a2;font-weight:850}.membersTab:hover{background:#14291a;color:var(--text)}.membersTab.is-active{background:linear-gradient(145deg,#254c2e,#16321e);border-color:#47744d;color:#f3fff0;box-shadow:inset 0 1px #ffffff10}
+.membersClanHeading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 20px;padding-bottom:17px;border-bottom:1px solid #29412e}.membersClanHeading h3{margin:4px 0 0;font-size:clamp(23px,3vw,30px)}.membersCount{padding:6px 10px;border:1px solid #29412e;border-radius:999px;background:#0d1c11;color:#b7c9b8;font-size:12px;font-weight:750;white-space:nowrap}
+.membersGroup{margin:22px 0 28px}.membersGroupHead{display:flex;align-items:center;gap:12px;margin-bottom:13px}.membersRoleMark{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border:1px solid #35583b;border-radius:12px;background:#122719;color:#b8e9b6;font-size:17px}.membersRoleMark.leaderMark{border-color:#6d5b31;background:#292211;color:#f1d48b}.membersGroupHead h3{margin:0;font-size:19px}.membersGroupHead p{margin:1px 0 0;color:var(--muted);font-size:13px}.membersGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.memberCard{display:flex;align-items:center;gap:13px;min-width:0;padding:15px;border:1px solid #29412e;border-radius:15px;background:linear-gradient(145deg,#102116,#0b170e);box-shadow:0 12px 28px #0002}.memberHead{width:48px;height:48px;flex:0 0 48px;image-rendering:pixelated;border-radius:10px;border:1px solid #3c5e41;background:#172a1b;object-fit:cover}.memberIdentity{min-width:0}.memberName{overflow-wrap:anywhere;margin:0;font-size:15px;font-weight:850}.memberMeta{margin:3px 0 0;color:var(--muted);font-size:12px}.memberEmpty{grid-column:1/-1;padding:22px 18px;border:1px dashed #365641;border-radius:14px;background:#0b170e;color:var(--muted);text-align:center}.memberEmpty strong{display:block;color:#d8e6d7;margin-bottom:4px}.membersOwnerNote{margin-top:32px;text-align:center;color:#829985;font-size:12px}
+@media(max-width:760px){.membersGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.membersFullscreenPage{width:calc(100% - 28px)}}
+@media(max-width:480px){.membersTabs{gap:4px;padding:5px;border-radius:12px}.membersTab{padding:8px 2px;font-size:12px;min-height:42px}.membersGrid{grid-template-columns:1fr}.memberCard{padding:12px}.membersFullscreenTop{min-height:62px}.membersFullscreenBrand strong{font-size:15px}.membersFullscreenBrand small{font-size:8px;letter-spacing:1px}.membersCloseButton{padding:8px 10px;font-size:13px}.membersFullscreenPage{padding-top:24px}}
+
 /* Dedicated fullscreen Links and Twitch pages */
 .linksNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#b8d9b4;font-size:15px;line-height:1}
 .twitchNavIcon{display:inline-flex;align-items:center;justify-content:center;width:17px;color:#c4a4ff;font-size:15px;line-height:1}
@@ -962,6 +976,29 @@ button,input,select,textarea{max-width:100%;min-width:0}
         <a href="#start"><span class="navIcon" aria-hidden="true">⌂</span>Start</a>
         <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
         <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
+        <details class="navDropdown membersDropdown">
+          <summary><span class="membersNavIcon" aria-hidden="true">♟</span>Mitglieder <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <div class="navMenu membersFullscreen" role="dialog" aria-modal="true" aria-label="Tanne Clan Mitglieder">
+            <div class="membersFullscreenTop">
+              <div class="membersFullscreenBrand"><span class="membersBrandMark">T</span><span><strong>Clan-Mitglieder</strong><small>TANNE CLAN · TEAMÜBERSICHT</small></span></div>
+              <button class="membersCloseButton" id="membersCloseButton" type="button" aria-label="Mitglieder schließen">Schließen <span aria-hidden="true">×</span></button>
+            </div>
+            <div class="membersFullscreenPage">
+              <div class="membersIntro"><div class="membersEyebrow">UNSER TEAM</div><h2>Ein Clan. Fünf Teams.</h2><p>Wähle oben Tanne 1–5. Zuerst werden die Leader angezeigt, danach die Mitglieder.</p></div>
+              <div class="membersTabs" role="tablist" aria-label="Clan auswählen">
+                <button class="membersTab is-active" type="button" role="tab" aria-selected="true" data-clan="1">Tanne 1</button>
+                <button class="membersTab" type="button" role="tab" aria-selected="false" data-clan="2">Tanne 2</button>
+                <button class="membersTab" type="button" role="tab" aria-selected="false" data-clan="3">Tanne 3</button>
+                <button class="membersTab" type="button" role="tab" aria-selected="false" data-clan="4">Tanne 4</button>
+                <button class="membersTab" type="button" role="tab" aria-selected="false" data-clan="5">Tanne 5</button>
+              </div>
+              <div class="membersClanHeading"><div><span class="membersEyebrow">AUSGEWÄHLTER CLAN</span><h3 id="membersClanTitle">Tanne 1</h3></div><span class="membersCount" id="membersCount">0 Personen</span></div>
+              <section class="membersGroup" aria-labelledby="membersLeadersTitle"><div class="membersGroupHead"><span class="membersRoleMark leaderMark">★</span><div><h3 id="membersLeadersTitle">Leader</h3><p>Die Leitung von Tanne 1</p></div></div><div class="membersGrid" id="membersLeaderGrid"></div></section>
+              <section class="membersGroup" aria-labelledby="membersPeopleTitle"><div class="membersGroupHead"><span class="membersRoleMark">♟</span><div><h3 id="membersPeopleTitle">Mitglieder</h3><p>Spieler aus diesem Clan</p></div></div><div class="membersGrid" id="membersPeopleGrid"></div></section>
+              <p class="membersOwnerNote">Die Mitgliederliste wird ausschließlich vom Website-Inhaber gepflegt.</p>
+            </div>
+          </div>
+        </details>
         <details class="navDropdown twitchDropdown" id="twitch">
           <summary><span class="twitchNavIcon" aria-hidden="true">◉</span>Twitch <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu twitchFullscreen" role="dialog" aria-modal="true" aria-label="Twitch-Streamer des Tanne-Clans">
@@ -1249,9 +1286,10 @@ const lookups={
  mr:document.querySelector('.mrDropdown'),
  settings:document.querySelector('.settingsDropdown'),
  links:document.querySelector('.linksDropdown'),
- twitch:document.querySelector('.twitchDropdown')
+ twitch:document.querySelector('.twitchDropdown'),
+ members:document.querySelector('.membersDropdown')
 };
-const selector='.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen';
+const selector='.rulesMenu,.mrFullscreen,.settingsFullscreen,.linksFullscreen,.twitchFullscreen,.membersFullscreen';
 const portals=new Map();
 const getMenu=details=>{
  const saved=portals.get(details);
@@ -1263,6 +1301,7 @@ const syncFullscreen=()=>{
  document.body.classList.toggle('settingsFullscreenActive',Boolean(lookups.settings&&lookups.settings.open));
  document.body.classList.toggle('linksFullscreenActive',Boolean(lookups.links&&lookups.links.open));
  document.body.classList.toggle('twitchFullscreenActive',Boolean(lookups.twitch&&lookups.twitch.open));
+ document.body.classList.toggle('membersFullscreenActive',Boolean(lookups.members&&lookups.members.open));
 };
 const portalMenu=details=>{
  if(portals.has(details))return;
@@ -1305,7 +1344,8 @@ dropdowns.forEach(details=>details.addEventListener('toggle',()=>{
  ['#mrCloseButton','mr'],
  ['#settingsCloseButton','settings'],
  ['#linksCloseButton','links'],
- ['#twitchCloseButton','twitch']
+ ['#twitchCloseButton','twitch'],
+ ['#membersCloseButton','members']
 ].forEach(([selector,key])=>document.querySelectorAll(selector).forEach(button=>button.addEventListener('click',()=>{
  const details=lookups[key];
  closeMenu(details);
@@ -1329,6 +1369,50 @@ document.addEventListener('keydown',event=>{
   }
  }
 });
+})();
+</script>
+
+<script>
+(()=>{'use strict';
+// Roster is intentionally maintained in this file by the site owner.
+// Add player names to leaders/members for the relevant clan; visitors have no edit controls.
+const roster={
+ '1':{leaders:[],members:[]},
+ '2':{leaders:[],members:[]},
+ '3':{leaders:[],members:[]},
+ '4':{leaders:[],members:[]},
+ '5':{leaders:[],members:[]}
+};
+const $member=id=>document.getElementById(id);
+let selectedClan='1';
+function memberCard(player,role){
+ const card=document.createElement('article');card.className='memberCard';
+ const head=document.createElement('img');head.className='memberHead';head.alt='Minecraft-Kopf von '+player.name;head.loading='lazy';head.src='https://mc-heads.net/avatar/'+encodeURIComponent(player.name)+'/64';
+ head.addEventListener('error',()=>{head.style.visibility='hidden';},{once:true});
+ const identity=document.createElement('div');identity.className='memberIdentity';
+ const name=document.createElement('p');name.className='memberName';name.textContent=player.name;
+ const meta=document.createElement('p');meta.className='memberMeta';meta.textContent=player.role||role;
+ identity.append(name,meta);card.append(head,identity);return card;
+}
+function renderGroup(container,players,role,emptyTitle,emptyText){
+ container.replaceChildren();
+ if(!players.length){const empty=document.createElement('div');empty.className='memberEmpty';const strong=document.createElement('strong');strong.textContent=emptyTitle;const p=document.createElement('span');p.textContent=emptyText;empty.append(strong,p);container.append(empty);return;}
+ players.forEach(player=>container.append(memberCard(player,role)));
+}
+function renderClan(){
+ const data=roster[selectedClan];
+ $member('membersClanTitle').textContent='Tanne '+selectedClan;
+ $member('membersLeadersTitle').textContent='Leader';
+ $member('membersPeopleTitle').textContent='Mitglieder';
+ $member('membersLeadersTitle').nextElementSibling.querySelector('p').textContent='Die Leitung von Tanne '+selectedClan;
+ const count=data.leaders.length+data.members.length;
+ $member('membersCount').textContent=count+' '+(count===1?'Person':'Personen');
+ renderGroup($member('membersLeaderGrid'),data.leaders,'Leader','Noch keine Leader eingetragen','Die Leader für Tanne '+selectedClan+' erscheinen hier.');
+ renderGroup($member('membersPeopleGrid'),data.members,'Mitglied','Noch keine Mitglieder eingetragen','Mitglieder für Tanne '+selectedClan+' erscheinen hier.');
+ document.querySelectorAll('.membersTab').forEach(tab=>{const active=tab.dataset.clan===selectedClan;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',String(active));});
+}
+document.querySelectorAll('.membersTab').forEach(tab=>tab.addEventListener('click',()=>{selectedClan=tab.dataset.clan;renderClan();}));
+renderClan();
 })();
 </script>
 
