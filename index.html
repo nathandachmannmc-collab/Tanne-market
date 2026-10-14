@@ -94,7 +94,7 @@ h1,h2,h3,p{margin-top:0}
 .infoItem h3{font-size:13px;margin:0 0 8px}
 .infoItem p{font-size:11px;line-height:1.8;color:#9fb1a1;margin:0}
 .joinPanel{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(22px,4vw,36px);border-radius:23px;border:1px solid #42694a;background:radial-gradient(ellipse at 90% 0,#2b63375c,transparent 47%),linear-gradient(125deg,#142b1a,#0c1710);box-shadow:var(--shadow)}
-.joinPanel:after{content:"🌲";position:absolute;z-index:-1;right:20%;bottom:-40px;font-size:145px;opacity:.045;filter:grayscale(1)}
+.joinPanel:after{content:"T";position:absolute;z-index:-1;right:20%;bottom:-40px;font-size:145px;opacity:.045;filter:grayscale(1)}
 .joinContent{max-width:620px}
 .joinLabel{color:var(--green);font-size:9px;font-weight:950;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:9px}
 .joinPanel h2{font-size:clamp(23px,3vw,30px);line-height:1.15;letter-spacing:-.8px;margin:0 0 9px}
@@ -958,6 +958,35 @@ button,input,select,textarea{max-width:100%;min-width:0}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 
+
+.fanPanel{padding:clamp(20px,4vw,34px);border:1px solid #294733;background:linear-gradient(145deg,#0d1b12,#0a130d 75%);border-radius:24px;margin-top:24px}
+.fanPanelHead{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.fanMark{width:54px;height:54px;display:grid;place-items:center;flex:none;border:1px solid #4c7957;border-radius:16px;background:linear-gradient(145deg,#1a3a24,#102117);font-size:23px;font-weight:950;color:#c5f6c8;box-shadow:inset 0 1px #ffffff12}
+.fanPanel h2,.fanAdmin h3{margin:2px 0 4px;letter-spacing:-.035em}
+.fanPanelHead p{margin:0;color:var(--muted);font-size:13px}
+.fanLogin{padding:18px;border:1px solid var(--line);border-radius:16px;background:#07100a88;max-width:650px}
+.fanLogin label,.fanField label{display:block;font-size:12px;font-weight:800;color:#d9e9da;margin-bottom:7px}
+.fanLoginRow{display:flex;gap:9px}
+.fanLogin input,.fanField input,.fanField select{min-width:0;width:100%;background:#08130b;border:1px solid #2d4a34;border-radius:10px;color:var(--text);padding:12px 13px;font:inherit;outline:none}
+.fanLogin input:focus,.fanField input:focus,.fanField select:focus{border-color:#7ad88a;box-shadow:0 0 0 3px #7ad88a18}
+.fanHint{font-size:11px;color:var(--muted);margin:9px 0 0}
+.fanAdmin{margin-top:22px;border-top:1px solid var(--line);padding-top:22px}
+.fanAdminTop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.fanAddForm{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(110px,.6fr) minmax(130px,.7fr);gap:13px;align-items:end}
+.fanField small{display:block;color:var(--muted);font-size:10px;margin-top:6px}
+.fanPreview{display:flex;align-items:center;gap:9px;grid-column:1/-1;padding:10px 12px;background:#0a160d;border:1px solid var(--line);border-radius:12px;width:max-content;max-width:100%}
+.fanPreview img{width:44px;height:44px;image-rendering:pixelated;border-radius:7px;background:#15251a}
+.fanPreview span{font-weight:800}
+.fanSubmit{grid-column:1/-1;justify-self:start}
+.fanAdminNote{margin-top:18px;padding:12px 14px;border-left:2px solid #bda56c;background:#16170f;color:#c7c6ad;font-size:11px;border-radius:0 8px 8px 0}
+.fanAdminList{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:16px}
+.fanAdminRow{display:flex;align-items:center;gap:10px;padding:10px;background:#0b170e;border:1px solid var(--line);border-radius:12px;min-width:0}
+.fanAdminRow img{width:34px;height:34px;border-radius:6px;image-rendering:pixelated}
+.fanAdminRow div{min-width:0;flex:1}.fanAdminRow strong{display:block;overflow-wrap:anywhere;font-size:12px}.fanAdminRow small{color:var(--muted);font-size:10px}
+.fanAdminRow button{border:1px solid #5b3737;background:#281313;color:#ffc5c5;border-radius:8px;padding:6px 9px;font:inherit;font-size:11px;cursor:pointer}
+.navIcon,.membersNavIcon{display:inline-grid;place-items:center;font-style:normal}
+@media(max-width:620px){.fanLoginRow{flex-direction:column}.fanLoginRow .btn{width:100%}.fanAddForm{grid-template-columns:1fr}.fanPreview,.fanSubmit{grid-column:auto}.fanPanelHead{align-items:flex-start}.fanAdminTop{align-items:flex-start}}
+
 </style>
 </head>
 <body>
@@ -975,9 +1004,9 @@ button,input,select,textarea{max-width:100%;min-width:0}
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="#start"><span class="navIcon" aria-hidden="true">⌂</span>Start</a>
         <a href="#hugo-daten"><span class="navIcon" aria-hidden="true">▤</span>Serverdaten</a>
-        <a href="#team"><span class="navIcon" aria-hidden="true">♧</span>Der Clan</a>
+        <a href="#team"><span class="navIcon" aria-hidden="true">T</span>Der Clan</a>
         <details class="navDropdown membersDropdown">
-          <summary><span class="membersNavIcon" aria-hidden="true">♟</span>Mitglieder <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <summary><span class="membersNavIcon" aria-hidden="true">M</span>Mitglieder <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu membersFullscreen" role="dialog" aria-modal="true" aria-label="Tanne Clan Mitglieder">
             <div class="membersFullscreenTop">
               <div class="membersFullscreenBrand"><span class="membersBrandMark">T</span><span><strong>Clan-Mitglieder</strong><small>TANNE CLAN · TEAMÜBERSICHT</small></span></div>
@@ -1095,7 +1124,7 @@ button,input,select,textarea{max-width:100%;min-width:0}
           </div>
         </details>
         <details class="navDropdown rulesDropdown">
-          <summary><span class="navIcon" aria-hidden="true">☷</span>Regeln <span class="menuChevron" aria-hidden="true">⌄</span></summary>
+          <summary><span class="navIcon" aria-hidden="true">≡</span>Regeln <span class="menuChevron" aria-hidden="true">⌄</span></summary>
           <div class="navMenu rulesMenu" role="dialog" aria-modal="true" aria-label="Tanne Clan Regelwerk">
             <div class="rulesFullscreenTop"><span class="rulesFullscreenBrand"><span aria-hidden="true">T</span> TANNE CLAN <i>/</i> REGELWERK</span><button class="rulesCloseButton" type="button" aria-label="Regeln schließen">Schließen <span aria-hidden="true">×</span></button></div>
             <div class="rulesMenuHero">
@@ -1227,6 +1256,31 @@ button,input,select,textarea{max-width:100%;min-width:0}
     <div class="joinContent"><div class="joinLabel">TANNE CLAN · DISCORD</div><h2>Komm auf unseren Discord.</h2><p>Du spielst auf HugoSMP oder willst den Clan kennenlernen? Schau vorbei und sag Hallo.</p></div>
     <div class="joinAction"><a class="btn primary" href="https://discord.gg/za9NvCkwkU" target="_blank" rel="noopener noreferrer">Zum Tanne Clan Discord ↗</a><div style="margin-top:10px;text-align:center"><a href="https://discord.gg/hugosmp" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#a9bcad">HugoSMP Discord ebenfalls öffnen ↗</a></div></div>
   </section>
+
+  <section class="section fanPanel" id="fan-zugang">
+    <div class="fanPanelHead">
+      <div class="fanMark">T</div>
+      <div><div class="sectionKicker">TANNE CLAN COMMUNITY</div><h2>Fan-Bereich</h2><p>Clan-Mitglieder verwalten – mit Minecraft-Namen und automatisch geladenen Köpfen.</p></div>
+    </div>
+    <form class="fanLogin" id="fanLogin">
+      <label for="fanCode">Admin-Code</label>
+      <div class="fanLoginRow"><input id="fanCode" type="password" autocomplete="current-password" placeholder="Zugangscode eingeben" required><button class="btn primary" type="submit">Zugang öffnen</button></div>
+      <p class="fanHint" id="fanMessage" role="status">Nur für die Clan-Verwaltung.</p>
+    </form>
+    <div class="fanAdmin" id="fanAdmin" hidden>
+      <div class="fanAdminTop"><div><div class="sectionKicker">VERWALTUNG</div><h3>Mitglieder hinzufügen</h3></div><button class="btn" id="fanLogout" type="button">Abmelden</button></div>
+      <form id="fanAddForm" class="fanAddForm">
+        <div class="fanField"><label for="fanPlayerName">Minecraft-Name</label><input id="fanPlayerName" name="player" maxlength="16" pattern="[A-Za-z0-9_]{3,16}" placeholder="z. B. Steve" required><small>Der Kopf wird beim Eingeben direkt geladen.</small></div>
+        <div class="fanPreview"><img id="fanHeadPreview" src="https://mc-heads.net/avatar/Steve/64" alt="Vorschau des Minecraft-Kopfes"><span id="fanPreviewName">Steve</span></div>
+        <div class="fanField"><label for="fanClan">Team</label><select id="fanClan" name="clan"><option value="1">Tanne 1</option><option value="2">Tanne 2</option><option value="3">Tanne 3</option><option value="4">Tanne 4</option><option value="5">Tanne 5</option></select></div>
+        <div class="fanField"><label for="fanRole">Rolle</label><select id="fanRole" name="role"><option value="Mitglied">Mitglied</option><option value="Leader">Leader</option></select></div>
+        <button class="btn primary fanSubmit" type="submit">Mitglied hinzufügen</button>
+      </form>
+      <div class="fanAdminNote">Hinweis: Diese Website ist aktuell statisch. Änderungen werden in diesem Browser gespeichert und sind nicht automatisch für andere Besucher sichtbar.</div>
+      <div class="fanAdminList" id="fanAdminList"></div>
+    </div>
+  </section>
+
   <footer class="footer"><span>© TANNE CLAN · Community-Projekt</span><span>Serverstatus: mcstatus.io · Keine offizielle Verbindung zu HugoSMP, Mojang oder Microsoft.</span></footer>
 </main>
 <div class="toast" id="toast" role="status"></div>
@@ -1374,24 +1428,37 @@ document.addEventListener('keydown',event=>{
 
 <script>
 (()=>{'use strict';
-// Roster is intentionally maintained in this file by the site owner.
-// Add player names to leaders/members for the relevant clan; visitors have no edit controls.
-const roster={
- '1':{leaders:[],members:[]},
- '2':{leaders:[],members:[]},
- '3':{leaders:[],members:[]},
- '4':{leaders:[],members:[]},
- '5':{leaders:[],members:[]}
+const baseRoster={
+ '1':{leaders:[],members:[]},'2':{leaders:[],members:[]},'3':{leaders:[],members:[]},
+ '4':{leaders:[],members:[]},'5':{leaders:[],members:[]}
 };
-const $member=id=>document.getElementById(id);
+const STORE='tanne-clan-roster-v1';
+const $=id=>document.getElementById(id);
+let roster=baseRoster;
 let selectedClan='1';
+let adminUnlocked=false;
+function loadRoster(){
+ try{
+  const saved=JSON.parse(localStorage.getItem(STORE)||'null');
+  if(saved&&typeof saved==='object'){
+   Object.keys(baseRoster).forEach(clan=>{
+    const group=saved[clan];
+    if(group&&Array.isArray(group.leaders)&&Array.isArray(group.members)){
+     roster[clan]={leaders:group.leaders.filter(validPlayer),members:group.members.filter(validPlayer)};
+    }
+   });
+  }
+ }catch(error){console.warn('Roster konnte nicht geladen werden',error);}
+}
+function validPlayer(p){return p&&typeof p.name==='string'&&/^[A-Za-z0-9_]{3,16}$/.test(p.name);}
+function saveRoster(){try{localStorage.setItem(STORE,JSON.stringify(roster));return true;}catch(error){$('fanMessage').textContent='Speichern fehlgeschlagen. Prüfe die Browser-Einstellungen.';return false;}}
 function memberCard(player,role){
  const card=document.createElement('article');card.className='memberCard';
  const head=document.createElement('img');head.className='memberHead';head.alt='Minecraft-Kopf von '+player.name;head.loading='lazy';head.src='https://mc-heads.net/avatar/'+encodeURIComponent(player.name)+'/64';
  head.addEventListener('error',()=>{head.style.visibility='hidden';},{once:true});
  const identity=document.createElement('div');identity.className='memberIdentity';
  const name=document.createElement('p');name.className='memberName';name.textContent=player.name;
- const meta=document.createElement('p');meta.className='memberMeta';meta.textContent=player.role||role;
+ const meta=document.createElement('p');meta.className='memberMeta';meta.textContent=role;
  identity.append(name,meta);card.append(head,identity);return card;
 }
 function renderGroup(container,players,role,emptyTitle,emptyText){
@@ -1401,18 +1468,51 @@ function renderGroup(container,players,role,emptyTitle,emptyText){
 }
 function renderClan(){
  const data=roster[selectedClan];
- $member('membersClanTitle').textContent='Tanne '+selectedClan;
- $member('membersLeadersTitle').textContent='Leader';
- $member('membersPeopleTitle').textContent='Mitglieder';
- $member('membersLeadersTitle').nextElementSibling.querySelector('p').textContent='Die Leitung von Tanne '+selectedClan;
+ $('membersClanTitle').textContent='Tanne '+selectedClan;
+ $('membersLeadersTitle').nextElementSibling.querySelector('p').textContent='Die Leitung von Tanne '+selectedClan;
  const count=data.leaders.length+data.members.length;
- $member('membersCount').textContent=count+' '+(count===1?'Person':'Personen');
- renderGroup($member('membersLeaderGrid'),data.leaders,'Leader','Noch keine Leader eingetragen','Die Leader für Tanne '+selectedClan+' erscheinen hier.');
- renderGroup($member('membersPeopleGrid'),data.members,'Mitglied','Noch keine Mitglieder eingetragen','Mitglieder für Tanne '+selectedClan+' erscheinen hier.');
+ $('membersCount').textContent=count+' '+(count===1?'Person':'Personen');
+ renderGroup($('membersLeaderGrid'),data.leaders,'Leader','Noch keine Leader eingetragen','Die Leader für Tanne '+selectedClan+' erscheinen hier.');
+ renderGroup($('membersPeopleGrid'),data.members,'Mitglied','Noch keine Mitglieder eingetragen','Mitglieder für Tanne '+selectedClan+' erscheinen hier.');
  document.querySelectorAll('.membersTab').forEach(tab=>{const active=tab.dataset.clan===selectedClan;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',String(active));});
+ if(adminUnlocked)renderAdminList();
+}
+function renderAdminList(){
+ const list=$('fanAdminList');if(!list)return;list.replaceChildren();
+ Object.keys(roster).forEach(clan=>{
+  [['Leader',roster[clan].leaders],['Mitglied',roster[clan].members]].forEach(([role,players])=>players.forEach(player=>{
+   const row=document.createElement('div');row.className='fanAdminRow';
+   const img=document.createElement('img');img.alt='';img.src='https://mc-heads.net/avatar/'+encodeURIComponent(player.name)+'/64';
+   const info=document.createElement('div');const name=document.createElement('strong');name.textContent=player.name;const meta=document.createElement('small');meta.textContent='Tanne '+clan+' · '+role;info.append(name,meta);
+   const remove=document.createElement('button');remove.type='button';remove.textContent='Entfernen';remove.setAttribute('aria-label',player.name+' entfernen');
+   remove.addEventListener('click',()=>{roster[clan][role==='Leader'?'leaders':'members']=roster[clan][role==='Leader'?'leaders':'members'].filter(p=>p.name.toLowerCase()!==player.name.toLowerCase());saveRoster();renderClan();});
+   row.append(img,info,remove);list.append(row);
+  }));
+ });
+ if(!list.children.length){const empty=document.createElement('p');empty.className='fanHint';empty.textContent='Noch keine lokal gespeicherten Mitglieder.';list.append(empty);}
 }
 document.querySelectorAll('.membersTab').forEach(tab=>tab.addEventListener('click',()=>{selectedClan=tab.dataset.clan;renderClan();}));
-renderClan();
+$('fanLogin').addEventListener('submit',event=>{
+ event.preventDefault();
+ if($('fanCode').value==='1234Admin'){
+  adminUnlocked=true;$('fanAdmin').hidden=false;$('fanMessage').textContent='Zugang geöffnet.';$('fanCode').value='';renderAdminList();$('fanPlayerName').focus();
+ }else{$('fanMessage').textContent='Der Code stimmt nicht. Bitte erneut versuchen.';$('fanCode').value='';}
+});
+$('fanLogout').addEventListener('click',()=>{adminUnlocked=false;$('fanAdmin').hidden=true;$('fanMessage').textContent='Du bist abgemeldet.';});
+$('fanPlayerName').addEventListener('input',()=>{
+ const name=$('fanPlayerName').value.trim();
+ $('fanPreviewName').textContent=name||'Vorschau';
+ if(/^[A-Za-z0-9_]{3,16}$/.test(name))$('fanHeadPreview').src='https://mc-heads.net/avatar/'+encodeURIComponent(name)+'/64';
+});
+$('fanAddForm').addEventListener('submit',event=>{
+ event.preventDefault();if(!adminUnlocked)return;
+ const name=$('fanPlayerName').value.trim();if(!/^[A-Za-z0-9_]{3,16}$/.test(name)){ $('fanMessage').textContent='Bitte einen gültigen Minecraft-Namen mit 3–16 Zeichen eingeben.';return;}
+ const clan=$('fanClan').value;const role=$('fanRole').value;
+ if(Object.values(roster).some(group=>[...group.leaders,...group.members].some(p=>p.name.toLowerCase()===name.toLowerCase()))){$('fanMessage').textContent='Dieser Name steht bereits in der Liste.';return;}
+ roster[clan][role==='Leader'?'leaders':'members'].push({name});
+ if(saveRoster()){$('fanMessage').textContent=name+' wurde zu Tanne '+clan+' hinzugefügt.';$('fanPlayerName').value='';$('fanPreviewName').textContent='Vorschau';$('fanHeadPreview').src='https://mc-heads.net/avatar/Steve/64';renderClan();}
+});
+loadRoster();renderClan();
 })();
 </script>
 
