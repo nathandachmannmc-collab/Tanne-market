@@ -792,6 +792,158 @@ body.linksFullscreenActive .header,body.twitchFullscreenActive .header,body.mrFu
 .betaBadge{display:inline-flex;align-items:center;justify-content:center;padding:4px 6px;border:1px solid #46684a;border-radius:5px;background:#17251a;color:#c6e2c2;font-size:8px;font-weight:900;line-height:1;letter-spacing:1px;white-space:nowrap}
 @media(max-width:520px){.brandTitle{gap:6px}.betaBadge{font-size:7px;padding:4px 5px;letter-spacing:.7px}}
 
+
+/* Responsive consistency pass: phone, tablet and desktop */
+:root{--page-gutter:clamp(12px,2.5vw,30px);--content-max:1140px;--card-gap:clamp(10px,1.4vw,16px)}
+html{scroll-padding-top:120px;overflow-x:clip}
+body{overflow-x:clip;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg,video,canvas,iframe{max-width:100%}
+button,input,select,textarea{max-width:100%;min-width:0}
+.shell{width:min(var(--content-max),calc(100% - var(--page-gutter)*2))}
+.header .shell{min-width:0}
+.headerRow,.brand,.brandCopy,.navBar,.nav{min-width:0}
+.brand{flex:0 1 auto}
+.brandCopy{overflow-wrap:anywhere}
+.brandTitle{letter-spacing:clamp(.3px,.13vw,1.6px)}
+.livePill{max-width:100%;white-space:normal;line-height:1.35}
+.navBar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav{flex:1 1 650px;min-width:0}
+.nav>a,.navDropdown>summary{white-space:nowrap}
+.navDropdown{min-width:0}
+.navDropdown>summary{display:flex;align-items:center;gap:6px;cursor:pointer;list-style:none}
+.navDropdown>summary::-webkit-details-marker{display:none}
+.hero,.statusGrid,.infoGrid,.metaGrid,.rulesColumns,.mrProjectGrid,.settingsChoices,.linksGrid{min-width:0}
+.hero>*,.statusGrid>*,.infoGrid>*,.metaGrid>*,.rulesColumns>*,.linksGrid>*{min-width:0}
+.sectionHead>*{min-width:0}
+.sectionHead p,.heroText,.statusCard p,.infoItem p,.joinPanel p,.rulesBlock,.mrPage,.settingsPage,.linksFullscreenPage,.twitchFullscreenPage{overflow-wrap:anywhere}
+.playerBig{font-size:clamp(32px,4vw,43px)}
+.statusFeature,.statusCard,.infoItem,.meta,.streamerCard,.linksCard,.mrProjectCard,.settingsGroup{min-width:0}
+.streamerIdentity,.streamerDetails,.streamerButton,.mrBrowseTitle,.mrToolbar,.mrResultsMeta,.settingsBottom,.settingsGroupHead,.settingsToggleRow{min-width:0}
+.streamerDetails p,.streamerTags,.settingsToggleText,.mrFooter span{overflow-wrap:anywhere}
+.fullscreenPortal{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain!important;padding-bottom:calc(24px + env(safe-area-inset-bottom))!important}
+.fullscreenPortal *{min-width:0}
+.rulesMenu.fullscreenPortal,.mrFullscreen.fullscreenPortal,.settingsFullscreen.fullscreenPortal,.linksFullscreen.fullscreenPortal,.twitchFullscreen.fullscreenPortal{box-sizing:border-box!important}
+.rulesFullscreenTop,.mrFullscreenTop,.settingsTop,.linksFullscreenTop,.twitchFullscreenTop{padding-top:calc(12px + env(safe-area-inset-top))}
+.rulesCloseButton,.mrCloseButton,.settingsCloseButton,.linksCloseButton,.twitchCloseButton{flex-shrink:0;white-space:nowrap;touch-action:manipulation}
+.mrPage,.settingsPage,.linksFullscreenPage,.twitchFullscreenPage{width:min(1040px,calc(100% - 2*var(--page-gutter)));margin-inline:auto}
+.mrHero,.mrBrowseTitle,.mrToolbar,.mrResultsMeta,.settingsBottom{gap:var(--card-gap)}
+.mrProjectGrid{grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr))}
+.linksGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.linksCardText,.linksCardText strong,.linksCardText small{overflow-wrap:anywhere}
+.rulesColumns{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rulesBlockTitle{min-width:0}
+.rulesBlockTitle h4{min-width:0;overflow-wrap:anywhere}
+.rulesList{padding-left:22px}
+.settingsChoices{grid-template-columns:repeat(2,minmax(0,1fr))}
+.settingsChoice{min-width:0}
+@media(min-width:1200px){
+ .headerRow{min-height:78px}
+ .hero{gap:var(--card-gap)}
+ .section{margin-block:clamp(26px,3vw,36px)}
+}
+@media(max-width:900px){
+ .shell{width:calc(100% - 28px)}
+ .headerRow{gap:12px}
+ .navBar{gap:8px}
+ .navLabel{display:none}
+ .nav{flex:1 1 100%;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;justify-content:flex-start;gap:4px;padding:0 0 7px;scrollbar-width:thin;scrollbar-color:#365641 transparent;-webkit-overflow-scrolling:touch}
+ .nav>a,.navDropdown>summary{flex:0 0 auto}
+ .hero{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:12px}
+ .heroMain{padding:clamp(22px,4vw,38px)}
+ .heroSide{padding:clamp(12px,2vw,20px)}
+ .statusGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .statusCard:last-child:nth-child(odd){grid-column:1/-1}
+ .infoGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mrHero{grid-template-columns:minmax(0,1fr) auto}
+ .mrToolbar{flex-wrap:wrap}
+ .mrSearch{flex:1 1 220px}
+}
+@media(max-width:680px){
+ html{scroll-padding-top:150px}
+ .shell{width:calc(100% - 24px)}
+ .headerRow{min-height:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 0 9px}
+ .brand{flex:1 1 220px;gap:9px}
+ .brandMark{flex:0 0 38px;width:38px;height:38px}
+ .brandTitle{font-size:clamp(13px,3.6vw,16px);gap:6px}
+ .brandSub{font-size:8px;letter-spacing:.3px;overflow-wrap:anywhere}
+ .betaBadge{font-size:7px;padding:4px 5px;letter-spacing:.5px}
+ .headerRow>.livePill{flex:0 1 auto;max-width:48%;font-size:8px;letter-spacing:.5px;padding:6px 8px;white-space:normal}
+ .navBar{display:block}
+ .nav{width:100%;margin:0;padding:2px 0 9px;gap:3px}
+ .nav>a,.navDropdown>summary{font-size:11px;padding:9px 10px;border-radius:9px}
+ .nav .navCta{padding-inline:11px}
+ .hero{grid-template-columns:minmax(0,1fr);margin:16px 0 22px}
+ .heroMain{min-height:0;padding:clamp(22px,6vw,32px);border-radius:20px}
+ .hero h1{font-size:clamp(35px,9.3vw,49px);letter-spacing:-1.7px;overflow-wrap:anywhere}
+ .heroText{font-size:13px;line-height:1.75}
+ .heroActions{gap:8px;margin-top:20px}
+ .heroActions .btn{flex:1 1 145px}
+ .heroSide{padding:14px}
+ .playerBig{font-size:38px}
+ .section{margin:23px 0}
+ .sectionHead{align-items:flex-start;flex-direction:column;gap:10px}
+ .sectionAside{white-space:normal}
+ .statusGrid{grid-template-columns:minmax(0,1fr)}
+ .statusCard:last-child:nth-child(odd){grid-column:auto}
+ .statusCard{min-height:0}
+ .infoGrid{grid-template-columns:minmax(0,1fr)}
+ .teamPanel{padding:17px}
+ .joinPanel{padding:21px;gap:17px}
+ .footer{gap:8px;flex-direction:column}
+ .metaGrid{gap:8px}
+ .meta{padding:11px}
+ .fullscreenPortal{padding-bottom:calc(18px + env(safe-area-inset-bottom))!important}
+ .rulesMenu.fullscreenPortal{padding:0 12px calc(22px + env(safe-area-inset-bottom))!important}
+ .rulesColumns{grid-template-columns:minmax(0,1fr)!important}
+ .rulesFullscreenTop,.mrFullscreenTop,.settingsTop,.linksFullscreenTop,.twitchFullscreenTop{gap:8px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px}
+ .rulesFullscreenBrand{font-size:10px;gap:5px;flex-wrap:wrap}
+ .rulesMenuHero{margin-top:17px}
+ .rulesMenuHero h3{font-size:clamp(23px,6vw,31px)}
+ .rulesIntro{align-items:flex-start}
+ .rulesBlock{padding:14px}
+ .rulesList li{overflow-wrap:anywhere}
+ .mrPage,.settingsPage,.linksFullscreenPage,.twitchFullscreenPage{width:calc(100% - 24px);padding-top:22px}
+ .mrHero{grid-template-columns:minmax(0,1fr);gap:18px}
+ .mrHeroSide{justify-content:flex-start}
+ .mrBrowseTitle{align-items:flex-start;flex-wrap:wrap}
+ .mrSortWrap{max-width:100%}
+ .mrToolbar{display:flex;flex-direction:column;align-items:stretch}
+ .mrTabs{display:flex;max-width:100%;overflow-x:auto}
+ .mrTabs button{flex:1 0 auto;white-space:nowrap}
+ .mrSearch{width:100%;flex-basis:auto}
+ .mrResultsMeta{align-items:flex-start;flex-wrap:wrap}
+ .mrProjectGrid{grid-template-columns:minmax(0,1fr)}
+ .mrFooter{gap:8px;flex-direction:column}
+ .settingsChoices{grid-template-columns:minmax(0,1fr)}
+ .settingsChoice{width:100%}
+ .settingsBottom{align-items:stretch;flex-direction:column}
+ .settingsResetButton{width:100%}
+ .linksGrid{grid-template-columns:minmax(0,1fr)}
+ .linksFullscreenIntro h2,.twitchFullscreenIntro h2{font-size:clamp(26px,7vw,34px);letter-spacing:-.6px}
+ .linksCard{gap:10px;padding:12px}
+ .linksCardIcon{flex-basis:36px;height:36px}
+ .streamerCard{display:flex;flex-direction:column;align-items:stretch;gap:15px;padding:16px}
+ .streamerIdentity{flex-wrap:wrap}
+ .streamerButton{width:100%;justify-content:center}
+}
+@media(max-width:380px){
+ .shell{width:calc(100% - 18px)}
+ .brand{flex-basis:100%}
+ .headerRow>.livePill{max-width:100%;flex-basis:auto}
+ .brandTitle{font-size:14px}
+ .nav>a,.navDropdown>summary{font-size:10px;padding:8px}
+ .hero h1{font-size:34px}
+ .heroActions .btn{flex-basis:100%}
+ .metaGrid{grid-template-columns:minmax(0,1fr)}
+ .linksFullscreenBrand small,.twitchFullscreenBrand small{letter-spacing:.4px}
+ .linksCloseButton,.twitchCloseButton{font-size:9px;padding:6px}
+}
+@media(hover:none){.btn:hover,.statusCard:hover,.infoItem:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
 </style>
 </head>
 <body>
